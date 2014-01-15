@@ -53,8 +53,8 @@ package
 		// do once when come into game
 		public override function create():void
 		{
-			add(test);
-			add(guiSprite);
+			//add(test);
+			//add(guiSprite);
 			add(playerSprite);
 			add(enemySprite);
 			add(arrowSprite);
@@ -64,8 +64,8 @@ package
 			add(guiText4);
 			
 			// HACKS
-			p2.playerSkill1 = "player 2 turn";
-			p3.playerSkill1 = "player 3 turn";
+			p2.playerSkill1.name = "player 2 turn";
+			p3.playerSkill1.name = "player 3 turn";
 			
 		} // create close bracket
 		
@@ -79,40 +79,84 @@ package
 					// start of game
 					// play animations and stuffs, set player 1 to go
 					turn = 100;
+					selector = 1;
 					break;
 				case 100:
-					guiText1.text = p1.playerSkill1;
-					guiText2.text = p1.playerSkill2;
-					guiText3.text = p1.playerSkill3;
-					guiText4.text = p1.playerSkill4;
+					guiText1.text = p1.playerSkill1.name;
+					guiText2.text = p1.playerSkill2.name;
+					guiText3.text = p1.playerSkill3.name;
+					guiText4.text = p1.playerSkill4.name;
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 200;
+						switch (selector) // incase need targeting
+						{
+							case 1:
+								if (p1.playerSkill1.hasTarget)
+									turn = 110;
+								break;
+							case 2:
+								if (p1.playerSkill2.hasTarget)
+									turn = 110;
+								break;
+							case 3:
+								if (p1.playerSkill3.hasTarget)
+									turn = 110;
+								break;
+							case 4:
+								if (p1.playerSkill4.hasTarget)
+									turn = 110;
+								break;
+						}
 						selector = 1;
 					}
 					break;
+				case 110: // targeting mode
+					guiText1.text = e1.name;
+					guiText2.text = e2.name;
+					guiText3.text = e3.name;
+					guiText4.text = "Back";
+					if (FlxG.keys.justReleased("SPACE"))
+						turn = 200;
+					break;
 				case 200:
-					guiText1.text = p2.playerSkill1;
-					guiText2.text = p2.playerSkill2;
-					guiText3.text = p2.playerSkill3;
-					guiText4.text = p2.playerSkill4;
+					guiText1.text = p2.playerSkill1.name;
+					guiText2.text = p2.playerSkill2.name;
+					guiText3.text = p2.playerSkill3.name;
+					guiText4.text = p2.playerSkill4.name;
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 300;
 						selector = 1;
 					}
 					break;
+				case 210: // targeting mode
+					guiText1.text = e1.name;
+					guiText2.text = e2.name;
+					guiText3.text = e3.name;
+					guiText4.text = "Back";
+					if (FlxG.keys.justReleased("SPACE"))
+						turn = 300;
+					break;					
 				case 300:
-					guiText1.text = p3.playerSkill1;
-					guiText2.text = p3.playerSkill2;
-					guiText3.text = p3.playerSkill3;
-					guiText4.text = p3.playerSkill4;
+					guiText1.text = p3.playerSkill1.name;
+					guiText2.text = p3.playerSkill2.name;
+					guiText3.text = p3.playerSkill3.name;
+					guiText4.text = p3.playerSkill4.name;
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 400;
 						selector = 1;
 					}
 					break;
+				case 310: // targeting mode
+					guiText1.text = e1.name;
+					guiText2.text = e2.name;
+					guiText3.text = e3.name;
+					guiText4.text = "Back";
+					if (FlxG.keys.justReleased("SPACE"))
+						turn = 400;
+					break;					
 				case 400:
 					trace ("AI's Turn");
 					turn = 100;
