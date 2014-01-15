@@ -23,12 +23,12 @@ package
 		
 		
 		// Game Calculations
-		private var p1:CharacterClass = new CharacterClass(); // player 1
-		private var p2:CharacterClass = new CharacterClass(); // player 2
-		private var p3:CharacterClass = new CharacterClass(); // player 3
-		private var e1:CharacterClass = new CharacterClass(); // enemy 1
-		private var e2:CharacterClass = new CharacterClass(); // enemy 2
-		private var e3:CharacterClass = new CharacterClass(); // enemy 3
+		private var p1:CharacterClass = Globals.p1; // player 1
+		private var p2:CharacterClass = Globals.p2; // player 2
+		private var p3:CharacterClass = Globals.p3; // player 3
+		private var e1:CharacterClass = Globals.e1; // enemy 1
+		private var e2:CharacterClass = Globals.e2; // enemy 2
+		private var e3:CharacterClass = Globals.e3; // enemy 3
 		
 		// OtherStats
 		private var damageVariance:Number = 0; 	// 0-1 .. if you put 0.5.. the damage will become 0.5 to 1.5 times.. works like a +- system

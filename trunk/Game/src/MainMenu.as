@@ -23,12 +23,12 @@ package
 		public override function update():void
 		{
 			// handle inputs WS
-			if (FlxG.keys.justReleased("W"))
+			if (FlxG.keys.justReleased("W") || FlxG.keys.justReleased("UP"))
 			{
 				if (selector > 0)
 					selector --;
 			}
-			if (FlxG.keys.justReleased("S"))
+			if (FlxG.keys.justReleased("S") || FlxG.keys.justReleased("DOWN"))
 			{
 				if (selector < 1)
 					selector++;
