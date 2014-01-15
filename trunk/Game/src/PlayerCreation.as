@@ -472,6 +472,14 @@ package
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 400;
+						remove(char1);
+						remove(char2);
+						remove(char3);
+						remove(char4);
+						remove(arrowSprite);
+						
+						// TODO:
+						// Show final party composition
 					}
 					switch (selector) 
 					{
