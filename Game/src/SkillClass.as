@@ -9,7 +9,9 @@ package
 		public var name:String = "UndefinedSkill";
 		public var power:int = 10; // pokemon values 0 - 120 // have to balance
 		public var speed:int = 10; // higher is faster
-		public var type:String = "Undefined" // use Wind, Ice, Fire
+		public var type:String = "Undefined" // use Wind, Ice, Fire, Nil
+		public var accuracy:Number = 1; // percentage based - 1 is sure hit
+		public var cost:int = 15;
 		public var isPhysical:Boolean = false;
 		public var isMagical:Boolean = false;
 		public var hasTarget:Boolean = false;
@@ -17,12 +19,66 @@ package
 		public var hasCrit:Boolean = false;
 		public var hasDot:Boolean = false;
 		public var hasFreeze:Boolean = false;
-		public var variance:Number = 0; // percentage based 0 is no variance , 100 is +- 100%
+		public var variance:Number = 0; // percentage based 0 is no variance , 1 is +- 100%
+		
+		
+		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard 2", "Blizzard 3", "Blizzard 4",
+		"Blizzard 5","Blizzard 6","Blizzard 7","Blizzard 8","Blizzard 9","Blizzard 10","Blizzard 11","Blizzard 12","Blizzard 13","Blizzard 14","Blizzard 15","Blizzard 16");
 		
 		public function SkillClass() 
 		{
 			
 		}
+		
+		public function changeSkillTo(skillName:String):void
+		{
+			if (skillName == "Swipe")
+				Swipe();
+			else if (skillName == "Magic Missile")
+				MagicMissile();
+			else
+				trace("Something Went Terribly Wrong - SkillClass(ChangeCharTo)", skillName);
+			
+		}
+		
+		public function Swipe():void  // Warriors' Basic Attack
+		{
+			name = "Swipe";
+			power = 15;
+			speed = 50;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		
+		public function MagicMissile():void  // Mage' Basic Attack
+		{
+			name = "Magic Missile";
+			power = 15;
+			speed = 50;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isMagical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		
+		public function FireArrow():void  // Archer' Basic Attack
+		{
+			name = "Fire Arrow";
+			power = 15;
+			speed = 50;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isMagical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}		
 		
 		public function Blizzard():void
 		{
