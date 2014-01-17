@@ -20,7 +20,7 @@ package
 		private var guiText2:FlxText = new FlxText(100, 480, 120, "");
 		private var guiText3:FlxText = new FlxText(100, 510, 120, "");
 		private var guiText4:FlxText = new FlxText(100, 540, 120, "");
-		
+		private var guiText5:FlxText = new FlxText(100, 420, 120, "");
 		
 		// Game Calculations
 		private var p1:CharacterClass = Globals.p1; // player 1
@@ -30,11 +30,29 @@ package
 		private var e2:CharacterClass = Globals.e2; // enemy 2
 		private var e3:CharacterClass = Globals.e3; // enemy 3
 		
+		// gui text for hp and stam
+		private var p1hp:FlxText = new FlxText(200, 450, 120, "");
+		private var p2hp:FlxText = new FlxText(250, 450, 120, "");
+		private var p3hp:FlxText = new FlxText(300, 450, 120, "");
+		private var e1hp:FlxText = new FlxText(400, 450, 120, "");
+		private var e2hp:FlxText = new FlxText(450, 450, 120, "");
+		private var e3hp:FlxText = new FlxText(500, 450, 120, "");
+		
+		private var p1s:FlxText = new FlxText(200, 480, 120, "");
+		private var p2s:FlxText = new FlxText(250, 480, 120, "");
+		private var p3s:FlxText = new FlxText(300, 480, 120, "");
+		private var e1s:FlxText = new FlxText(400, 480, 120, "");
+		private var e2s:FlxText = new FlxText(450, 480, 120, "");
+		private var e3s:FlxText = new FlxText(500, 480, 120, "");
+		
 		// OtherStats
 		private var damageVariance:Number = 0; 	// 0-1 .. if you put 0.5.. the damage will become 0.5 to 1.5 times.. works like a +- system
 		private var damageType:String;			// unused.. following guide
 		private var damageTypeMultiple:String;	// unused
 		private var stamRegen:int = 15;
+		
+		// storage for skills used as well as structure and target
+		private var skillsUsedThisTurn:Array = new Array();
 		
 		// Game Logic
 		private var turn:int = 0;
@@ -62,10 +80,34 @@ package
 			add(guiText2);
 			add(guiText3);
 			add(guiText4);
+			add(guiText5);
 			
+			add(p1hp);
+			add(p2hp);
+			add(p3hp);
+			add(e1hp);
+			add(e2hp);
+			add(e3hp);
+			add(p1s);
+			add(p2s);
+			add(p3s);
+			add(e1s);
+			add(e2s);
+			add(e3s);
+			
+			p1hp.text = p1.playerHP.toString();
+			p2hp.text = p2.playerHP.toString();
+			p3hp.text = p3.playerHP.toString();
+			e1hp.text = e1.playerHP.toString();
+			e2hp.text = e1.playerHP.toString();
+			e3hp.text = e1.playerHP.toString();
+			p1s.text = p1.playerSpecialPoints.toString();
+			p2s.text = p2.playerSpecialPoints.toString();
+			p3s.text = p3.playerSpecialPoints.toString();
+			e1s.text = e1.playerSpecialPoints.toString();
+			e2s.text = e2.playerSpecialPoints.toString();
+			e3s.text = e3.playerSpecialPoints.toString();
 			// HACKS
-			p2.playerSkill1.name = "player 2 turn";
-			p3.playerSkill1.name = "player 3 turn";
 			
 		} // create close bracket
 		
@@ -86,28 +128,35 @@ package
 					guiText2.text = p1.playerSkill2.name;
 					guiText3.text = p1.playerSkill3.name;
 					guiText4.text = p1.playerSkill4.name;
+					guiText5.text = "Player 1 Turn";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 200;
 						switch (selector) // incase need targeting
 						{
 							case 1:
+								skillsUsedThisTurn.push(new SkillStorage(p1.playerSkill1.name));
 								if (p1.playerSkill1.hasTarget)
 									turn = 110;
 								break;
 							case 2:
+								skillsUsedThisTurn.push(new SkillStorage(p1.playerSkill2.name));
 								if (p1.playerSkill2.hasTarget)
 									turn = 110;
 								break;
 							case 3:
+								skillsUsedThisTurn.push(new SkillStorage(p1.playerSkill3.name));
 								if (p1.playerSkill3.hasTarget)
 									turn = 110;
 								break;
 							case 4:
+								skillsUsedThisTurn.push(new SkillStorage(p1.playerSkill4.name));
 								if (p1.playerSkill4.hasTarget)
 									turn = 110;
 								break;
 						}
+						
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p1";
 						selector = 1;
 					}
 					break;
@@ -116,17 +165,51 @@ package
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
 					guiText4.text = "Back";
+					guiText5.text = "Player 1 Target";
 					if (FlxG.keys.justReleased("SPACE"))
+					{
+						switch (selector)
+						{
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+						}
 						turn = 200;
+					}
 					break;
 				case 200:
 					guiText1.text = p2.playerSkill1.name;
 					guiText2.text = p2.playerSkill2.name;
 					guiText3.text = p2.playerSkill3.name;
 					guiText4.text = p2.playerSkill4.name;
+					guiText5.text = "Player 2 Turn";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 300;
+						switch (selector) // incase need targeting
+						{
+							case 1:
+								skillsUsedThisTurn.push(new SkillStorage(p2.playerSkill1.name));
+								if (p2.playerSkill1.hasTarget)            
+									turn = 210;                           
+								break;                                    
+							case 2:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p2.playerSkill2.name));
+								if (p2.playerSkill2.hasTarget)            
+									turn = 210;                           
+								break;                                    
+							case 3:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p2.playerSkill3.name));
+								if (p2.playerSkill3.hasTarget)            
+									turn = 210;                           
+								break;                                    
+							case 4:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p2.playerSkill4.name));
+								if (p2.playerSkill4.hasTarget)
+									turn = 210;
+								break;
+						}
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p2";
 						selector = 1;
 					}
 					break;
@@ -135,17 +218,52 @@ package
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
 					guiText4.text = "Back";
+					guiText5.text = "Player 2 Target";
 					if (FlxG.keys.justReleased("SPACE"))
+					{
+						switch (selector)
+						{
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+						}
+						turn = 200;
 						turn = 300;
+					}
 					break;					
 				case 300:
 					guiText1.text = p3.playerSkill1.name;
 					guiText2.text = p3.playerSkill2.name;
 					guiText3.text = p3.playerSkill3.name;
 					guiText4.text = p3.playerSkill4.name;
+					guiText5.text = "Player 3 Turn";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 400;
+						switch (selector) // incase need targeting
+						{
+							case 1:
+								skillsUsedThisTurn.push(new SkillStorage(p3.playerSkill1.name));
+								if (p3.playerSkill1.hasTarget)            
+									turn = 310;                           
+								break;                                    
+							case 2:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p3.playerSkill2.name));
+								if (p3.playerSkill2.hasTarget)            
+									turn = 310;                           
+								break;                                    
+							case 3:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p3.playerSkill3.name));
+								if (p3.playerSkill3.hasTarget)            
+									turn = 310;                           
+								break;                                    
+							case 4:                                       
+								skillsUsedThisTurn.push(new SkillStorage(p3.playerSkill4.name));
+								if (p3.playerSkill4.hasTarget)
+									turn = 310;
+								break;
+						}
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p3";
 						selector = 1;
 					}
 					break;
@@ -154,11 +272,152 @@ package
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
 					guiText4.text = "Back";
+					guiText5.text = "Player 3 Target";
 					if (FlxG.keys.justReleased("SPACE"))
+					{
 						turn = 400;
+						switch (selector)
+						{
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+						}					
+					}
 					break;					
 				case 400:
 					trace ("AI's Turn");
+					// select e1 skill
+					var temp:int = Globals.randomInt(1, 4);
+					switch (temp)
+					{
+						case 1:
+							skillsUsedThisTurn.push(new SkillStorage(e1.playerSkill1.name));
+							break;
+						case 2:
+							skillsUsedThisTurn.push(new SkillStorage(e1.playerSkill2.name));
+							break;
+						case 3:
+							skillsUsedThisTurn.push(new SkillStorage(e1.playerSkill3.name));
+							break;
+						case 4:
+							skillsUsedThisTurn.push(new SkillStorage(e1.playerSkill4.name));
+							break;
+					}
+					skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "e1";
+					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
+					{
+						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+					}
+					
+					// select e2 skill
+					temp = Globals.randomInt(1, 4);
+					switch (temp)
+					{
+						case 1:
+							skillsUsedThisTurn.push(new SkillStorage(e2.playerSkill1.name));
+							break;
+						case 2:
+							skillsUsedThisTurn.push(new SkillStorage(e2.playerSkill2.name));
+							break;
+						case 3:
+							skillsUsedThisTurn.push(new SkillStorage(e2.playerSkill3.name));
+							break;
+						case 4:
+							skillsUsedThisTurn.push(new SkillStorage(e2.playerSkill4.name));
+							break;
+					}
+					skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "e2";
+					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
+					{
+						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+					}
+					
+					// select e3 skill
+					temp = Globals.randomInt(1, 4);
+					switch (temp)
+					{
+						case 1:
+							skillsUsedThisTurn.push(new SkillStorage(e3.playerSkill1.name));
+							break;
+						case 2:
+							skillsUsedThisTurn.push(new SkillStorage(e3.playerSkill2.name));
+							break;
+						case 3:
+							skillsUsedThisTurn.push(new SkillStorage(e3.playerSkill3.name));
+							break;
+						case 4:
+							skillsUsedThisTurn.push(new SkillStorage(e3.playerSkill4.name));
+							break;
+					}
+					skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "e3";
+					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
+					{
+						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+					}
+					
+					turn = 500;
+					break;
+				case 500:
+					trace ("calculations of skills");
+					turn = 600;
+					//trace ("skillsUsedThisTurn: ", skillsUsedThisTurn);
+					skillsUsedThisTurn.sortOn("speedOfSkill");
+					
+					trace ("The 6 skills");
+					
+					for (var i:int = 0; i < skillsUsedThisTurn.length; i++) 
+					{
+						trace (skillsUsedThisTurn[i].caster, skillsUsedThisTurn[i].target ,skillsUsedThisTurn[i].thisSkill.name , skillsUsedThisTurn[i].speedOfSkill)
+					}
+					
+					break;
+				case 600:
+					trace ("Animations occur here");
+					
+					turn = 700;
+					for (var j:int = 0; j < skillsUsedThisTurn.length; j++) 
+					{
+						trace (skillsUsedThisTurn[j].caster, "used ", skillsUsedThisTurn[j].thisSkill.name, "on ", skillsUsedThisTurn[j].target, "and did ", "10", "damage.");
+						if (skillsUsedThisTurn[j].target == "p1")
+						{
+							p1.playerHP -= 10;
+							p1hp.text = p1.playerHP.toString();
+						}
+						if (skillsUsedThisTurn[j].target == "p2")
+						{
+							p2.playerHP -= 10;
+							p2hp.text = p2.playerHP.toString();
+						}
+						if (skillsUsedThisTurn[j].target == "p3")
+						{
+							p3.playerHP -= 10;
+							p3hp.text = p3.playerHP.toString();
+						}
+						if (skillsUsedThisTurn[j].target == "e1")
+						{
+							e1.playerHP -= 10;
+							e1hp.text = e1.playerHP.toString();
+						}
+						if (skillsUsedThisTurn[j].target == "e2")
+						{
+							e2.playerHP -= 10;
+							e2hp.text = e2.playerHP.toString();
+						}
+						if (skillsUsedThisTurn[j].target == "e3")
+						{
+							e3.playerHP -= 10;
+							e3hp.text = e3.playerHP.toString();
+						}								
+						
+					}
+					break;
+				case 700:
+					trace ("clean up");
+					skillsUsedThisTurn = null;
+					skillsUsedThisTurn = new Array();
 					turn = 100;
 					break;
 				default:

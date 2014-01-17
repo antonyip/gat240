@@ -17,6 +17,25 @@ package
 		private var char2:FlxSprite = new FlxSprite(400, 300, Assets.testImage2);
 		private var char3:FlxSprite = new FlxSprite(600, 300, Assets.testImage3);
 		private var char4:FlxSprite = new FlxSprite(0, 300, Assets.testImage3);
+		
+		private var p1text:FlxText = new FlxText(200, 400, 600, "");
+		private var p1text1:FlxText = new FlxText(200, 420, 600, "");
+		private var p1text2:FlxText = new FlxText(200, 440, 600, "");
+		private var p1text3:FlxText = new FlxText(200, 460, 600, "");
+		private var p1text4:FlxText = new FlxText(200, 480, 600, "");
+		
+		private var p2text:FlxText = new FlxText(400, 400, 600, "");
+		private var p2text1:FlxText = new FlxText(400, 420, 600, "");
+		private var p2text2:FlxText = new FlxText(400, 440, 600, "");
+		private var p2text3:FlxText = new FlxText(400, 460, 600, "");
+		private var p2text4:FlxText = new FlxText(400, 480, 600, "");
+		
+		private var p3text:FlxText = new FlxText(600, 400, 600, "");
+		private var p3text1:FlxText = new FlxText(600, 420, 600, "");
+		private var p3text2:FlxText = new FlxText(600, 440, 600, "");
+		private var p3text3:FlxText = new FlxText(600, 460, 600, "");
+		private var p3text4:FlxText = new FlxText(600, 480, 600, "");
+		
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
 		private var turn:int = 0;
 		private var selector:int = 1;
@@ -36,6 +55,23 @@ package
 			add(char2);
 			add(char3);
 			add(arrowSprite);
+			
+			add(p1text);
+			add(p1text1);
+			add(p1text2);
+			add(p1text3);
+			add(p1text4);
+			add(p2text);
+			add(p2text1);
+			add(p2text2);
+			add(p2text3);
+			add(p2text4);
+			add(p3text);
+			add(p3text1);
+			add(p3text2);
+			add(p3text3);
+			add(p3text4);
+		
 			
 			// forming the decks
 			for (var i:int = 0; i < CharacterClass.listOfCharacters.length; i++) 
@@ -138,6 +174,9 @@ package
 								trace("Something went wrong, Player Creation case 100");
 						}
 						
+						p1text.text = Globals.p1.name;
+						p1text1.text = Globals.p1.playerSkill1.name;
+						
 						trace("SecondChar");
 						turn = 200;
 						
@@ -181,9 +220,14 @@ package
 							case 3:
 								Globals.p1.playerSkill2.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p1.playerSkill2.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
+						
+						p1text2.text = Globals.p1.playerSkill2.name;
 						
 						turn = 120;
 						trace("First Char Skill 2");
@@ -235,9 +279,13 @@ package
 							case 3:
 								Globals.p1.playerSkill3.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p1.playerSkill3.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
+						p1text3.text = Globals.p1.playerSkill3.name;
 						
 						turn = 130;
 						trace("First Char Skill 3");
@@ -282,17 +330,21 @@ package
 						{
 							case 1:
 								Globals.p1.playerSkill4.changeSkillTo(text1.text);
-							break;
+								break;
 							case 2:
 								Globals.p1.playerSkill4.changeSkillTo(text2.text);
-							break;
+								break;
 							case 3:
 								Globals.p1.playerSkill4.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p1.playerSkill4.changeSkillTo(text4.text);
+								break;								
 							default:
-								trace("Something went wrong, Player Creation case 110");
+								trace("Something went wrong, Player Creation case 110 - selector: ", selector);
 						}
-												
+									
+						p1text4.text = Globals.p1.playerSkill4.name;
 						turn = 210;
 						trace("Second Char Skill 1");
 						randomSkills();
@@ -360,11 +412,13 @@ package
 							break;
 							case 3:
 								Globals.p2.changeCharTo(text3.text);
-								break;
+								break;									
 							default:
 								trace("Something went wrong, Player Creation case 200");
 						}						
 						trace("Third Char");
+						p2text.text = Globals.p2.name;
+						p2text1.text = Globals.p2.playerSkill1.name;
 						turn = 300;
 						skillPos = Globals.randomInt(0, deckOfCharacters.length);
 						text1.text = deckOfCharacters[skillPos];
@@ -408,11 +462,14 @@ package
 							case 3:
 								Globals.p2.playerSkill2.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p2.playerSkill2.changeSkillTo(text4.text);
+								break;								
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
 						
-						
+						p2text2.text = Globals.p2.playerSkill2.name;
 						turn = 220;
 						trace("Second Char Skill 2");
 						randomSkills();
@@ -456,18 +513,21 @@ package
 						switch (selector)
 						{
 							case 1:
-								Globals.p1.playerSkill3.changeSkillTo(text1.text);
+								Globals.p2.playerSkill3.changeSkillTo(text1.text);
 							break;
 							case 2:
-								Globals.p1.playerSkill3.changeSkillTo(text2.text);
+								Globals.p2.playerSkill3.changeSkillTo(text2.text);
 							break;
 							case 3:
-								Globals.p1.playerSkill3.changeSkillTo(text3.text);
+								Globals.p2.playerSkill3.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p2.playerSkill3.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
-						
+						p2text3.text = Globals.p2.playerSkill3.name;
 						turn = 230;
 						trace("Second Char Skill 3");
 						randomSkills();
@@ -519,10 +579,14 @@ package
 							case 3:
 								Globals.p2.playerSkill4.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p2.playerSkill4.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
 						
+						p2text4.text = Globals.p2.playerSkill4.name;
 						turn = 310;
 						trace("Third Char Skill 1");
 						randomSkills();
@@ -593,6 +657,8 @@ package
 							default:
 								trace("Something went wrong, Player Creation case 300");
 						}
+						p3text.text = Globals.p3.name;
+						p3text1.text = Globals.p3.playerSkill1.name;
 						
 						trace("First Char Skill 1");
 						turn = 110;
@@ -642,10 +708,13 @@ package
 							case 3:
 								Globals.p3.playerSkill2.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p3.playerSkill2.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
-												
+						p3text2.text = Globals.p3.playerSkill2.name;
 						turn = 320;
 						trace("Third Char Skill 2");
 						randomSkills();
@@ -696,10 +765,13 @@ package
 							case 3:
 								Globals.p3.playerSkill3.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p3.playerSkill3.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
-						
+						p3text3.text = Globals.p3.playerSkill3.name;
 						turn = 330;
 						trace("Third Char Skill 3");
 						randomSkills();
@@ -726,7 +798,6 @@ package
 					break;
 				case 330:
 					// pick third character skill 3
-					trace("Third Char Skill 3");
 					// handle inputs WS
 					if (FlxG.keys.justReleased("A"))
 					{
@@ -751,11 +822,14 @@ package
 							case 3:
 								Globals.p3.playerSkill4.changeSkillTo(text3.text);
 								break;
+							case 4:
+								Globals.p3.playerSkill4.changeSkillTo(text4.text);
+								break;										
 							default:
 								trace("Something went wrong, Player Creation case 110");
 						}
 						
-						
+						p3text4.text = Globals.p3.playerSkill4.name;
 						turn = 400;
 						remove(char1);
 						remove(char2);
