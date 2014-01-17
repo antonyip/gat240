@@ -24,7 +24,7 @@ package
 		public var playerSkill3:SkillClass = new SkillClass();
 		public var playerSkill4:SkillClass = new SkillClass();
 		
-		public static var listOfCharacters:Array = new Array("Calissa", "Anton", "Kevin","Calissa 2", "Anton 2", "Kevin 2","Calissa 3", "Anton 3", "Kevin 3");
+		public static var listOfCharacters:Array = new Array("Calissa", "Anton", "Kevin","Calissa", "Anton", "Kevin","Calissa", "Anton", "Kevin");
 		
 		public function CharacterClass() 
 		{
@@ -37,6 +37,8 @@ package
 				Calissa();
 			else if (charName == "Anton")
 				Anton();
+			else if (charName == "Kevin")
+				Kevin();				
 			else
 				trace("Something Went Wrong - CharacterClass(changeCharTo)", charName);
 		}
@@ -48,13 +50,15 @@ package
 			job = "Mage" // Warrior, Mage, Archer
 			playerHP = 80;
 			playerMAXHP = 80;
-			playerSpecialPoints = 150;
-			playerMaxSpecialPoints = 150;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
+			
+			playerSkill1.MagicMissile();
 		}
 		
 		public function Anton():void
@@ -64,13 +68,15 @@ package
 			job = "Warrior" // Warrior, Mage, Archer
 			playerHP = 80;
 			playerMAXHP = 80;
-			playerSpecialPoints = 150;
-			playerMaxSpecialPoints = 150;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
+			
+			playerSkill1.Swipe();
 		}
 		
 		public function Kevin():void
@@ -80,13 +86,15 @@ package
 			job = "Archer" // Warrior, Mage, Archer
 			playerHP = 80;
 			playerMAXHP = 80;
-			playerSpecialPoints = 150;
-			playerMaxSpecialPoints = 150;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
+			
+			playerSkill1.FireArrow();
 		}
 	}
 

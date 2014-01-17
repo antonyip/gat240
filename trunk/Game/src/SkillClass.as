@@ -22,8 +22,10 @@ package
 		public var variance:Number = 0; // percentage based 0 is no variance , 1 is +- 100%
 		
 		
-		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard 2", "Blizzard 3", "Blizzard 4",
-		"Blizzard 5","Blizzard 6","Blizzard 7","Blizzard 8","Blizzard 9","Blizzard 10","Blizzard 11","Blizzard 12","Blizzard 13","Blizzard 14","Blizzard 15","Blizzard 16");
+		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile",
+		"Swipe", "Swipe", "Swipe", "Swipe", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard",
+		"Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile",
+		"Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile");
 		
 		public function SkillClass() 
 		{
@@ -34,10 +36,14 @@ package
 		{
 			if (skillName == "Swipe")
 				Swipe();
-			else if (skillName == "Magic Missile")
+			if (skillName == "Magic Missile")
 				MagicMissile();
-			else
-				trace("Something Went Terribly Wrong - SkillClass(ChangeCharTo)", skillName);
+			if (skillName == "Blizzard")
+				Blizzard();
+			if (skillName == "Fire Arrow")
+				FireArrow();				
+			
+			trace("SkillName: ", skillName);
 			
 		}
 		
@@ -45,7 +51,7 @@ package
 		{
 			name = "Swipe";
 			power = 15;
-			speed = 50;
+			speed = 40;
 			type = "Nil"
 			accuracy = 1;
 			cost = 5;
@@ -71,7 +77,7 @@ package
 		{
 			name = "Fire Arrow";
 			power = 15;
-			speed = 50;
+			speed = 30;
 			type = "Nil"
 			accuracy = 1;
 			cost = 5;
