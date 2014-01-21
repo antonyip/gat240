@@ -13,6 +13,7 @@ package
 		public var playerMAXHP:int = 100;
 		public var playerSpecialPoints:int = 100;
 		public var playerMaxSpecialPoints:int = 100;
+		public var baseSpeed:int = 100;
 		
 		public var playerAttackPower:int = 100;
 		public var playerSpecialAttack:int = 100;
@@ -23,6 +24,10 @@ package
 		public var playerSkill2:SkillClass = new SkillClass();
 		public var playerSkill3:SkillClass = new SkillClass();
 		public var playerSkill4:SkillClass = new SkillClass();
+		
+		public var smallFace:Class = Assets.archerSpriteMale;
+		public var bigCharacter:Class = Assets.archerSpriteMale;
+		public var sideViewCharater:Class = Assets.archerSpriteMale;
 		
 		public static var listOfCharacters:Array = new Array("Calissa", "Anton", "Kevin", "Cheng Lip", "Issac", "Jonathan","Chin Kiong", "Chin Kai", "Melvin");
 		
@@ -69,6 +74,11 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
+			
+			
+			smallFace = Assets.mageSpriteFemale;
+			bigCharacter = Assets.mageSpriteFemale;
+			sideViewCharater = Assets.mageSpriteFemale;
 			
 			playerSkill1.MagicMissile();
 		}
