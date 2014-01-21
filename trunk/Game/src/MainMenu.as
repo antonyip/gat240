@@ -62,7 +62,7 @@ package
 		}
 		public function howToPlayFn():void 
 		{
-			//FlxG.switchState(new HowToPlay);
+			FlxG.switchState(new ParticleSystemCreator);
 		}
 	}
 
