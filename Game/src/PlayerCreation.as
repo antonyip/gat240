@@ -9,13 +9,14 @@ package
 	public class PlayerCreation extends FlxState 
 	{
 		private var text:FlxText = new FlxText(300, 20, 600, "Select A Character");
-		private var text1:FlxText = new FlxText(200, 100, 600, "Select A Character");
-		private var text2:FlxText = new FlxText(400, 100, 600, "Select A Character");
-		private var text3:FlxText = new FlxText(600, 100, 600, "Select A Character");
+		private var text1:FlxText = new FlxText(141-100, 390-5, 200, "Select A Character");
+		private var text2:FlxText = new FlxText(390-100, 390-5, 200, "Select A Character");
+		private var text3:FlxText = new FlxText(650-100, 390-5, 200, "Select A Character");
 		private var text4:FlxText = new FlxText(300, 20, 600, "Select A Character");
-		private var char1:FlxSprite = new FlxSprite(200, 300, Assets.testImage1);
-		private var char2:FlxSprite = new FlxSprite(400, 300, Assets.testImage2);
-		private var char3:FlxSprite = new FlxSprite(600, 300, Assets.testImage3);
+		
+		private var char1:FlxSprite = new FlxSprite(63, 73, Assets.mageSpriteMale);
+		private var char2:FlxSprite = new FlxSprite(315, 73, Assets.archerSpriteMale);
+		private var char3:FlxSprite = new FlxSprite(568, 73, Assets.mageSpriteFemale);
 		private var char4:FlxSprite = new FlxSprite(0, 300, Assets.testImage3);
 		
 		private var p1text:FlxText = new FlxText(200, 400, 600, "");
@@ -44,9 +45,12 @@ package
 		private var deckOfCharacters:Array = new Array();
 		private var skillPos:int;
 		
+		private var background:FlxSprite = new FlxSprite(0, 0, Assets.playerSelectBackground);
 		// do once when come into game
 		public override function create():void
 		{
+			add(background);
+
 			add(text);
 			add(text1);
 			add(text2);
@@ -71,7 +75,28 @@ package
 			add(p3text2);
 			add(p3text3);
 			add(p3text4);
-		
+			
+			text1.alignment = "center";
+			text2.alignment = "center";
+			text3.alignment = "center";
+			/*
+			p1text
+			p1text1
+			p1text2
+			p1text3
+			p1text4
+			p2text)
+			p2text1
+			p2text2
+			p2text3
+			p2text4
+			p3text)
+			p3text1
+			p3text2
+			p3text3
+			p3text4
+			*/
+			
 			
 			// forming the decks
 			for (var i:int = 0; i < CharacterClass.listOfCharacters.length; i++) 
