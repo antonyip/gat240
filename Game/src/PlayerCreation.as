@@ -8,7 +8,7 @@ package
 	 */
 	public class PlayerCreation extends FlxState 
 	{
-		private var text:FlxText = new FlxText(300, 20, 600, "Select A Character");
+		private var text:FlxText = new FlxText(300, 20, 600, " ");
 		private var text1:FlxText = new FlxText(141-100, 390-5, 200, "Select A Character");
 		private var text2:FlxText = new FlxText(390-100, 390-5, 200, "Select A Character");
 		private var text3:FlxText = new FlxText(650-100, 390-5, 200, "Select A Character");
@@ -19,23 +19,31 @@ package
 		private var char3:FlxSprite = new FlxSprite(568, 73, Assets.mageSpriteFemale);
 		private var char4:FlxSprite = new FlxSprite(0, 300, Assets.testImage3);
 		
-		private var p1text:FlxText = new FlxText(200, 400, 600, "");
-		private var p1text1:FlxText = new FlxText(200, 420, 600, "");
-		private var p1text2:FlxText = new FlxText(200, 440, 600, "");
-		private var p1text3:FlxText = new FlxText(200, 460, 600, "");
-		private var p1text4:FlxText = new FlxText(200, 480, 600, "");
+		private var char1Name:FlxText 	 = new FlxText(295, 245-7, 200, "");
+		private var char1HP:FlxText		 = new FlxText(295, 260-7, 200, "");
+		private var char1pAttack:FlxText = new FlxText(295, 275-7, 200, "");
+		private var char1sAttack:FlxText = new FlxText(295, 290-7, 200, "");
+		private var char1pDef:FlxText	 = new FlxText(295, 305-7, 200, "");
+		private var char1sDef:FlxText 	 = new FlxText(295, 320-7, 200, "");
+		private var char1speed:FlxText 	 = new FlxText(295, 335-7, 200, "");
+		                                                    
+		private var p1text:FlxText  = new FlxText(100, 488, 600, "");
+		private var p1text1:FlxText = new FlxText(100, 506, 600, "");
+		private var p1text2:FlxText = new FlxText(100, 528, 600, "");
+		private var p1text3:FlxText = new FlxText(100, 550, 600, "");
+		private var p1text4:FlxText = new FlxText(100, 571, 600, "");
 		
-		private var p2text:FlxText = new FlxText(400, 400, 600, "");
-		private var p2text1:FlxText = new FlxText(400, 420, 600, "");
-		private var p2text2:FlxText = new FlxText(400, 440, 600, "");
-		private var p2text3:FlxText = new FlxText(400, 460, 600, "");
-		private var p2text4:FlxText = new FlxText(400, 480, 600, "");
+		private var p2text:FlxText  = new FlxText(344, 488, 600, "");
+		private var p2text1:FlxText = new FlxText(344, 506, 600, "");
+		private var p2text2:FlxText = new FlxText(344, 528, 600, "");
+		private var p2text3:FlxText = new FlxText(344, 550, 600, "");
+		private var p2text4:FlxText = new FlxText(344, 571, 600, "");
 		
-		private var p3text:FlxText = new FlxText(600, 400, 600, "");
-		private var p3text1:FlxText = new FlxText(600, 420, 600, "");
-		private var p3text2:FlxText = new FlxText(600, 440, 600, "");
-		private var p3text3:FlxText = new FlxText(600, 460, 600, "");
-		private var p3text4:FlxText = new FlxText(600, 480, 600, "");
+		private var p3text:FlxText  = new FlxText(610, 488, 600, "");
+		private var p3text1:FlxText = new FlxText(610, 506, 600, "");
+		private var p3text2:FlxText = new FlxText(610, 528, 600, "");
+		private var p3text3:FlxText = new FlxText(610, 550, 600, "");
+		private var p3text4:FlxText = new FlxText(610, 571, 600, "");
 		
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
 		private var turn:int = 0;
@@ -58,7 +66,7 @@ package
 			add(char1);
 			add(char2);
 			add(char3);
-			add(arrowSprite);
+			//add(arrowSprite);
 			
 			add(p1text);
 			add(p1text1);
@@ -79,6 +87,32 @@ package
 			text1.alignment = "center";
 			text2.alignment = "center";
 			text3.alignment = "center";
+			
+			char1Name.alignment = "center";
+			char1HP.alignment = "center";
+			char1pAttack.alignment = "center";
+			char1sAttack.alignment = "center";
+			char1pDef.alignment = "center";
+			char1sDef.alignment = "center";
+			char1speed.alignment = "center";
+			
+			char1Name.text = "Calissa";
+			char1HP.text = "Health Points: 100";
+			char1pAttack.text = "Physical Atk: 50";
+			char1sAttack.text = "Special Atk: 50";
+			char1pDef.text = "Physical Def: 50";
+			char1sDef.text = "Special Def: 50";
+			char1speed.text = "Speed: 50";
+			
+			add(char1Name);
+			add(char1HP);
+			add(char1pAttack);
+			add(char1sAttack);
+			add(char1pDef);
+			add(char1sDef);
+			add(char1speed);
+			
+			
 			/*
 			p1text
 			p1text1
@@ -159,14 +193,23 @@ package
 						case 1:
 							arrowSprite.x = char1.x;
 							arrowSprite.y = char1.y - 100;
+							char1.flicker( -1);
+							char2.flicker(0);
+							char3.flicker(0);
 						break;
 						case 2:
 							arrowSprite.x = char2.x;
 							arrowSprite.y = char2.y - 100;
+							char2.flicker( -1);
+							char1.flicker(0);
+							char3.flicker(0);
 						break;
 						case 3:
 							arrowSprite.x = char3.x;
 							arrowSprite.y = char3.y - 100;
+							char3.flicker( -1);
+							char1.flicker(0);
+							char2.flicker(0);							
 						break;						
 					}
 					
