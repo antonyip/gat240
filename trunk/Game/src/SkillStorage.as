@@ -42,6 +42,8 @@ package
 			trace (caster, "used", thisSkill.name, "on", target, "and dealt", damage, "damage");
 		}
 		
+
+		
 	}
 
 }

@@ -15,10 +15,10 @@ package
 		public var playerMaxSpecialPoints:int = 100;
 		
 		
-		public var playerAttackPower:int = 100;
-		public var playerSpecialAttack:int = 100;
-		public var playerPhysicalDefense:int = 100;
-		public var playerSpecialDefense:int = 100;
+		public var playerAttackPower:int = 10;
+		public var playerSpecialAttack:int = 10;
+		public var playerPhysicalDefense:int = 10;
+		public var playerSpecialDefense:int = 10;
 		public var baseSpeed:int = 10;
 		
 		public var playerSkill1:SkillClass = new SkillClass();
