@@ -41,6 +41,34 @@ package
 			e3.playerSkill3.Swipe();
 			e3.playerSkill4.Swipe();
 		}
+		
+		public static function getCharacterFromString(characterName:String):CharacterClass
+		{
+			if (characterName == "p1")
+				return p1;
+			if (characterName == "p2")
+				return p2;
+			if (characterName == "p3")
+				return p3;
+			if (characterName == "e1")
+				return e1;
+			if (characterName == "e2")
+				return e2;
+			if (characterName == "e3")
+				return e3;
+			return e1;
+		}
+		
+		public static function checkElementalDifference(attackerName:String, defenderName:String):Number
+		{
+			return 1;
+		}
+		
+		public static function checkClassResistance(attackerName:String, defenderName:String):Number
+		{
+			return 1;
+		}
+		
 	}
 
 }

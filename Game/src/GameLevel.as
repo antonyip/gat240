@@ -21,6 +21,7 @@ package
 		private var guiText3:FlxText = new FlxText(100, 510, 120, "");
 		private var guiText4:FlxText = new FlxText(100, 540, 120, "");
 		private var guiText5:FlxText = new FlxText(100, 420, 120, "");
+		private var topBarText:FlxText = new FlxText(200, 100, 600, "I tell you what happens here");
 		
 		// Game Calculations
 		private var p1:CharacterClass = Globals.p1; // player 1
@@ -58,6 +59,7 @@ package
 		
 		// Game Logic
 		private var turn:int = 0;
+		private var animationDoOnce:Boolean = true;
 		// using big numbers just incase we need to insert special effects
 		// turn 0 start of game
 		// turn 100 player 1 turn
@@ -83,6 +85,7 @@ package
 			add(guiText3);
 			add(guiText4);
 			add(guiText5);
+			add(topBarText);
 			
 			add(p1hp);
 			add(p2hp);
@@ -433,8 +436,20 @@ package
 							continue;
 						}
 						
-						skillsUsedThisTurn[j].damage = 10;
+						var tmpSkill:SkillClass = skillsUsedThisTurn[j].thisSkill;
+						var baseDamage:int 	= tmpSkill.power 
+											+ tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
+						var baseDefense:int = tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerPhysicalDefense	 : Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerSpecialDefense;
+						var elementalMultiplier:Number = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+						var classResistance:Number = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+														
+						skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
+						//trace (baseDamage, baseDefense, elementalMultiplier, classResistance);
+						//trace ("dps:" ,skillsUsedThisTurn[j].damage);
 						
+						if (skillsUsedThisTurn[j].damage < 0)
+							skillsUsedThisTurn[j].damage = 0;
+												
 						// calculating damage to be done
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
@@ -462,21 +477,34 @@ package
 						}
 						skillsUsedThisTurn[j].callTextDisplay();
 					}
-					animationStatus = 0;
+					animationStatus = 5;
+					animationDoOnce = true;
 					break;
 				case 600:
-					trace ("Animations occur here");
-					p1hp.text = p1.playerHP.toString();
-					p2hp.text = p2.playerHP.toString();
-					p3hp.text = p3.playerHP.toString();
-					e1hp.text = e1.playerHP.toString();
-					e2hp.text = e2.playerHP.toString();
-					e3hp.text = e3.playerHP.toString();
+					//trace ("Animations occur here");
+					//p1hp.text = p1.playerHP.toString();
+					//p2hp.text = p2.playerHP.toString();
+					//p3hp.text = p3.playerHP.toString();
+					//e1hp.text = e1.playerHP.toString();
+					//e2hp.text = e2.playerHP.toString();
+					//e3hp.text = e3.playerHP.toString();
+					if (animationDoOnce)
+					{
+						trace ("--");
+						topBarText.text = "animationStatus: " + animationStatus.toString();
+						animationDoOnce = false;
+					}
 					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
 					{
-						++animationStatus;
+						--animationStatus;
+						animationDoOnce = true;
+						
+						if (animationStatus < 1)
+						{
+							turn = 700;
+							topBarText.text = "antob says hi?";
+						}
 					}
-					turn = 700;
 					break;
 				case 700:
 					trace ("clean up");
