@@ -449,7 +449,7 @@ package
 						
 						if (skillsUsedThisTurn[j].damage < 0)
 							skillsUsedThisTurn[j].damage = 0;
-												
+						
 						// calculating damage to be done
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
@@ -505,6 +505,14 @@ package
 							topBarText.text = "antob says hi?";
 						}
 					}
+					
+					p1.addSpecialPoints();
+					p2.addSpecialPoints();
+					p3.addSpecialPoints();
+					e1.addSpecialPoints();
+					e2.addSpecialPoints();
+					e3.addSpecialPoints();
+					
 					break;
 				case 700:
 					trace ("clean up");
