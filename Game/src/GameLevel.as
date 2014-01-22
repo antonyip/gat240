@@ -51,6 +51,8 @@ package
 		private var damageTypeMultiple:String;	// unused
 		private var stamRegen:int = 15;
 		
+		private var animationStatus:int = 0;
+		
 		// storage for skills used as well as structure and target
 		private var skillsUsedThisTurn:Array = new Array();
 		
@@ -101,6 +103,7 @@ package
 			e1hp.text = e1.playerHP.toString();
 			e2hp.text = e1.playerHP.toString();
 			e3hp.text = e1.playerHP.toString();
+			
 			p1s.text = p1.playerSpecialPoints.toString();
 			p2s.text = p2.playerSpecialPoints.toString();
 			p3s.text = p3.playerSpecialPoints.toString();
@@ -129,6 +132,13 @@ package
 					guiText3.text = p1.playerSkill3.name;
 					guiText4.text = p1.playerSkill4.name;
 					guiText5.text = "Player 1 Turn";
+					
+					if (p1.checkDead())
+					{
+						turn = 200;
+						break;
+					}
+					
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 200;
@@ -183,8 +193,16 @@ package
 					guiText3.text = p2.playerSkill3.name;
 					guiText4.text = p2.playerSkill4.name;
 					guiText5.text = "Player 2 Turn";
+					
+					if (p2.checkDead())
+					{
+						turn = 300;
+						break;
+					}
+					
 					if (FlxG.keys.justReleased("SPACE"))
 					{
+
 						turn = 300;
 						switch (selector) // incase need targeting
 						{
@@ -237,6 +255,14 @@ package
 					guiText3.text = p3.playerSkill3.name;
 					guiText4.text = p3.playerSkill4.name;
 					guiText5.text = "Player 3 Turn";
+					
+					if (p3.checkDead())
+					{
+						turn = 400;
+						break;
+					}
+					
+					
 					if (FlxG.keys.justReleased("SPACE"))
 					{
 						turn = 400;
@@ -364,55 +390,93 @@ package
 					trace ("calculations of skills");
 					turn = 600;
 					//trace ("skillsUsedThisTurn: ", skillsUsedThisTurn);
-					skillsUsedThisTurn.sortOn("speedOfSkill");
-					
 					trace ("The 6 skills");
-					
 					for (var i:int = 0; i < skillsUsedThisTurn.length; i++) 
 					{
+						skillsUsedThisTurn[i].updateSpeeds();
 						trace (skillsUsedThisTurn[i].caster, skillsUsedThisTurn[i].target ,skillsUsedThisTurn[i].thisSkill.name , skillsUsedThisTurn[i].speedOfSkill)
 					}
 					
-					break;
-				case 600:
-					trace ("Animations occur here");
+					skillsUsedThisTurn.sortOn("speedOfSkill", 1);
 					
-					turn = 700;
 					for (var j:int = 0; j < skillsUsedThisTurn.length; j++) 
 					{
-						trace (skillsUsedThisTurn[j].caster, "used ", skillsUsedThisTurn[j].thisSkill.name, "on ", skillsUsedThisTurn[j].target, "and did ", "10", "damage.");
+						// Dead characaters should not be able to cast skills
+						if (skillsUsedThisTurn[j].caster == "p1" && p1.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].caster == "p2" && p2.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].caster == "p3" && p3.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].caster == "e1" && e1.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].caster == "e2" && e2.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].caster == "e3" && e3.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						
+						skillsUsedThisTurn[j].damage = 10;
+						
+						// calculating damage to be done
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
-							p1.playerHP -= 10;
-							p1hp.text = p1.playerHP.toString();
+							p1.playerHP -= skillsUsedThisTurn[j].damage;
 						}
 						if (skillsUsedThisTurn[j].target == "p2")
 						{
-							p2.playerHP -= 10;
-							p2hp.text = p2.playerHP.toString();
+							p2.playerHP -= skillsUsedThisTurn[j].damage;
 						}
 						if (skillsUsedThisTurn[j].target == "p3")
 						{
-							p3.playerHP -= 10;
-							p3hp.text = p3.playerHP.toString();
+							p3.playerHP -= skillsUsedThisTurn[j].damage;
 						}
 						if (skillsUsedThisTurn[j].target == "e1")
 						{
-							e1.playerHP -= 10;
-							e1hp.text = e1.playerHP.toString();
+							e1.playerHP -= skillsUsedThisTurn[j].damage;
 						}
 						if (skillsUsedThisTurn[j].target == "e2")
 						{
-							e2.playerHP -= 10;
-							e2hp.text = e2.playerHP.toString();
+							e2.playerHP -= skillsUsedThisTurn[j].damage;
 						}
 						if (skillsUsedThisTurn[j].target == "e3")
 						{
-							e3.playerHP -= 10;
-							e3hp.text = e3.playerHP.toString();
-						}								
-						
+							e3.playerHP -= skillsUsedThisTurn[j].damage;
+						}
+						skillsUsedThisTurn[j].callTextDisplay();
 					}
+					animationStatus = 0;
+					break;
+				case 600:
+					trace ("Animations occur here");
+					p1hp.text = p1.playerHP.toString();
+					p2hp.text = p2.playerHP.toString();
+					p3hp.text = p3.playerHP.toString();
+					e1hp.text = e1.playerHP.toString();
+					e2hp.text = e2.playerHP.toString();
+					e3hp.text = e3.playerHP.toString();
+					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
+					{
+						++animationStatus;
+					}
+					turn = 700;
 					break;
 				case 700:
 					trace ("clean up");
