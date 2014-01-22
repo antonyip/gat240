@@ -104,9 +104,9 @@ package
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 100;
-			baseSpeed = -100;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
+			baseSpeed = 20;
 			
 			smallFace = Assets.mageSpriteFemale;
 			bigCharacter = Assets.mageSpriteFemale;
@@ -127,8 +127,8 @@ package
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 100;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
@@ -145,8 +145,8 @@ package
 			
 			playerAttackPower = 20;
 			playerSpecialAttack = 40;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 100;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
@@ -163,8 +163,8 @@ package
 			
 			playerAttackPower = 70;
 			playerSpecialAttack = 30;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 50;
+			playerPhysicalDefense = 35;
+			playerSpecialDefense = 25;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
@@ -181,8 +181,8 @@ package
 			
 			playerAttackPower = 30;
 			playerSpecialAttack = 60;
-			playerPhysicalDefense = 30;
-			playerSpecialDefense = 70;
+			playerPhysicalDefense = 15;
+			playerSpecialDefense = 25;
 			baseSpeed = 20;
 			playerSkill1.MagicMissile();
 		}
@@ -199,8 +199,8 @@ package
 			
 			playerAttackPower = 30;
 			playerSpecialAttack = 60;
-			playerPhysicalDefense = 30;
-			playerSpecialDefense = 70;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 10;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
@@ -217,8 +217,8 @@ package
 			
 			playerAttackPower = 65;
 			playerSpecialAttack = 30;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 70;
+			playerPhysicalDefense = 10;
+			playerSpecialDefense = 20;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
@@ -235,8 +235,8 @@ package
 			
 			playerAttackPower = 40;
 			playerSpecialAttack = 40;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 70;
+			playerPhysicalDefense = 10;
+			playerSpecialDefense = 10;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
@@ -253,8 +253,8 @@ package
 			
 			playerAttackPower = 40;
 			playerSpecialAttack = 40;
-			playerPhysicalDefense = 70;
-			playerSpecialDefense = 70;
+			playerPhysicalDefense = 5;
+			playerSpecialDefense = 40;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}

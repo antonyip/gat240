@@ -56,6 +56,7 @@ package
 		
 		// storage for skills used as well as structure and target
 		private var skillsUsedThisTurn:Array = new Array();
+		private var animationThisTurn:Vector.<AnimationClassDisplay> = new Vector.<AnimationClassDisplay>;
 		
 		// Game Logic
 		private var turn:int = 0;
@@ -450,6 +451,14 @@ package
 						if (skillsUsedThisTurn[j].damage < 0)
 							skillsUsedThisTurn[j].damage = 0;
 						
+						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, "", skillsUsedThisTurn[j].thisSkill.name));
+						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, null, skillsUsedThisTurn[j].thisSkill.name));
+						if (skillsUsedThisTurn[j].damage)
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
+						else
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
+						
+						
 						// calculating damage to be done
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
@@ -477,7 +486,7 @@ package
 						}
 						skillsUsedThisTurn[j].callTextDisplay();
 					}
-					animationStatus = 5;
+					animationStatus = 0;
 					animationDoOnce = true;
 					break;
 				case 600:
@@ -488,24 +497,29 @@ package
 					//e1hp.text = e1.playerHP.toString();
 					//e2hp.text = e2.playerHP.toString();
 					//e3hp.text = e3.playerHP.toString();
-					if (animationDoOnce)
-					{
-						trace ("--");
-						topBarText.text = "animationStatus: " + animationStatus.toString();
-						animationDoOnce = false;
-					}
+	
 					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
 					{
-						--animationStatus;
+						++animationStatus;
 						animationDoOnce = true;
 						
-						if (animationStatus < 1)
+						if (animationStatus == animationThisTurn.length)
 						{
 							turn = 700;
 							topBarText.text = "antob says hi?";
+							break;
 						}
 					}
 					
+					if (animationDoOnce)
+					{
+						topBarText.text = animationThisTurn[animationStatus].topText;
+						animationDoOnce = false;
+					}
+
+					break;
+				case 700:
+					trace ("clean up");
 					p1.addSpecialPoints();
 					p2.addSpecialPoints();
 					p3.addSpecialPoints();
@@ -513,11 +527,24 @@ package
 					e2.addSpecialPoints();
 					e3.addSpecialPoints();
 					
-					break;
-				case 700:
-					trace ("clean up");
+					p1hp.text = p1.playerHP.toString();
+					p2hp.text = p2.playerHP.toString();
+					p3hp.text = p3.playerHP.toString();
+					e1hp.text = e1.playerHP.toString();
+					e2hp.text = e2.playerHP.toString();
+					e3hp.text = e3.playerHP.toString();
+					
+					p1s.text = p1.playerSpecialPoints.toString();
+					p2s.text = p2.playerSpecialPoints.toString();
+					p3s.text = p3.playerSpecialPoints.toString();
+					e1s.text = e1.playerSpecialPoints.toString();
+					e2s.text = e2.playerSpecialPoints.toString();
+					e3s.text = e3.playerSpecialPoints.toString();
+					
 					skillsUsedThisTurn = null;
 					skillsUsedThisTurn = new Array();
+					animationThisTurn = null;
+					animationThisTurn = new Vector.<AnimationClassDisplay>;
 					turn = 100;
 					break;
 				default:
