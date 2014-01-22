@@ -25,9 +25,9 @@ package
 		
 		public static function GlobalsInit():void
 		{
-			e1.name = "Slime 1";
-			e2.name = "Slime 2";
-			e3.name = "Slime 3";
+			e1.Calissa();
+			e2.Anton();
+			e3.Kevin();
 			e1.playerSkill1.Swipe();
 			e1.playerSkill2.Swipe();
 			e1.playerSkill3.Swipe();
