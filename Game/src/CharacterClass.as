@@ -41,11 +41,30 @@ package
 			
 		}
 		
+		public function addSpecialPoints():void
+		{
+			if (playerSpecialPoints < 0)
+			{
+				isDisabled = false;
+				playerSpecialPoints = playerMaxSpecialPoints / 2;
+			}
+			
+			playerSpecialPoints += 15;
+			
+			if (playerSpecialPoints > playerMaxSpecialPoints)
+				playerSpecialPoints = playerMaxSpecialPoints;
+		}
+		
 		public function checkDead():Boolean
 		{
 			if (playerHP < 0)
 				isDisabled = true;
 				
+			if (playerSpecialPoints < 0 )
+			{
+				isDisabled = true;
+			}
+			
 			return isDisabled;
 		}
 		
