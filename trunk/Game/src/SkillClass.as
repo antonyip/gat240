@@ -8,7 +8,7 @@ package
 	{
 		public var name:String = "UndefinedSkill";
 		public var power:int = 10; // pokemon values 0 - 120 // have to balance
-		public var speed:int = 10; // higher is faster
+		public var speed:int = 10; // higher is faster; use 0 - 100
 		public var type:String = "Undefined" // use Wind, Ice, Fire, Nil
 		public var accuracy:Number = 1; // percentage based - 1 is sure hit
 		public var cost:int = 15;
@@ -20,7 +20,6 @@ package
 		public var hasDot:Boolean = false;
 		public var hasFreeze:Boolean = false;
 		public var variance:Number = 0; // percentage based 0 is no variance , 1 is +- 100%
-		
 		
 		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile",
 		"Swipe", "Swipe", "Swipe", "Swipe", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard",

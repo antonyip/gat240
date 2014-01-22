@@ -13,12 +13,13 @@ package
 		public var playerMAXHP:int = 100;
 		public var playerSpecialPoints:int = 100;
 		public var playerMaxSpecialPoints:int = 100;
-		public var baseSpeed:int = 100;
+		
 		
 		public var playerAttackPower:int = 100;
 		public var playerSpecialAttack:int = 100;
 		public var playerPhysicalDefense:int = 100;
 		public var playerSpecialDefense:int = 100;
+		public var baseSpeed:int = 10;
 		
 		public var playerSkill1:SkillClass = new SkillClass();
 		public var playerSkill2:SkillClass = new SkillClass();
@@ -28,12 +29,24 @@ package
 		public var smallFace:Class = Assets.archerSpriteMale;
 		public var bigCharacter:Class = Assets.archerSpriteMale;
 		public var sideViewCharater:Class = Assets.archerSpriteMale;
+		public var deadCharacter:Class = Assets.archerSpriteMale;
 		
 		public static var listOfCharacters:Array = new Array("Calissa", "Anton", "Kevin", "Cheng Lip", "Issac", "Jonathan","Chin Kiong", "Chin Kai", "Melvin");
-		
+
+		// do not touch variables undert this : Anton
+		public var isDisabled:Boolean = false;
+	
 		public function CharacterClass() 
 		{
 			
+		}
+		
+		public function checkDead():Boolean
+		{
+			if (playerHP < 0)
+				isDisabled = true;
+				
+			return isDisabled;
 		}
 		
 		public function changeCharTo(charName:String):void
@@ -74,7 +87,7 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
-			
+			baseSpeed = -100;
 			
 			smallFace = Assets.mageSpriteFemale;
 			bigCharacter = Assets.mageSpriteFemale;
@@ -97,7 +110,7 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
-			
+			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
 		
@@ -115,7 +128,7 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 100;
-			
+			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
 		
@@ -133,7 +146,7 @@ package
 			playerSpecialAttack = 30;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 50;
-			
+			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
 		
@@ -151,7 +164,7 @@ package
 			playerSpecialAttack = 60;
 			playerPhysicalDefense = 30;
 			playerSpecialDefense = 70;
-			
+			baseSpeed = 20;
 			playerSkill1.MagicMissile();
 		}
 		
@@ -169,7 +182,7 @@ package
 			playerSpecialAttack = 60;
 			playerPhysicalDefense = 30;
 			playerSpecialDefense = 70;
-			
+			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
 		
@@ -187,7 +200,7 @@ package
 			playerSpecialAttack = 30;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 70;
-			
+			baseSpeed = 50;
 			playerSkill1.Swipe();
 		}
 		
@@ -205,7 +218,7 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 70;
-			
+			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
 		
@@ -223,7 +236,7 @@ package
 			playerSpecialAttack = 40;
 			playerPhysicalDefense = 70;
 			playerSpecialDefense = 70;
-			
+			baseSpeed = 80;
 			playerSkill1.FireArrow();
 		}
 	}
