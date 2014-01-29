@@ -10,10 +10,7 @@ package
 	{
 		// Sprites
 		private var test:FlxText = new FlxText(400, 300, 300, "Hello World");
-		
-		
 
-		
 		private var guiSprite:FlxSprite = new FlxSprite(0, 500, Assets.testImage3);
 		private var background:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelBackground);
 		// GUI Sprites
@@ -40,9 +37,9 @@ package
 		private var enemySprite2:FlxSprite = new FlxSprite(600, 200, e2.sideViewCharater);
 		private var enemySprite3:FlxSprite = new FlxSprite(550, 300, e3.sideViewCharater);
 		
-		private var playerFaceSprite1:FlxSprite = new FlxSprite(80, 100, p1.smallFace);
-		private var playerFaceSprite2:FlxSprite = new FlxSprite(40, 200, p2.smallFace);
-		private var playerFaceSprite3:FlxSprite = new FlxSprite(80, 300, p3.smallFace);
+		private var playerFaceSprite1:FlxSprite = new FlxSprite(50,  500, p1.smallFace);
+		private var playerFaceSprite2:FlxSprite = new FlxSprite(250, 500, p2.smallFace);
+		private var playerFaceSprite3:FlxSprite = new FlxSprite(450, 500, p3.smallFace);
 		
 		// gui text for hp and stam
 		private var p1hp:FlxText = new FlxText(200, 450, 120, "");
@@ -135,6 +132,13 @@ package
 			e1s.text = e1.playerSpecialPoints.toString();
 			e2s.text = e2.playerSpecialPoints.toString();
 			e3s.text = e3.playerSpecialPoints.toString();
+			
+			add(playerFaceSprite1);
+			add(playerFaceSprite2);
+			add(playerFaceSprite3);
+			
+			
+			
 			// HACKS
 			
 		} // create close bracket
