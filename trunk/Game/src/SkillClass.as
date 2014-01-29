@@ -122,6 +122,175 @@ package
 			isAoe = true;
 			isMagical = true;
 		}
+		
+		public function StarFrost():void
+		{
+			name = "Star Frost";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function CrystallicShield():void
+		{
+			name = "Crystallic Shield";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function FrostDispel():void
+		{
+			name = "Frost Dispel";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function TorrentSlash():void
+		{
+			name = "Torrent Slash";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function PiercingFlames():void
+		{
+			name = "Piercing Flames";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function HellFire():void
+		{
+			name = "Hell Fire";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function LavaClaws():void
+		{
+			name = "Lava Claws";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function RoaringFlare():void
+		{
+			name = "Roaring Flare";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function Fireball():void
+		{
+			name = "Fire ball";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function WhirlwindGale():void
+		{
+			name = "Whirlwind Gale";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function FeatherDance():void
+		{
+			name = "Feather Dance";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function ShootingStar():void
+		{			
+			name = "Shooting Star";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function HealingWinds():void
+		{
+			name = "Healing Winds";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
+		public function SacredWish():void
+		{
+			name = "Sacred Wish";
+			power = 15;
+			speed = 40;
+			type = "Nil"
+			accuracy = 1;
+			cost = 5;
+			isPhysical = true;
+			hasTarget = true;
+			variance = 0.2;
+		}
 	}
 
 }
