@@ -10,10 +10,12 @@ package
 	{
 		// Sprites
 		private var test:FlxText = new FlxText(400, 300, 300, "Hello World");
-		private var playerSprite:FlxSprite = new FlxSprite(100, 400, Assets.testImage1);
-		private var enemySprite:FlxSprite = new FlxSprite(600, 100, Assets.testImage2);
-		private var guiSprite:FlxSprite = new FlxSprite(0, 500, Assets.testImage3);
 		
+		
+
+		
+		private var guiSprite:FlxSprite = new FlxSprite(0, 500, Assets.testImage3);
+		private var background:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelBackground);
 		// GUI Sprites
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
 		private var guiText1:FlxText = new FlxText(100, 450, 120, "");
@@ -30,6 +32,17 @@ package
 		private var e1:CharacterClass = Globals.e1; // enemy 1
 		private var e2:CharacterClass = Globals.e2; // enemy 2
 		private var e3:CharacterClass = Globals.e3; // enemy 3
+		
+		private var playerSprite1:FlxSprite = new FlxSprite(80, 100, p1.sideViewCharater);
+		private var playerSprite2:FlxSprite = new FlxSprite(40, 200, p2.sideViewCharater);
+		private var playerSprite3:FlxSprite = new FlxSprite(80, 300, p3.sideViewCharater);
+		private var enemySprite1:FlxSprite = new FlxSprite(550, 100, e1.sideViewCharater);
+		private var enemySprite2:FlxSprite = new FlxSprite(600, 200, e2.sideViewCharater);
+		private var enemySprite3:FlxSprite = new FlxSprite(550, 300, e3.sideViewCharater);
+		
+		private var playerFaceSprite1:FlxSprite = new FlxSprite(80, 100, p1.smallFace);
+		private var playerFaceSprite2:FlxSprite = new FlxSprite(40, 200, p2.smallFace);
+		private var playerFaceSprite3:FlxSprite = new FlxSprite(80, 300, p3.smallFace);
 		
 		// gui text for hp and stam
 		private var p1hp:FlxText = new FlxText(200, 450, 120, "");
@@ -78,8 +91,16 @@ package
 		{
 			//add(test);
 			//add(guiSprite);
-			add(playerSprite);
-			add(enemySprite);
+			add(background);
+			add(playerSprite1);
+			add(playerSprite2);
+			add(playerSprite3);
+			enemySprite1.scale.x = -enemySprite1.scale.x;
+			enemySprite2.scale.x = -enemySprite2.scale.x;
+			enemySprite3.scale.x = -enemySprite3.scale.x;
+			add(enemySprite1);
+			add(enemySprite2);
+			add(enemySprite3);
 			add(arrowSprite);
 			add(guiText1);
 			add(guiText2);

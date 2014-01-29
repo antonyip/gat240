@@ -110,7 +110,7 @@ package
 			
 			smallFace = Assets.mageSpriteFemale;
 			bigCharacter = Assets.mageSpriteFemale;
-			sideViewCharater = Assets.mageSpriteFemale;
+			sideViewCharater = Assets.mageSide;
 			
 			playerSkill1.MagicMissile();
 		}
@@ -131,6 +131,10 @@ package
 			playerSpecialDefense = 40;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
+			
+			smallFace = Assets.warriorSpriteMale;
+			bigCharacter = Assets.warriorSpriteMale;
+			sideViewCharater = Assets.warriorSide;
 		}
 		
 		public function Kevin():void
@@ -149,6 +153,10 @@ package
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
+			
+			smallFace = Assets.archerSpriteMale;
+			bigCharacter = Assets.archerSpriteMale;
+			sideViewCharater = Assets.archerSide;
 		}
 		
 		public function ChengLip():void
@@ -167,6 +175,10 @@ package
 			playerSpecialDefense = 25;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
+			
+			smallFace = Assets.warriorSpriteMale;
+			bigCharacter = Assets.warriorSpriteMale;
+			sideViewCharater = Assets.warriorSide;
 		}
 		
 		public function Issac():void
@@ -185,6 +197,10 @@ package
 			playerSpecialDefense = 25;
 			baseSpeed = 20;
 			playerSkill1.MagicMissile();
+			
+			smallFace = Assets.mageSide;
+			bigCharacter = Assets.mageSpriteMale;
+			sideViewCharater = Assets.mageSide;
 		}
 		
 		public function Jonathan():void
@@ -203,6 +219,10 @@ package
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
+			
+			smallFace = Assets.archerSpriteMale;
+			bigCharacter = Assets.archerSpriteMale;
+			sideViewCharater = Assets.archerSide;
 		}
 		
 		public function ChinKiong():void
@@ -221,6 +241,10 @@ package
 			playerSpecialDefense = 20;
 			baseSpeed = 50;
 			playerSkill1.Swipe();
+			
+			smallFace = Assets.warriorSpriteMale;
+			bigCharacter = Assets.warriorSpriteMale;
+			sideViewCharater = Assets.warriorSide;
 		}
 		
 		public function ChinKai():void
@@ -239,6 +263,10 @@ package
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
+			
+			smallFace = Assets.archerSpriteMale;
+			bigCharacter = Assets.archerSpriteMale;
+			sideViewCharater = Assets.archerSide;			
 		}
 		
 		public function Melvin():void
@@ -257,6 +285,10 @@ package
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
+			
+			smallFace = Assets.archerSpriteMale;
+			bigCharacter = Assets.archerSpriteMale;
+			sideViewCharater = Assets.archerSide;			
 		}
 	}
 

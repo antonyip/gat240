@@ -34,6 +34,18 @@ package
 		[Embed(source = "../img/Warrior.png")]
 		public static var warriorSpriteMale:Class;
 		
+		[Embed(source = "../art/Characters/Archer_Side.png")]
+		public static var archerSide:Class;
+		
+		[Embed(source = "../art/Characters/Mage_Side.png")]
+		public static var mageSide:Class;
+		
+		[Embed(source="../art/Characters/Warrior_Side.png")]
+		public static var warriorSide:Class;
+		
+		[Embed(source = "../art/Play_Screen/Play_Screen.png")]
+		public static var gameLevelBackground:Class;
+		
 		public function Assets() 
 		{
 			
