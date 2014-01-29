@@ -21,10 +21,11 @@ package
 		public var hasFreeze:Boolean = false;
 		public var variance:Number = 0; // percentage based 0 is no variance , 1 is +- 100%
 		
-		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile",
-		"Swipe", "Swipe", "Swipe", "Swipe", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard", "Blizzard",
-		"Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile",
-		"Swipe", "Magic Missile", "Fire Arrow", "Blizzard", "Blizzard", "Swipe", "Magic Missile");
+		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard",
+														 "Star Frost", "Crystallic Shield", "Frost Dispel",
+														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
+														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
+														 "Shooting Star", "Healing Winds", "Sacred Wish");
 		
 		public function SkillClass() 
 		{
@@ -41,9 +42,35 @@ package
 				Blizzard();
 			if (skillName == "Fire Arrow")
 				FireArrow();				
-			
+			if (skillName == "Star Frost")
+				StarFrost();
+			if (skillName == "Crystallic Shield")
+				CrystallicShield();
+			if (skillName == "Frost Dispel")
+				FrostDispel();
+			if (skillName == "Torrent Slash")
+				TorrentSlash();
+			if (skillName == "Piercing Flames")
+				PiercingFlames();
+			if (skillName == "Hellfire")
+				HellFire();
+			if (skillName == "LavaClaws")
+				LavaClaws();
+			if (skillName == "Roaring Flare")
+				RoaringFlare();
+			if (skillName == "Fireball")
+				Fireball();
+			if (skillName == "Whirlwind Gale")
+				WhirlwindGale();
+			if (skillName == "Feather Dance")
+				FeatherDance();
+			if (skillName == "Shooting Star")
+				ShootingStar();
+			if (skillName == "Healing Winds")
+				HealingWinds();
+			if (skillName == "Sacred Wish")
+				SacredWish();
 			trace("SkillName: ", skillName);
-			
 		}
 		
 		public function Swipe():void  // Warriors' Basic Attack
