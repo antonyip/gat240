@@ -20,6 +20,7 @@
   <!-- Build options -->
   <build>
     <option accessible="False" />
+    <option advancedTelemetry="False" />
     <option allowSourcePathOverlap="False" />
     <option benchmark="False" />
     <option es="False" />
@@ -54,6 +55,7 @@
     <element path="swc\Heroine.swc" />
     <element path="swc\GameOver.swc" />
     <element path="swc\nape-dev.swc" />
+    <element path="swc\Skills.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>

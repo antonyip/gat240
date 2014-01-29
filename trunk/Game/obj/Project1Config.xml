@@ -37,6 +37,7 @@
     </source-path>
     <library-path append="true">
       <path-element>C:\Users\Anton\Desktop\GAT240\Game\swc\nape-dev.swc</path-element>
+      <path-element>C:\Users\Anton\Desktop\GAT240\Game\swc\Skills.swc</path-element>
     </library-path>
   </compiler>
   <file-specs>
