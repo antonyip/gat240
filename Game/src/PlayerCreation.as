@@ -75,26 +75,11 @@ package
 		public function updateCharacterImages():void
 		{
 			tempCharacterForUpdate.changeCharTo(text1.text);
-			//trace(text1.text);
 			char1.loadGraphic(tempCharacterForUpdate.bigCharacter);
-			//remove(char1);
-			//char1 = null;
-			//char1 = new FlxSprite(63, 73,  tempCharacterForUpdate.bigCharacter);
-			//add(char1);
 			tempCharacterForUpdate.changeCharTo(text2.text);
-			//trace(text2.text);
 			char2.loadGraphic(tempCharacterForUpdate.bigCharacter);
-			//remove(char2);
-			//char2 = null;
-			//char2 = new FlxSprite(315, 73, tempCharacterForUpdate.bigCharacter);
-			//add(char2);
 			tempCharacterForUpdate.changeCharTo(text3.text);
-			//trace(text3.text);
 			char3.loadGraphic(tempCharacterForUpdate.bigCharacter);
-			//remove(char3);
-			//char3 = null;
-			//char3 = new FlxSprite(568, 73, tempCharacterForUpdate.bigCharacter);
-			//add(char3);
 		}
 		
 		// do once when come into game
