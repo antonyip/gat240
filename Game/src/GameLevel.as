@@ -64,6 +64,9 @@ package
 		
 		private var animationStatus:int = 0;
 		
+		// Skill Animation
+		private var crystallicShield:CrystallicShield = new CrystallicShield();
+		
 		// storage for skills used as well as structure and target
 		private var skillsUsedThisTurn:Array = new Array();
 		private var animationThisTurn:Vector.<AnimationClassDisplay> = new Vector.<AnimationClassDisplay>;
@@ -137,8 +140,9 @@ package
 			add(playerFaceSprite2);
 			add(playerFaceSprite3);
 			
-			
-			
+			FlxG.stage.addChild(crystallicShield);
+			crystallicShield.x = 400;
+			crystallicShield.y = 300
 			// HACKS
 			
 		} // create close bracket
