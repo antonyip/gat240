@@ -46,7 +46,7 @@ package
 				aMagicMissile();
 			if (skillName == "Blizzard")
 				aBlizzard();
-			if (skillName == "Fire Arrow")
+			if (skillName == "Arrow Shot")
 				aFireArrow();				
 			if (skillName == "Star Frost")
 				aStarFrost();
@@ -111,7 +111,7 @@ package
 		
 		public function aFireArrow():void  // Archer' Basic Attack
 		{
-			name = "Fire Arrow";
+			name = "Arrow Shot";
 			power = 15;
 			speed = 30;
 			type = "Nil"
