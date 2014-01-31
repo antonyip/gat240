@@ -9,23 +9,26 @@ package
 	public class PlayerCreation extends FlxState 
 	{
 		private var text:FlxText = new FlxText(300, 20, 600, " ");
-		private var text1:FlxText = new FlxText(141-100, 390-5, 200, "Select A Character");
-		private var text2:FlxText = new FlxText(390-100, 390-5, 200, "Select A Character");
-		private var text3:FlxText = new FlxText(650-100, 390-5, 200, "Select A Character");
+		private var text1:FlxText = new FlxText(141-100, 80, 200, "Select A Character");
+		private var text2:FlxText = new FlxText(390-100, 80, 200, "Select A Character");
+		private var text3:FlxText = new FlxText(650-100, 80, 200, "Select A Character");
 		private var text4:FlxText = new FlxText(300, 20, 600, "Select A Character");
 		
-		private var char1:FlxSprite = new FlxSprite(63, 73, Assets.mageSpriteMale);
-		private var char2:FlxSprite = new FlxSprite(315, 73, Assets.archerSpriteMale);
-		private var char3:FlxSprite = new FlxSprite(568, 73, Assets.mageSpriteFemale);
+		private var char1:FlxSprite = new FlxSprite(63, 173, Assets.mageSpriteMale);
+		private var char2:FlxSprite = new FlxSprite(315, 173, Assets.archerSpriteMale);
+		private var char3:FlxSprite = new FlxSprite(568, 173, Assets.mageSpriteFemale);
 		private var char4:FlxSprite = new FlxSprite(0, 300, Assets.testImage3);
 		
-		private var char1Name:FlxText 	 = new FlxText(51, 245-7, 200, "");
-		private var char1HP:FlxText		 = new FlxText(51, 260-7, 200, "");
-		private var char1pAttack:FlxText = new FlxText(51, 275-7, 200, "");
-		private var char1sAttack:FlxText = new FlxText(51, 290-7, 200, "");
-		private var char1pDef:FlxText	 = new FlxText(51, 305-7, 200, "");
-		private var char1sDef:FlxText 	 = new FlxText(51, 320-7, 200, "");
-		private var char1speed:FlxText 	 = new FlxText(51, 335 - 7, 200, "");
+		private var char1Name:FlxText 		= new FlxText(51, 245-7, 200, "");
+		private var char1HP:FlxText			= new FlxText(51, 260-7, 200, "");
+		private var char1pAttack:FlxText	= new FlxText(51, 275-7, 200, "");
+		private var char1sAttack:FlxText	= new FlxText(51, 290-7, 200, "");
+		private var char1pDef:FlxText	 	= new FlxText(51, 305-7, 200, "");
+		private var char1sDef:FlxText 		= new FlxText(51, 320-7, 200, "");
+		private var char1speed:FlxText 		= new FlxText(51, 335 - 7, 200, "");
+		private var char1other1:FlxText 	= new FlxText(51, 350 - 7, 200, "");
+		private var char1other2:FlxText 	= new FlxText(51, 365 - 7, 200, "");
+		private var char1other3:FlxText 	= new FlxText(51, 380 - 7, 200, "");
 		
 		private var char2Name:FlxText 	 = new FlxText(295, 245-7, 200, "");
 		private var char2HP:FlxText		 = new FlxText(295, 260-7, 200, "");
@@ -34,6 +37,9 @@ package
 		private var char2pDef:FlxText	 = new FlxText(295, 305-7, 200, "");
 		private var char2sDef:FlxText 	 = new FlxText(295, 320-7, 200, "");
 		private var char2speed:FlxText 	 = new FlxText(295, 335 - 7, 200, "");
+		private var char2other1:FlxText 	= new FlxText(295, 350 - 7, 200, "");
+		private var char2other2:FlxText 	= new FlxText(295, 365 - 7, 200, "");
+		private var char2other3:FlxText 	= new FlxText(295, 380 - 7, 200, "");
 		
 		private var char3Name:FlxText 	 = new FlxText(525, 245-7, 200, "");
 		private var char3HP:FlxText		 = new FlxText(525, 260-7, 200, "");
@@ -41,7 +47,21 @@ package
 		private var char3sAttack:FlxText = new FlxText(525, 290-7, 200, "");
 		private var char3pDef:FlxText	 = new FlxText(525, 305-7, 200, "");
 		private var char3sDef:FlxText 	 = new FlxText(525, 320-7, 200, "");
-		private var char3speed:FlxText 	 = new FlxText(525, 335-7, 200, "");
+		private var char3speed:FlxText 	 = new FlxText(525, 335 - 7, 200, "");
+		private var char3other1:FlxText 	= new FlxText(525, 350 - 7, 200, "");
+		private var char3other2:FlxText 	= new FlxText(525, 365 - 7, 200, "");
+		private var char3other3:FlxText 	= new FlxText(525, 380 - 7, 200, "");		
+		
+		private var char4Name:FlxText 	 = new FlxText(525, 245-7, 200, "");
+		private var char4HP:FlxText		 = new FlxText(525, 260-7, 200, "");
+		private var char4pAttack:FlxText = new FlxText(525, 275-7, 200, "");
+		private var char4sAttack:FlxText = new FlxText(525, 290-7, 200, "");
+		private var char4pDef:FlxText	 = new FlxText(525, 305-7, 200, "");
+		private var char4sDef:FlxText 	 = new FlxText(525, 320-7, 200, "");
+		private var char4speed:FlxText 	 = new FlxText(525, 335 - 7, 200, "");
+		private var char4other1:FlxText 	= new FlxText(525, 350 - 7, 200, "");
+		private var char4other2:FlxText 	= new FlxText(525, 365 - 7, 200, "");
+		private var char4other3:FlxText 	= new FlxText(525, 380 - 7, 200, "");		
 		                                                    
 		private var p1text:FlxText  = new FlxText(100, 488, 600, "");
 		private var p1text1:FlxText = new FlxText(100, 506, 600, "");
@@ -61,7 +81,7 @@ package
 		private var p3text3:FlxText = new FlxText(610, 550, 600, "");
 		private var p3text4:FlxText = new FlxText(610, 571, 600, "");
 		
-		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
+		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.playerSelectArrows);
 		private var turn:int = 0;
 		private var selector:int = 1;
 		
@@ -71,16 +91,6 @@ package
 		
 		private var background:FlxSprite = new FlxSprite(0, 0, Assets.playerSelectBackground);
 		private var tempCharacterForUpdate:CharacterClass = new CharacterClass();
-		
-		public function updateCharacterImages():void
-		{
-			tempCharacterForUpdate.changeCharTo(text1.text);
-			char1.loadGraphic(tempCharacterForUpdate.bigCharacter);
-			tempCharacterForUpdate.changeCharTo(text2.text);
-			char2.loadGraphic(tempCharacterForUpdate.bigCharacter);
-			tempCharacterForUpdate.changeCharTo(text3.text);
-			char3.loadGraphic(tempCharacterForUpdate.bigCharacter);
-		}
 		
 		// do once when come into game
 		public override function create():void
@@ -94,7 +104,7 @@ package
 			add(char1);
 			add(char2);
 			add(char3);
-			//add(arrowSprite);
+			add(arrowSprite);
 			
 			add(p1text);
 			add(p1text1);
@@ -123,6 +133,9 @@ package
 			char1pDef.alignment = "center";
 			char1sDef.alignment = "center";
 			char1speed.alignment = "center";
+			char1other1.alignment = "center";
+			char1other2.alignment = "center";
+			char1other3.alignment = "center";			
 			
 			char2Name.alignment = "center";
 			char2HP.alignment = "center";
@@ -131,6 +144,9 @@ package
 			char2pDef.alignment = "center";
 			char2sDef.alignment = "center";
 			char2speed.alignment = "center";
+			char2other1.alignment = "center";
+			char2other2.alignment = "center";
+			char2other3.alignment = "center";						
 			
 			char3Name.alignment = "center";
 			char3HP.alignment = "center";
@@ -139,6 +155,20 @@ package
 			char3pDef.alignment = "center";
 			char3sDef.alignment = "center";
 			char3speed.alignment = "center";
+			char3other1.alignment = "center";
+			char3other2.alignment = "center";
+			char3other3.alignment = "center";						
+			
+			char4Name.alignment = "center";
+			char4HP.alignment = "center";
+			char4pAttack.alignment = "center";
+			char4sAttack.alignment = "center";
+			char4pDef.alignment = "center";
+			char4sDef.alignment = "center";
+			char4speed.alignment = "center";
+			char4other1.alignment = "center";
+			char4other2.alignment = "center";
+			char4other3.alignment = "center";						
 			
 			char1Name.text = " ";
 			char1HP.text = "Health Points: 100";
@@ -164,6 +194,14 @@ package
 			char3sDef.text = "Special Def: 50";
 			char3speed.text = "Speed: 50";
 			
+			char4Name.text = "";
+			char4HP.text = "";
+			char4pAttack.text = "";
+			char4sAttack.text = "";
+			char4pDef.text = "";
+			char4sDef.text = "";
+			char4speed.text = "";
+			
 			add(char1Name);
 			add(char1HP);
 			add(char1pAttack);
@@ -171,6 +209,9 @@ package
 			add(char1pDef);
 			add(char1sDef);
 			add(char1speed);
+			add(char1other1);
+			add(char1other2);
+			add(char1other3);			
 			
 			add(char2Name);
 			add(char2HP);
@@ -179,6 +220,9 @@ package
 			add(char2pDef);
 			add(char2sDef);
 			add(char2speed);
+			add(char2other1);
+			add(char2other2);
+			add(char2other3);				
 			
 			add(char3Name);
 			add(char3HP);
@@ -187,6 +231,20 @@ package
 			add(char3pDef);
 			add(char3sDef);
 			add(char3speed);
+			add(char3other1);
+			add(char3other2);
+			add(char3other3);				
+						
+			add(char4Name);
+			add(char4HP);
+			add(char4pAttack);
+			add(char4sAttack);
+			add(char4pDef);
+			add(char4sDef);
+			add(char4speed);
+			add(char4other1);
+			add(char4other2);
+			add(char4other3);				
 			
 			// forming the decks
 			for (var i:int = 0; i < CharacterClass.listOfCharacters.length; i++) 
@@ -202,19 +260,131 @@ package
 			
 		}
 		
+		public function updateCharacterImages():void
+		{
+			tempCharacterForUpdate.changeCharTo(text1.text);
+			char1.loadGraphic(tempCharacterForUpdate.bigCharacter);
+			
+			char1HP.text 	  = "HP: " + tempCharacterForUpdate.playerMAXHP;
+			char1pAttack.text = "P Atk: " + tempCharacterForUpdate.playerAttackPower;
+			char1sAttack.text = "S Atk: " + tempCharacterForUpdate.playerSpecialAttack;
+			char1pDef.text    = "P Def: " + tempCharacterForUpdate.playerPhysicalDefense;
+			char1sDef.text    = "S Def: " + tempCharacterForUpdate.playerSpecialDefense;
+			char1speed.text   = "Speed: " + tempCharacterForUpdate.baseSpeed;
+			
+			tempCharacterForUpdate.changeCharTo(text2.text);
+			char2.loadGraphic(tempCharacterForUpdate.bigCharacter);
+			
+			char2HP.text 	  = "HP: " + tempCharacterForUpdate.playerMAXHP;
+			char2pAttack.text = "P Atk: " + tempCharacterForUpdate.playerAttackPower;
+			char2sAttack.text = "S Atk: " + tempCharacterForUpdate.playerSpecialAttack;
+			char2pDef.text    = "P Def: " + tempCharacterForUpdate.playerPhysicalDefense;
+			char2sDef.text    = "S Def: " + tempCharacterForUpdate.playerSpecialDefense;
+			char2speed.text   = "Speed: " + tempCharacterForUpdate.baseSpeed;
+			
+			tempCharacterForUpdate.changeCharTo(text3.text);
+			char3.loadGraphic(tempCharacterForUpdate.bigCharacter);
+			
+			char3HP.text 	  = "HP: " + tempCharacterForUpdate.playerMAXHP;
+			char3pAttack.text = "P Atk: " + tempCharacterForUpdate.playerAttackPower;
+			char3sAttack.text = "S Atk: " + tempCharacterForUpdate.playerSpecialAttack;
+			char3pDef.text    = "P Def: " + tempCharacterForUpdate.playerPhysicalDefense;
+			char3sDef.text    = "S Def: " + tempCharacterForUpdate.playerSpecialDefense;
+			char3speed.text   = "Speed: " + tempCharacterForUpdate.baseSpeed;
+		}
+		
 		private function randomSkills():void 
 		{
 			skillPos = Globals.randomInt(0, deckOfSkills.length);
 			text1.text = deckOfSkills[skillPos];
+			char1.loadGraphic(Globals.getSkillFromString(text1.text).skillIcon);
+			
+			char1HP.text 	  = "Element: " 			+ Globals.getSkillFromString(text1.text).type;
+			char1other1.text  = "Type: " 				+ Globals.getSkillFromString(text1.text).isPhysical ? "Physical" : "Magical" ;
+			char1pAttack.text = "Atk Pwr: " 			+ Globals.getSkillFromString(text1.text).power;
+			char1sAttack.text = "Accuracy: " 			+ Globals.getSkillFromString(text1.text).accuracy;
+			char1pDef.text    = "Stam: " 				+ Globals.getSkillFromString(text1.text).cost;
+			char1sDef.text    = "Targetable: " 			+ Globals.getSkillFromString(text1.text).hasTarget;
+			char1speed.text   = "Speed: " 				+ Globals.getSkillFromString(text1.text).speed;
 			
 			skillPos = Globals.randomInt(0, deckOfSkills.length);
 			text2.text = deckOfSkills[skillPos];
+			char2.loadGraphic(Globals.getSkillFromString(text2.text).skillIcon);
+			
+			char2HP.text 	  = "Element: " 			+ Globals.getSkillFromString(text2.text).type;
+			char2other1.text  = "Type: " 				+ Globals.getSkillFromString(text2.text).isPhysical ? "Physical" : "Magical" ;
+			char2pAttack.text = "Atk Pwr: " 			+ Globals.getSkillFromString(text2.text).power;
+			char2sAttack.text = "Accuracy: " 			+ Globals.getSkillFromString(text2.text).accuracy;
+			char2pDef.text    = "Stam: " 				+ Globals.getSkillFromString(text2.text).cost;
+			char2sDef.text    = "Targetable: " 			+ Globals.getSkillFromString(text2.text).hasTarget;
+			char2speed.text   = "Speed: " 				+ Globals.getSkillFromString(text2.text).speed;
 			
 			skillPos = Globals.randomInt(0, deckOfSkills.length);
 			text3.text = deckOfSkills[skillPos];
+			char3.loadGraphic(Globals.getSkillFromString(text3.text).skillIcon);
+			
+			char3HP.text 	  = "Element: " 			+ Globals.getSkillFromString(text3.text).type;
+			char3other1.text  = "Type: " 				+ Globals.getSkillFromString(text3.text).isPhysical ? "Physical" : "Magical" ;
+			char3pAttack.text = "Atk Pwr: " 			+ Globals.getSkillFromString(text3.text).power;
+			char3sAttack.text = "Accuracy: " 			+ Globals.getSkillFromString(text3.text).accuracy;
+			char3pDef.text    = "Stam: " 				+ Globals.getSkillFromString(text3.text).cost;
+			char3sDef.text    = "Targetable: " 			+ Globals.getSkillFromString(text3.text).hasTarget;
+			char3speed.text   = "Speed: " 				+ Globals.getSkillFromString(text3.text).speed;
 			
 			skillPos = Globals.randomInt(0, deckOfSkills.length);
 			text4.text = deckOfSkills[skillPos];
+			char4.loadGraphic(Globals.getSkillFromString(text4.text).skillIcon);
+			
+			char4HP.text 	  = "Element: " 			+ Globals.getSkillFromString(text4.text).type;
+			char4other1.text  = "Type: " 				+ Globals.getSkillFromString(text4.text).isPhysical ? "Physical" : "Magical" ;
+			char4pAttack.text = "Atk Pwr: " 			+ Globals.getSkillFromString(text4.text).power;
+			char4sAttack.text = "Accuracy: " 			+ Globals.getSkillFromString(text4.text).accuracy;
+			char4pDef.text    = "Stam: " 				+ Globals.getSkillFromString(text4.text).cost;
+			char4sDef.text    = "Targetable: " 			+ Globals.getSkillFromString(text4.text).hasTarget;
+			char4speed.text   = "Speed: " 				+ Globals.getSkillFromString(text4.text).speed;
+		}
+		
+		public function updateSelector(selector:int):void
+		{
+			switch (selector) 
+			{
+				case 1:
+					arrowSprite.x = char1.x;
+					arrowSprite.y = char1.y - 100;
+					
+				break;
+				case 2:
+					arrowSprite.x = char2.x;
+					arrowSprite.y = char2.y - 100;
+				break;
+				case 3:
+					arrowSprite.x = char3.x;
+					arrowSprite.y = char3.y - 100;				
+					break;
+				case 4:
+					arrowSprite.x = char4.x;
+					arrowSprite.y = char4.y - 100;			
+				break;						
+			}
+		}
+		
+		public function updateSelectorCharacters(selector:int):void
+		{
+			switch (selector) 
+			{
+				case 1:
+					arrowSprite.x = 100;
+					arrowSprite.y = 50;
+				break;
+				case 2:
+					arrowSprite.x = 300;
+					arrowSprite.y = 50;
+				break;
+				case 3:
+					arrowSprite.x = 500;
+					arrowSprite.y = 50;
+				break;						
+			}
 		}
 		
 		public override function update():void
@@ -245,30 +415,7 @@ package
 					break;
 				case 100:
 					// pick first character
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-							char1.flicker(-1);
-							char2.flicker(0);
-							char3.flicker(0);
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-							char2.flicker(-1);
-							char1.flicker(0);
-							char3.flicker(0);
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							char3.flicker(-1);
-							char1.flicker(0);
-							char2.flicker(0);							
-						break;						
-					}
+					updateSelectorCharacters(selector);
 					
 					// handle inputs WS
 					if (FlxG.keys.justReleased("A"))
@@ -359,25 +506,7 @@ package
 						trace("First Char Skill 2");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}
+					updateSelector(selector);
 					break;
 				case 120:
 					// pick first character skill 2
@@ -417,25 +546,7 @@ package
 						trace("First Char Skill 3");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;
 				case 130:
 					// pick first character skill 3
@@ -475,54 +586,12 @@ package
 						trace("Second Char Skill 1");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);			
 					break;
 					
 				case 200:
 					// pick second character
-					
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-							char1.flicker(-1);
-							char2.flicker(0);
-							char3.flicker(0);
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-							char2.flicker(-1);
-							char1.flicker(0);
-							char3.flicker(0);							
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							char3.flicker(-1);
-							char2.flicker(0);
-							char1.flicker(0);							
-						break;						
-					}
+					updateSelectorCharacters(selector);
 					
 					// handle inputs WS
 					if (FlxG.keys.justReleased("A"))
@@ -610,25 +679,7 @@ package
 						trace("Second Char Skill 2");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);		
 					break;
 				case 220:
 					// pick second character skill 2
@@ -668,25 +719,7 @@ package
 						trace("Second Char Skill 3");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;
 				case 230:
 					// pick second character skill 3
@@ -727,53 +760,12 @@ package
 						trace("Third Char Skill 1");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;
 					
 				case 300:
 					// pick third character
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-							char1.flicker(-1);
-							char2.flicker(0);
-							char3.flicker(0);							
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-							char2.flicker(-1);
-							char1.flicker(0);
-							char3.flicker(0);							
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							char3.flicker(-1);
-							char2.flicker(0);
-							char1.flicker(0);							
-						break;						
-					}
+					updateSelectorCharacters(selector);
 					
 					// handle inputs WS
 					if (FlxG.keys.justReleased("A"))
@@ -806,6 +798,7 @@ package
 						p3text1.text = Globals.p3.playerSkill1.name;
 						
 						trace("First Char Skill 1");
+						background.loadGraphic(Assets.playerSelectBackground2);
 						turn = 110;
 						char1.x = 50;
 						char2.x = 250;
@@ -864,25 +857,7 @@ package
 						trace("Third Char Skill 2");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;
 				case 320:
 					// pick third character skill 2
@@ -921,25 +896,7 @@ package
 						trace("Third Char Skill 3");
 						randomSkills();
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;
 				case 330:
 					// pick third character skill 3
@@ -992,26 +949,42 @@ package
 						
 						// TODO:
 						// Show final party composition
+						
+						background.loadGraphic(Assets.playerSelectBackground);
+						
+						char4HP.text 	  = "";
+						char4other1.text  = "";
+						char4pAttack.text = "";
+						char4sAttack.text = "";
+						char4pDef.text    = "";
+						char4sDef.text    = "";
+						char4speed.text   = "";
+						
+						char3HP.text 	  = "";
+						char3other1.text  = "";
+						char3pAttack.text = "";
+						char3sAttack.text = "";
+						char3pDef.text    = "";
+						char3sDef.text    = "";
+						char3speed.text   = "";
+						
+						char2HP.text 	  = "";
+						char2other1.text  = "";
+						char2pAttack.text = "";
+						char2sAttack.text = "";
+						char2pDef.text    = "";
+						char2sDef.text    = "";
+						char2speed.text   = "";
+						
+						char1HP.text 	  = "";
+						char1other1.text  = "";
+						char1pAttack.text = "";
+						char1sAttack.text = "";
+						char1pDef.text    = "";
+						char1sDef.text    = "";
+						char1speed.text   = "";
 					}
-					switch (selector) 
-					{
-						case 1:
-							arrowSprite.x = char1.x;
-							arrowSprite.y = char1.y - 100;
-						break;
-						case 2:
-							arrowSprite.x = char2.x;
-							arrowSprite.y = char2.y - 100;
-						break;
-						case 3:
-							arrowSprite.x = char3.x;
-							arrowSprite.y = char3.y - 100;
-							break;
-						case 4:
-							arrowSprite.x = char4.x;
-							arrowSprite.y = char4.y - 100;
-						break;						
-					}					
+					updateSelector(selector);				
 					break;					
 					
 				case 400:

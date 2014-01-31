@@ -14,7 +14,6 @@ package
 		public var playerSpecialPoints:int = 100;
 		public var playerMaxSpecialPoints:int = 100;
 		
-		
 		public var playerAttackPower:int = 10;
 		public var playerSpecialAttack:int = 10;
 		public var playerPhysicalDefense:int = 10;
@@ -108,7 +107,7 @@ package
 			playerSpecialDefense = 40;
 			baseSpeed = 20;
 			
-			smallFace = Assets.mageSpriteFemale;
+			smallFace = Assets.mageHeadFemale;
 			bigCharacter = Assets.mageSpriteFemale;
 			sideViewCharater = Assets.mageSide;
 			
@@ -132,7 +131,7 @@ package
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 			
-			smallFace = Assets.warriorSpriteMale;
+			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
 		}
@@ -154,7 +153,7 @@ package
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 			
-			smallFace = Assets.archerSpriteMale;
+			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;
 		}
@@ -176,7 +175,7 @@ package
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 			
-			smallFace = Assets.warriorSpriteMale;
+			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
 		}
@@ -198,7 +197,7 @@ package
 			baseSpeed = 20;
 			playerSkill1.MagicMissile();
 			
-			smallFace = Assets.mageSide;
+			smallFace = Assets.mageHeadMale;
 			bigCharacter = Assets.mageSpriteMale;
 			sideViewCharater = Assets.mageSide;
 		}
@@ -220,7 +219,7 @@ package
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 			
-			smallFace = Assets.archerSpriteMale;
+			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;
 		}
@@ -242,7 +241,7 @@ package
 			baseSpeed = 50;
 			playerSkill1.Swipe();
 			
-			smallFace = Assets.warriorSpriteMale;
+			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
 		}
@@ -264,7 +263,7 @@ package
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 			
-			smallFace = Assets.archerSpriteMale;
+			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;			
 		}
@@ -286,7 +285,7 @@ package
 			baseSpeed = 80;
 			playerSkill1.FireArrow();
 			
-			smallFace = Assets.archerSpriteMale;
+			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;			
 		}
