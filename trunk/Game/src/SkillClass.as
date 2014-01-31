@@ -40,45 +40,45 @@ package
 		public function changeSkillTo(skillName:String):void
 		{
 			if (skillName == "Swipe")
-				Swipe();
+				aSwipe();
 			if (skillName == "Magic Missile")
-				MagicMissile();
+				aMagicMissile();
 			if (skillName == "Blizzard")
-				Blizzard();
+				aBlizzard();
 			if (skillName == "Fire Arrow")
-				FireArrow();				
+				aFireArrow();				
 			if (skillName == "Star Frost")
-				StarFrost();
+				aStarFrost();
 			if (skillName == "Crystallic Shield")
-				CrystallicShield();
+				aCrystallicShield();
 			if (skillName == "Frost Dispel")
-				FrostDispel();
+				aFrostDispel();
 			if (skillName == "Torrent Slash")
-				TorrentSlash();
+				aTorrentSlash();
 			if (skillName == "Piercing Flames")
-				PiercingFlames();
+				aPiercingFlames();
 			if (skillName == "Hellfire")
-				HellFire();
+				aHellFire();
 			if (skillName == "LavaClaws")
-				LavaClaws();
+				aLavaClaws();
 			if (skillName == "Roaring Flare")
-				RoaringFlare();
+				aRoaringFlare();
 			if (skillName == "Fireball")
-				Fireball();
+				aFireball();
 			if (skillName == "Whirlwind Gale")
-				WhirlwindGale();
+				aWhirlwindGale();
 			if (skillName == "Feather Dance")
-				FeatherDance();
+				aFeatherDance();
 			if (skillName == "Shooting Star")
-				ShootingStar();
+				aShootingStar();
 			if (skillName == "Healing Winds")
-				HealingWinds();
+				aHealingWinds();
 			if (skillName == "Sacred Wish")
-				SacredWish();
+				aSacredWish();
 			trace("SkillName: ", skillName);
 		}
 		
-		public function Swipe():void  // Warriors' Basic Attack
+		public function aSwipe():void  // Warriors' Basic Attack
 		{
 			name = "Swipe";
 			power = 15;
@@ -91,7 +91,7 @@ package
 			variance = 0.2;
 		}
 		
-		public function MagicMissile():void  // Mage' Basic Attack
+		public function aMagicMissile():void  // Mage' Basic Attack
 		{
 			name = "Magic Missile";
 			power = 15;
@@ -104,7 +104,7 @@ package
 			variance = 0.2;
 		}
 		
-		public function FireArrow():void  // Archer' Basic Attack
+		public function aFireArrow():void  // Archer' Basic Attack
 		{
 			name = "Fire Arrow";
 			power = 15;
@@ -117,7 +117,7 @@ package
 			variance = 0.2;
 		}		
 		
-		public function Blizzard():void
+		public function aBlizzard():void
 		{
 			name = "Blizzard";
 			power = 70;
@@ -130,7 +130,7 @@ package
 			skillIcon  = Assets.skillIconBlizzard;
 		}
 		
-		public function StarFrost():void
+		public function aStarFrost():void
 		{
 			name = "Star Frost";
 			power = 15;
@@ -144,7 +144,7 @@ package
 			
 			skillIcon  = Assets.skillIconBlizzard;
 		}
-		public function CrystallicShield():void
+		public function aCrystallicShield():void
 		{
 			name = "Crystallic Shield";
 			power = 15;
@@ -158,7 +158,7 @@ package
 			
 			skillIcon  = Assets.skillIconCrystallicShield;
 		}
-		public function FrostDispel():void
+		public function aFrostDispel():void
 		{
 			name = "Frost Dispel";
 			power = 15;
@@ -172,7 +172,7 @@ package
 			
 			skillIcon  = Assets.skillIconFrostDispel;
 		}
-		public function TorrentSlash():void
+		public function aTorrentSlash():void
 		{
 			name = "Torrent Slash";
 			power = 15;
@@ -186,7 +186,7 @@ package
 			
 			skillIcon  = Assets.skillIconTorrentSlash;
 		}
-		public function PiercingFlames():void
+		public function aPiercingFlames():void
 		{
 			name = "Piercing Flames";
 			power = 15;
@@ -200,7 +200,7 @@ package
 			
 			skillIcon  = Assets.skillIconPiercingFlames;
 		}
-		public function HellFire():void
+		public function aHellFire():void
 		{
 			name = "Hell Fire";
 			power = 15;
@@ -214,7 +214,7 @@ package
 			
 			skillIcon  = Assets.skillIconHellFire;
 		}
-		public function LavaClaws():void
+		public function aLavaClaws():void
 		{
 			name = "Lava Claws";
 			power = 15;
@@ -227,7 +227,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconLavaStrike;
 		}
-		public function RoaringFlare():void
+		public function aRoaringFlare():void
 		{
 			name = "Roaring Flare";
 			power = 15;
@@ -240,7 +240,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconRoaringFlare;
 		}
-		public function Fireball():void
+		public function aFireball():void
 		{
 			name = "Fire ball";
 			power = 15;
@@ -253,7 +253,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconFireBall;
 		}
-		public function WhirlwindGale():void
+		public function aWhirlwindGale():void
 		{
 			name = "Whirlwind Gale";
 			power = 15;
@@ -266,7 +266,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconWhirlwindGale;
 		}
-		public function FeatherDance():void
+		public function aFeatherDance():void
 		{
 			name = "Feather Dance";
 			power = 15;
@@ -279,7 +279,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconFeatherDance;
 		}
-		public function ShootingStar():void
+		public function aShootingStar():void
 		{			
 			name = "Shooting Star";
 			power = 15;
@@ -292,7 +292,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconShootingStar;
 		}
-		public function HealingWinds():void
+		public function aHealingWinds():void
 		{
 			name = "Healing Winds";
 			power = 15;
@@ -305,7 +305,7 @@ package
 			variance = 0.2;
 			skillIcon  = Assets.skillIconHealingWinds;
 		}
-		public function SacredWish():void
+		public function aSacredWish():void
 		{
 			name = "Sacred Wish";
 			power = 15;

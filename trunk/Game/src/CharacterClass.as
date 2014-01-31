@@ -111,7 +111,7 @@ package
 			bigCharacter = Assets.mageSpriteFemale;
 			sideViewCharater = Assets.mageSide;
 			
-			playerSkill1.MagicMissile();
+			playerSkill1.aMagicMissile();
 		}
 		
 		public function Anton():void
@@ -129,7 +129,7 @@ package
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 50;
-			playerSkill1.Swipe();
+			playerSkill1.aSwipe();
 			
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
@@ -151,7 +151,7 @@ package
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
-			playerSkill1.FireArrow();
+			playerSkill1.aFireArrow();
 			
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
@@ -173,7 +173,7 @@ package
 			playerPhysicalDefense = 35;
 			playerSpecialDefense = 25;
 			baseSpeed = 50;
-			playerSkill1.Swipe();
+			playerSkill1.aSwipe();
 			
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
@@ -195,7 +195,7 @@ package
 			playerPhysicalDefense = 15;
 			playerSpecialDefense = 25;
 			baseSpeed = 20;
-			playerSkill1.MagicMissile();
+			playerSkill1.aMagicMissile();
 			
 			smallFace = Assets.mageHeadMale;
 			bigCharacter = Assets.mageSpriteMale;
@@ -217,7 +217,7 @@ package
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
-			playerSkill1.FireArrow();
+			playerSkill1.aFireArrow();
 			
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
@@ -239,7 +239,7 @@ package
 			playerPhysicalDefense = 10;
 			playerSpecialDefense = 20;
 			baseSpeed = 50;
-			playerSkill1.Swipe();
+			playerSkill1.aSwipe();
 			
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
@@ -261,7 +261,7 @@ package
 			playerPhysicalDefense = 10;
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
-			playerSkill1.FireArrow();
+			playerSkill1.aFireArrow();
 			
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
@@ -283,7 +283,7 @@ package
 			playerPhysicalDefense = 5;
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
-			playerSkill1.FireArrow();
+			playerSkill1.aFireArrow();
 			
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
