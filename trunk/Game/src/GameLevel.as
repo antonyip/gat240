@@ -657,12 +657,71 @@ package
 				trace(object.skillName);
 				switch (object.skillName)
 				{
+					case "Swipe":
+					case "Magic Missile":
+					case "Fire Arrow":
+						break;
 					case "Blizzard":
-					myMovieClip = new Blizzard();
-					myMovieClip.x = 200;
-					myMovieClip.y = 150;
+						myMovieClip = new Blizzard();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
 					FlxG.stage.addChild(myMovieClip);
 					break;
+					case "Star Frost":
+						myMovieClip = new StarFrost();
+						break;
+					case  "Crystallic Shield":
+						myMovieClip = new CrystallicShield();
+						break;
+					case "Frost Dispel":
+						myMovieClip = new FrostDispel();
+						break;
+					case "Torrent Slash":
+						myMovieClip = new TorrentSlash();
+						break;
+					case "Piercing Flames":
+						myMovieClip = new PiercingFlames();
+						break;
+					case "Hellfire":
+						myMovieClip = new HellFire();
+						break;
+					case "Lava Claws":
+						myMovieClip = new LavaStrike();
+						break;
+					case "Roaring Flare":
+						myMovieClip = new RoaringFlare();
+						break;
+					case "Fireball":
+						myMovieClip = new Fireball();
+						break;
+					case "Whirlwind Gale":
+						myMovieClip = new WhirlwindGale();
+						break;
+					case "Feather Dance":
+						myMovieClip = new FeatherDance();
+						break;
+					case "Shooting Star":
+						myMovieClip = new ShootingStar();
+						break;
+					case "Healing Winds":
+						myMovieClip = new HealingWinds();
+						break;
+					case "Sacred Wish":
+						myMovieClip = new SacredWish();
+						break;
+					default:
+						trace("ERROR! - Skill not found - ",object.skillName);
+						break;
+						
+					/*
+				}
+	   public static var listOfSkills:Array = new Array("Swipe", "Magic Missile","Fire Arrow" ,"Blizzard",
+														"Star Frost", "Crystallic Shield", "Frost Dispel",
+														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
+														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
+														 "Shooting Star", "Healing Winds", "Sacred Wish");
+														 
+					 */
 				}
 				//myMovieClip = new CrystallicShield();
 				//myMovieClip.x = 200;
