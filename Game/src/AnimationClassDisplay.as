@@ -30,7 +30,7 @@ package
 			if (type == CASTER_ON_TARGET_WITH_SKILL)
 				topText = caster + " used " + skillName_ + " on " + target + ".";
 			if (type == ANIMATION)
-				topText = "Handle Skill being casted";
+				topText = "AntonCode";
 			if (type == CASTER_DAMAGE)
 				topText = caster + " dealt " + others + " damage.";
 			if (type == NO_DAMAGE)
