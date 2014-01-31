@@ -26,7 +26,8 @@ package
 		public var skillIcon:Class = Assets.testImage1;
 		public var skillEffect:MovieClip;
 		
-		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile","Fire Arrow" ,"Blizzard",
+		public static var listOfSkills:Array = new Array( //"Swipe", "Magic Missile", "Fire Arrow" ,
+														 "Blizzard",
 														 "Star Frost", "Crystallic Shield", "Frost Dispel",
 														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
 														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
@@ -89,6 +90,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon = Assets.archerHead;
 		}
 		
 		public function aMagicMissile():void  // Mage' Basic Attack
@@ -102,6 +105,8 @@ package
 			isMagical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon = Assets.mageHeadFemale;
 		}
 		
 		public function aFireArrow():void  // Archer' Basic Attack
@@ -115,6 +120,8 @@ package
 			isMagical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon = Assets.warriorHead;
 		}		
 		
 		public function aBlizzard():void

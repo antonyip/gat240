@@ -2,6 +2,8 @@ package
 {
 	import org.flixel.*;
 	import flash.events.Event;
+	import org.flixel.plugin.funstorm.FlxMovieClip;
+	
 	/**
 	 * ...
 	 * @author Anton Yip
@@ -11,7 +13,6 @@ package
 		public var startGame:FlxButton = new org.flixel.FlxButton(400, 300, "Start Game", startGameFn);
 		public var howToPlay:FlxButton = new org.flixel.FlxButton(400, 400, "How To Play", howToPlayFn);
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
-		
 		public var selector:int = 0;
 		// do once when come into game
 		public override function create():void
@@ -21,6 +22,7 @@ package
 			add(arrowSprite);
 			if (FlxG.stage)
 				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
+				
 		}
 		public override function update():void
 		{
