@@ -13,7 +13,7 @@ package
 	{
 		public function Main()
 		{
-			super(800, 600, MainMenu , 1, 60, 60, true);
+			super(800, 600, MainMenu , 1, 60, 24, true);
 			Globals.GlobalsInit();
 		}		
 	}

@@ -1,5 +1,6 @@
 package  
 {
+	import flash.display.MovieClip;
 	import org.flixel.*;
 	
 	/**
@@ -88,6 +89,8 @@ package
 		
 		private var selector:int = 0;
 		private var spacePressed:Boolean = false;
+		
+		private var myMovieClip:MovieClip;
 
 		// do once when come into game
 		public override function create():void
@@ -549,9 +552,20 @@ package
 						}
 					}
 					
-					if (animationDoOnce)
+					if (animationDoOnce) // animation happens here
 					{
+						
 						topBarText.text = animationThisTurn[animationStatus].topText;
+						if (topBarText.text == "AntonCode") // stupid hardcode way of knowing that its time to play an animation
+						{
+							topBarText.text	= "";
+							if (myMovieClip)
+								FlxG.stage.removeChild(myMovieClip);
+							myMovieClip = new CrystallicShield();
+							myMovieClip.x = 200;
+							myMovieClip.y = 400;
+							FlxG.stage.addChild(myMovieClip);
+						}
 						animationDoOnce = false;
 					}
 
