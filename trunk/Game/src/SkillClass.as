@@ -1,5 +1,6 @@
 package  
 {
+	import flash.display.MovieClip;
 	/**
 	 * ...
 	 * @author Anton
@@ -20,8 +21,12 @@ package
 		public var hasDot:Boolean = false;
 		public var hasFreeze:Boolean = false;
 		public var variance:Number = 0; // percentage based 0 is no variance , 1 is +- 100%
+		public var description:String = "unwritten!";
 		
-		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile", "Fire Arrow", "Blizzard",
+		public var skillIcon:Class = Assets.testImage1;
+		public var skillEffect:MovieClip;
+		
+		public static var listOfSkills:Array = new Array("Swipe", "Magic Missile","Fire Arrow" ,"Blizzard",
 														 "Star Frost", "Crystallic Shield", "Frost Dispel",
 														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
 														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
@@ -121,6 +126,8 @@ package
 			hasTarget = false;
 			isAoe = true;
 			isMagical = true;
+			
+			skillIcon  = Assets.skillIconBlizzard;
 		}
 		
 		public function StarFrost():void
@@ -134,6 +141,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconBlizzard;
 		}
 		public function CrystallicShield():void
 		{
@@ -146,6 +155,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconCrystallicShield;
 		}
 		public function FrostDispel():void
 		{
@@ -158,6 +169,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconFrostDispel;
 		}
 		public function TorrentSlash():void
 		{
@@ -170,6 +183,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconTorrentSlash;
 		}
 		public function PiercingFlames():void
 		{
@@ -182,6 +197,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconPiercingFlames;
 		}
 		public function HellFire():void
 		{
@@ -194,6 +211,8 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			
+			skillIcon  = Assets.skillIconHellFire;
 		}
 		public function LavaClaws():void
 		{
@@ -206,6 +225,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconLavaStrike;
 		}
 		public function RoaringFlare():void
 		{
@@ -218,6 +238,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconRoaringFlare;
 		}
 		public function Fireball():void
 		{
@@ -230,6 +251,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconFireBall;
 		}
 		public function WhirlwindGale():void
 		{
@@ -242,6 +264,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconWhirlwindGale;
 		}
 		public function FeatherDance():void
 		{
@@ -254,6 +277,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconFeatherDance;
 		}
 		public function ShootingStar():void
 		{			
@@ -266,6 +290,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconShootingStar;
 		}
 		public function HealingWinds():void
 		{
@@ -278,6 +303,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconHealingWinds;
 		}
 		public function SacredWish():void
 		{
@@ -290,6 +316,7 @@ package
 			isPhysical = true;
 			hasTarget = true;
 			variance = 0.2;
+			skillIcon  = Assets.skillIconSacredWish;
 		}
 	}
 

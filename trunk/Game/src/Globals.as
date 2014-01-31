@@ -59,6 +59,13 @@ package
 			return e1;
 		}
 		
+		public static function getSkillFromString(skillName:String):SkillClass
+		{
+			var tempSkill:SkillClass = new SkillClass();
+			tempSkill.changeSkillTo(skillName);
+			return tempSkill;
+		}
+		
 		public static function checkElementalDifference(attackerName:String, defenderName:String):Number
 		{
 			return 1;

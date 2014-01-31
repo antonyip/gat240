@@ -14,13 +14,16 @@ package
 		private var guiSprite:FlxSprite = new FlxSprite(0, 500, Assets.testImage3);
 		private var background:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelBackground);
 		// GUI Sprites
-		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
-		private var guiText1:FlxText = new FlxText(100, 450, 120, "");
-		private var guiText2:FlxText = new FlxText(100, 480, 120, "");
-		private var guiText3:FlxText = new FlxText(100, 510, 120, "");
-		private var guiText4:FlxText = new FlxText(100, 540, 120, "");
-		private var guiText5:FlxText = new FlxText(100, 420, 120, "");
+		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelSkillSelectArrows);
+		private var guiText1:FlxText = new FlxText(400, 250, 120, "");
+		private var guiText2:FlxText = new FlxText(400, 280, 120, "");
+		private var guiText3:FlxText = new FlxText(400, 310, 120, "");
+		private var guiText4:FlxText = new FlxText(400, 340, 120, "");
+		private var guiText5:FlxText = new FlxText(-400, 420, 120, "");
 		private var topBarText:FlxText = new FlxText(200, 100, 600, "I tell you what happens here");
+		
+		private var topBarImage:FlxSprite = new FlxSprite(200, 50, Assets.gameLevelTopBorder);
+		private var skillSelectImage:FlxSprite = new FlxSprite(400, 200, Assets.gameLevelSkillSelect);
 		
 		// Game Calculations
 		private var p1:CharacterClass = Globals.p1; // player 1
@@ -37,9 +40,9 @@ package
 		private var enemySprite2:FlxSprite = new FlxSprite(600, 200, e2.sideViewCharater);
 		private var enemySprite3:FlxSprite = new FlxSprite(550, 300, e3.sideViewCharater);
 		
-		private var playerFaceSprite1:FlxSprite = new FlxSprite(50,  500, p1.smallFace);
-		private var playerFaceSprite2:FlxSprite = new FlxSprite(250, 500, p2.smallFace);
-		private var playerFaceSprite3:FlxSprite = new FlxSprite(450, 500, p3.smallFace);
+		private var playerFaceSprite1:FlxSprite = new FlxSprite(50,  450, p1.smallFace);
+		private var playerFaceSprite2:FlxSprite = new FlxSprite(250, 450, p2.smallFace);
+		private var playerFaceSprite3:FlxSprite = new FlxSprite(450, 450, p3.smallFace);
 		
 		// gui text for hp and stam
 		private var p1hp:FlxText = new FlxText(200, 450, 120, "");
@@ -92,6 +95,7 @@ package
 			//add(test);
 			//add(guiSprite);
 			add(background);
+			add(skillSelectImage);
 			add(playerSprite1);
 			add(playerSprite2);
 			add(playerSprite3);
@@ -107,7 +111,8 @@ package
 			add(guiText3);
 			add(guiText4);
 			add(guiText5);
-			add(topBarText);
+			topBarText.alignment = "center";
+			
 			
 			add(p1hp);
 			add(p2hp);
@@ -140,9 +145,13 @@ package
 			add(playerFaceSprite2);
 			add(playerFaceSprite3);
 			
-			FlxG.stage.addChild(crystallicShield);
-			crystallicShield.x = 400;
-			crystallicShield.y = 300
+			add(topBarImage);
+			
+			add(topBarText);
+			
+			//FlxG.stage.addChild(crystallicShield);
+			//crystallicShield.x = 400;
+			//crystallicShield.y = 300
 			// HACKS
 			
 		} // create close bracket
