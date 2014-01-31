@@ -59,7 +59,7 @@ package
 				aPiercingFlames();
 			if (skillName == "Hellfire")
 				aHellFire();
-			if (skillName == "LavaClaws")
+			if (skillName == "Lava Claws")
 				aLavaClaws();
 			if (skillName == "Roaring Flare")
 				aRoaringFlare();
@@ -75,7 +75,7 @@ package
 				aHealingWinds();
 			if (skillName == "Sacred Wish")
 				aSacredWish();
-			trace("SkillName: ", skillName);
+			//trace("SkillName: ", skillName);
 		}
 		
 		public function aSwipe():void  // Warriors' Basic Attack

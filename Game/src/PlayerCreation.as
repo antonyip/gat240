@@ -81,7 +81,7 @@ package
 		private var p3text3:FlxText = new FlxText(610, 550, 600, "");
 		private var p3text4:FlxText = new FlxText(610, 571, 600, "");
 		
-		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.playerSelectArrows);
+		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.playerSelectCharacterArrows);
 		private var turn:int = 0;
 		private var selector:int = 1;
 		
@@ -799,6 +799,7 @@ package
 						
 						trace("First Char Skill 1");
 						background.loadGraphic(Assets.playerSelectBackground2);
+						arrowSprite.loadGraphic(Assets.playerSelectSkillArrows);
 						turn = 110;
 						char1.x = 50;
 						char2.x = 250;
