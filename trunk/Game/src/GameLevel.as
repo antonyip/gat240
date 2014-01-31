@@ -3,7 +3,6 @@ package
 	import flash.display.MovieClip;
 	import org.flixel.*;
 	import org.flixel.plugin.funstorm.FlxMovieClip;
-	import Blizzard;
 	
 	/**
 	 * ...
@@ -70,9 +69,6 @@ package
 		
 		private var animationStatus:int = 0;
 		
-		// Skill Animation
-		//private var crystallicShield:CrystallicShield = new CrystallicShield();
-		
 		// storage for skills used as well as structure and target
 		private var skillsUsedThisTurn:Array = new Array();
 		private var animationThisTurn:Vector.<AnimationClassDisplay> = new Vector.<AnimationClassDisplay>;
@@ -81,13 +77,6 @@ package
 		private var turn:int = 0;
 		private var animationDoOnce:Boolean = true;
 		// using big numbers just incase we need to insert special effects
-		// turn 0 start of game
-		// turn 100 player 1 turn
-		// turn 200 player 2 turn
-		// turn 300 player 3 turn
-		// turn 400 enemy 1 turn
-		// turn 500 enemy 2 turn
-		// turn 600 enemy 3 turn
 		
 		private var selector:int = 0;
 		private var spacePressed:Boolean = false;
@@ -867,19 +856,7 @@ package
 						trace("ERROR! - Skill not found - ",object.skillName);
 						break;
 						
-					/*
 				}
-	   public static var listOfSkills:Array = new Array("Swipe", "Magic Missile","Fire Arrow" ,"Blizzard",
-														"Star Frost", "Crystallic Shield", "Frost Dispel",
-														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
-														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
-														 "Shooting Star", "Healing Winds", "Sacred Wish");
-														 
-					 */
-				}
-				//myMovieClip = new CrystallicShield();
-				//myMovieClip.x = 200;
-				//myMovieClip.y = 400;
 				
 			}
 	}
