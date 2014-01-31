@@ -1,7 +1,7 @@
 package  
 {
 	import org.flixel.*;
-	
+	import flash.events.Event;
 	/**
 	 * ...
 	 * @author Anton Yip
@@ -19,6 +19,8 @@ package
 			add(startGame);
 			add(howToPlay);
 			add(arrowSprite);
+			if (FlxG.stage)
+				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 		}
 		public override function update():void
 		{
@@ -32,6 +34,10 @@ package
 			{
 				if (selector < 1)
 					selector++;
+			}
+			if (FlxG.keys.justPressed("K"))
+			{
+				Globals.toggle_fullscreen(new Event(Event.RESIZE));
 			}
 			if (FlxG.keys.justReleased("SPACE"))
 			{
