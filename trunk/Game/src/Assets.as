@@ -28,8 +28,11 @@ package
 		[Embed(source="../art/Skill_Select_Screen/Skill_Select_Screen.png")]
 		public static var playerSelectBackground2:Class;
 		
+		[Embed(source = "../art/Character_Select_Screen/Character_Select_Screen_Arrows.png")]
+		public static var playerSelectCharacterArrows:Class;
+		
 		[Embed(source="../art/Skill_Select_Screen/Skill_Select_Screen_Arrows.png")]
-		public static var playerSelectArrows:Class;
+		public static var playerSelectSkillArrows:Class;
 		
 		[Embed(source="../art/Skill_Select_Screen/Skill_Icons/Blizzard.png")]
 		public static var skillIconBlizzard:Class;

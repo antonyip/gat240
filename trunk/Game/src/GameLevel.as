@@ -24,7 +24,7 @@ package
 		private var topBarText:FlxText = new FlxText(200, 100, 600, "I tell you what happens here");
 		
 		private var topBarImage:FlxSprite = new FlxSprite(200, 50, Assets.gameLevelTopBorder);
-		private var skillSelectImage:FlxSprite = new FlxSprite(400, 200, Assets.gameLevelSkillSelect);
+		private var skillSelectImage:FlxSprite = new FlxSprite(300, 200, Assets.gameLevelSkillSelect);
 		
 		// Game Calculations
 		private var p1:CharacterClass = Globals.p1; // player 1
@@ -665,49 +665,91 @@ package
 						myMovieClip = new Blizzard();
 						myMovieClip.x = 200;
 						myMovieClip.y = 150;
-					FlxG.stage.addChild(myMovieClip);
+						FlxG.stage.addChild(myMovieClip);
 					break;
 					case "Star Frost":
 						myMovieClip = new StarFrost();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case  "Crystallic Shield":
 						myMovieClip = new CrystallicShield();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Frost Dispel":
 						myMovieClip = new FrostDispel();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Torrent Slash":
 						myMovieClip = new TorrentSlash();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Piercing Flames":
 						myMovieClip = new PiercingFlames();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);
 						break;
 					case "Hellfire":
 						myMovieClip = new HellFire();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Lava Claws":
 						myMovieClip = new LavaStrike();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Roaring Flare":
 						myMovieClip = new RoaringFlare();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Fireball":
 						myMovieClip = new Fireball();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Whirlwind Gale":
 						myMovieClip = new WhirlwindGale();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Feather Dance":
 						myMovieClip = new FeatherDance();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Shooting Star":
 						myMovieClip = new ShootingStar();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Healing Winds":
 						myMovieClip = new HealingWinds();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					case "Sacred Wish":
 						myMovieClip = new SacredWish();
+						myMovieClip.x = 200;
+						myMovieClip.y = 150;
+						FlxG.stage.addChild(myMovieClip);						
 						break;
 					default:
 						trace("ERROR! - Skill not found - ",object.skillName);
