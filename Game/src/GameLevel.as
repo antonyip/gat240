@@ -2,6 +2,8 @@ package
 {
 	import flash.display.MovieClip;
 	import org.flixel.*;
+	import org.flixel.plugin.funstorm.FlxMovieClip;
+	import Blizzard;
 	
 	/**
 	 * ...
@@ -90,7 +92,7 @@ package
 		private var selector:int = 0;
 		private var spacePressed:Boolean = false;
 		
-		private var myMovieClip:MovieClip;
+		private var myMovieClip:FlxMovieClip;
 
 		// do once when come into game
 		public override function create():void
@@ -158,6 +160,7 @@ package
 			// HACKS
 			
 			p1.playerSkill1.aBlizzard();
+			p1.playerSkill2.aStarFrost();
 		} // create close bracket
 		
 		// called everyframe
@@ -651,105 +654,214 @@ package
 			public function handleSkillAnimation(object:AnimationClassDisplay):void 
 			{
 				if (myMovieClip)
+				{
+					remove(myMovieClip);
 					myMovieClip = null;
-					//FlxG.stage.removeChild(myMovieClip);
+				}
 					
 				trace(object.skillName);
+				var tmp:*
 				switch (object.skillName)
 				{
 					case "Swipe":
+						tmp = new Swipe;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
+						break;
 					case "Magic Missile":
+						tmp = new MagicMissle;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
+						break;
 					case "Fire Arrow":
+						tmp = new ArrowShot;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
 						break;
 					case "Blizzard":
-						myMovieClip = new Blizzard();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);
+						tmp = new Blizzard;
+						myMovieClip = new FlxMovieClip(200, 150);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
 					break;
+					
 					case "Star Frost":
-						myMovieClip = new StarFrost();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
-						break;
+						tmp = new StarFrost;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
+					break;
+					
 					case  "Crystallic Shield":
-						myMovieClip = new CrystallicShield();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new CrystallicShield;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					case "Frost Dispel":
-						myMovieClip = new FrostDispel();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new FrostDispel;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);					
 						break;
 					case "Torrent Slash":
-						myMovieClip = new TorrentSlash();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new TorrentSlash;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					case "Piercing Flames":
-						myMovieClip = new PiercingFlames();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);
+						tmp = new PiercingFlames;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);
 						break;
 					case "Hellfire":
-						myMovieClip = new HellFire();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new HellFire;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					case "Lava Claws":
-						myMovieClip = new LavaStrike();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new LavaStrike;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					case "Roaring Flare":
-						myMovieClip = new RoaringFlare();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new RoaringFlare;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);					
 						break;
 					case "Fireball":
-						myMovieClip = new Fireball();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new Fireball;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);				
 						break;
 					case "Whirlwind Gale":
-						myMovieClip = new WhirlwindGale();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new WhirlwindGale;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);				
 						break;
 					case "Feather Dance":
-						myMovieClip = new FeatherDance();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new FeatherDance;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);			
 						break;
 					case "Shooting Star":
-						myMovieClip = new ShootingStar();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new ShootingStar;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);					
 						break;
 					case "Healing Winds":
-						myMovieClip = new HealingWinds();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new HealingWinds;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					case "Sacred Wish":
-						myMovieClip = new SacredWish();
-						myMovieClip.x = 200;
-						myMovieClip.y = 150;
-						FlxG.stage.addChild(myMovieClip);						
+						tmp = new SacredWish;
+						myMovieClip = new FlxMovieClip(400,300);
+						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
+						if (object.caster.charAt(0) == "e")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 400;
+						}
+						add(myMovieClip);						
 						break;
 					default:
 						trace("ERROR! - Skill not found - ",object.skillName);
