@@ -14,6 +14,7 @@ package
 		public var animation:String;
 		
 		public static var CASTER_ON_TARGET_WITH_SKILL:String = "CasterOnTargetWithSkill";
+		public static var AOE_SKILL:String = "AoeSkill";
 		public static var ANIMATION:String = "Animation";
 		public static var CASTER_DAMAGE:String = "CasterDamage";
 		public static var NO_DAMAGE:String = "NoDamage";

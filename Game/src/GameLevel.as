@@ -69,7 +69,7 @@ package
 		private var animationStatus:int = 0;
 		
 		// Skill Animation
-		private var crystallicShield:CrystallicShield = new CrystallicShield();
+		//private var crystallicShield:CrystallicShield = new CrystallicShield();
 		
 		// storage for skills used as well as structure and target
 		private var skillsUsedThisTurn:Array = new Array();
@@ -157,6 +157,7 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
+			p1.playerSkill1.aBlizzard();
 		} // create close bracket
 		
 		// called everyframe
@@ -492,8 +493,8 @@ package
 						if (skillsUsedThisTurn[j].damage < 0)
 							skillsUsedThisTurn[j].damage = 0;
 						
-						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, "", skillsUsedThisTurn[j].thisSkill.name));
-						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, null, skillsUsedThisTurn[j].thisSkill.name));
+						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
 						if (skillsUsedThisTurn[j].damage)
 							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
 						else
@@ -559,12 +560,7 @@ package
 						if (topBarText.text == "AntonCode") // stupid hardcode way of knowing that its time to play an animation
 						{
 							topBarText.text	= "";
-							if (myMovieClip)
-								FlxG.stage.removeChild(myMovieClip);
-							myMovieClip = new CrystallicShield();
-							myMovieClip.x = 200;
-							myMovieClip.y = 400;
-							FlxG.stage.addChild(myMovieClip);
+							handleSkillAnimation(animationThisTurn[animationStatus]);
 						}
 						animationDoOnce = false;
 					}
@@ -652,6 +648,27 @@ package
 		} // updateloop close bracket
 		
 		// additional functions goes here
+			public function handleSkillAnimation(object:AnimationClassDisplay):void 
+			{
+				if (myMovieClip)
+					myMovieClip = null;
+					//FlxG.stage.removeChild(myMovieClip);
+					
+				trace(object.skillName);
+				switch (object.skillName)
+				{
+					case "Blizzard":
+					myMovieClip = new Blizzard();
+					myMovieClip.x = 200;
+					myMovieClip.y = 150;
+					FlxG.stage.addChild(myMovieClip);
+					break;
+				}
+				//myMovieClip = new CrystallicShield();
+				//myMovieClip.x = 200;
+				//myMovieClip.y = 400;
+				
+			}
 	}
 
 }
