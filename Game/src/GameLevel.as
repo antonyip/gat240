@@ -93,9 +93,11 @@ package
 			add(playerSprite1);
 			add(playerSprite2);
 			add(playerSprite3);
+
 			enemySprite1.scale.x = -enemySprite1.scale.x;
 			enemySprite2.scale.x = -enemySprite2.scale.x;
 			enemySprite3.scale.x = -enemySprite3.scale.x;
+			
 			add(enemySprite1);
 			add(enemySprite2);
 			add(enemySprite3);
@@ -170,6 +172,7 @@ package
 					guiText3.text = p1.playerSkill3.name;
 					guiText4.text = p1.playerSkill4.name;
 					guiText5.text = "Player 1 Turn";
+					topBarText.text = "Character 1's turn";
 					
 					if (p1.checkDead())
 					{
@@ -231,6 +234,7 @@ package
 					guiText3.text = p2.playerSkill3.name;
 					guiText4.text = p2.playerSkill4.name;
 					guiText5.text = "Player 2 Turn";
+					topBarText.text = "Character 2's turn";
 					
 					if (p2.checkDead())
 					{
@@ -293,6 +297,7 @@ package
 					guiText3.text = p3.playerSkill3.name;
 					guiText4.text = p3.playerSkill4.name;
 					guiText5.text = "Player 3 Turn";
+					topBarText.text = "Character 3's turn";
 					
 					if (p3.checkDead())
 					{
@@ -492,6 +497,38 @@ package
 							continue;
 						}
 						
+						// Dead characaters should not be able to take skills
+						if (skillsUsedThisTurn[j].target == "p1" && p1.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].target == "p2" && p2.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].target == "p3" && p3.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].target == "e1" && e1.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].target == "e2" && e2.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						if (skillsUsedThisTurn[j].target == "e3" && e3.checkDead())
+						{
+							skillsUsedThisTurn[j].destroyed = true;
+							continue;
+						}
+						
 						var tmpSkill:SkillClass = skillsUsedThisTurn[j].thisSkill;
 						var baseDamage:int 	= tmpSkill.power 
 											+ tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
@@ -518,37 +555,37 @@ package
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
 							p1.playerHP -= skillsUsedThisTurn[j].damage;
-							if (p1.playerHP < 0)
+							if (p1.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p1.name, "p1"));
 						}
 						if (skillsUsedThisTurn[j].target == "p2")
 						{
 							p2.playerHP -= skillsUsedThisTurn[j].damage;
-							if (p2.playerHP < 0)
+							if (p2.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p2.name, "p2"));							
 						}
 						if (skillsUsedThisTurn[j].target == "p3")
 						{
 							p3.playerHP -= skillsUsedThisTurn[j].damage;
-							if (p3.playerHP < 0)
+							if (p3.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p3.name, "p3"));	
 						}
 						if (skillsUsedThisTurn[j].target == "e1")
 						{
 							e1.playerHP -= skillsUsedThisTurn[j].damage;
-							if (e1.playerHP < 0)
+							if (e1.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e1.name, "e1"));
 						}
 						if (skillsUsedThisTurn[j].target == "e2")
 						{
 							e2.playerHP -= skillsUsedThisTurn[j].damage;
-							if (e2.playerHP < 0)
+							if (e2.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e2.name, "e2"));							
 						}
 						if (skillsUsedThisTurn[j].target == "e3")
 						{
 							e3.playerHP -= skillsUsedThisTurn[j].damage;
-							if (e3.playerHP < 0)
+							if (e3.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e3.name, "e3"));							
 						}
 						skillsUsedThisTurn[j].callTextDisplay();
@@ -558,7 +595,14 @@ package
 					break;
 				case 600:
 					//trace ("Animations occur here");
-	
+					skillSelectImage.visible = false;
+					//arrowSprite.visible = false;
+					remove(arrowSprite);
+					guiText1.text = "";
+					guiText2.text = "";
+					guiText3.text = "";
+					guiText4.text = "";
+					
 					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
 					{
 						++animationStatus;
@@ -567,7 +611,7 @@ package
 						if (animationStatus == animationThisTurn.length)
 						{
 							turn = 700;
-							topBarText.text = "antob says hi?";
+							topBarText.text = "Character 1's turn";
 							break;
 						}
 					}
@@ -603,6 +647,15 @@ package
 
 					break;
 				case 700:
+					skillSelectImage.visible = true;
+					add(arrowSprite);
+					
+					if (myMovieClip)
+					{
+						remove(myMovieClip);	
+						myMovieClip = null;
+					}
+				
 					trace ("clean up");
 					p1.addSpecialPoints();
 					p2.addSpecialPoints();

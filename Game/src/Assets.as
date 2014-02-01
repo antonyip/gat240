@@ -97,6 +97,15 @@ package
 		[Embed(source="../art/Characters/Warrior_Side.png")]
 		public static var warriorSide:Class;
 		
+		[Embed(source="../art/Enemies/Archer_Side.png")]
+		public static var archerEvilSide:Class;
+		
+		[Embed(source="../art/Enemies/Mage_Side.png")]
+		public static var mageEvilSide:Class;
+		
+		[Embed(source="../art/Enemies/Warrior_Side.png")]
+		public static var warriorEvilSide:Class;
+		
 		[Embed(source="../art/Dead_Characters/Archer_Side_Dead.png")]
 		public static var archerSideDead:Class;
 		

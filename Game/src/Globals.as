@@ -84,9 +84,9 @@ package
 		
 		public static function GlobalsInit():void
 		{
-			e1.Calissa();
-			e2.Anton();
-			e3.Kevin();
+			e1.eCalissa();
+			e2.eAnton();
+			e3.eKevin();
 			e1.playerSkill1.aMagicMissile();
 			e1.playerSkill2.aStarFrost();
 			e1.playerSkill3.aWhirlwindGale();
