@@ -96,13 +96,13 @@ package
 			name = "Calissa";
 			element = "Ice" // Wind, Ice, Fire
 			job = "Mage" // Warrior, Mage, Archer
-			playerHP = 80;
-			playerMAXHP = 80;
+			playerHP = 320;
+			playerMAXHP = 320;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 20;
-			playerSpecialAttack = 40;
+			playerAttackPower = 60;
+			playerSpecialAttack = 80;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 20;
@@ -119,13 +119,13 @@ package
 			name = "Anton";
 			element = "Wind" // Wind, Ice, Fire
 			job = "Warrior" // Warrior, Mage, Archer
-			playerHP = 80;
-			playerMAXHP = 80;
+			playerHP = 380;
+			playerMAXHP = 380;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 20;
-			playerSpecialAttack = 40;
+			playerAttackPower = 80;
+			playerSpecialAttack = 60;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 50;
@@ -141,13 +141,13 @@ package
 			name = "Kevin";
 			element = "Fire" // Wind, Ice, Fire
 			job = "Archer" // Warrior, Mage, Archer
-			playerHP = 80;
-			playerMAXHP = 80;
+			playerHP = 580;
+			playerMAXHP = 580;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 20;
-			playerSpecialAttack = 40;
+			playerAttackPower = 80;
+			playerSpecialAttack = 60;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
@@ -163,8 +163,8 @@ package
 			name = "Cheng Lip";
 			element = "Fire" // Wind, Ice, Fire
 			job = "Warrior" // Warrior, Mage, Archer
-			playerHP = 160;
-			playerMAXHP = 160;
+			playerHP = 460;
+			playerMAXHP = 460;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
@@ -185,13 +185,13 @@ package
 			name = "Issac";
 			element = "Fire" // Wind, Ice, Fire
 			job = "Mage" // Warrior, Mage, Archer
-			playerHP = 70;
-			playerMAXHP = 70;
+			playerHP = 370;
+			playerMAXHP = 370;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 30;
-			playerSpecialAttack = 60;
+			playerAttackPower = 50;
+			playerSpecialAttack = 80;
 			playerPhysicalDefense = 15;
 			playerSpecialDefense = 25;
 			baseSpeed = 20;
@@ -207,13 +207,13 @@ package
 			name = "Jonathan";
 			element = "Fire" // Wind, Ice, Fire
 			job = "Archer" // Warrior, Mage, Archer
-			playerHP = 70;
-			playerMAXHP = 70;
+			playerHP = 370;
+			playerMAXHP = 370;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 30;
-			playerSpecialAttack = 60;
+			playerAttackPower = 60;
+			playerSpecialAttack = 80;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
@@ -229,13 +229,13 @@ package
 			name = "Chin Kiong";
 			element = "Ice" // Wind, Ice, Fire
 			job = "Warrior" // Warrior, Mage, Archer
-			playerHP = 130;
-			playerMAXHP = 130;
+			playerHP = 650;
+			playerMAXHP = 650;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 65;
-			playerSpecialAttack = 30;
+			playerAttackPower = 85;
+			playerSpecialAttack = 50;
 			playerPhysicalDefense = 10;
 			playerSpecialDefense = 20;
 			baseSpeed = 50;
@@ -251,13 +251,13 @@ package
 			name = "Chin Kai";
 			element = "Ice" // Wind, Ice, Fire
 			job = "Ranger" // Warrior, Mage, Archer
-			playerHP = 100;
-			playerMAXHP = 100;
+			playerHP = 350;
+			playerMAXHP = 350;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 40;
-			playerSpecialAttack = 40;
+			playerAttackPower = 80;
+			playerSpecialAttack = 80;
 			playerPhysicalDefense = 10;
 			playerSpecialDefense = 10;
 			baseSpeed = 80;
@@ -273,15 +273,15 @@ package
 			name = "Melvin";
 			element = "Wind " // Wind, Ice, Fire
 			job = "Ranger" // Warrior, Mage, Archer
-			playerHP = 100;
-			playerMAXHP = 100;
+			playerHP = 300;
+			playerMAXHP = 300;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 40;
-			playerSpecialAttack = 40;
+			playerAttackPower = 70;
+			playerSpecialAttack = 70;
 			playerPhysicalDefense = 5;
-			playerSpecialDefense = 40;
+			playerSpecialDefense = 30;
 			baseSpeed = 80;
 			playerSkill1.aFireArrow();
 			
