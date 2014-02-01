@@ -674,7 +674,7 @@ package
 						}
 						add(myMovieClip);
 						break;
-					case "Fire Arrow":
+					case "Arrow Shot":
 						tmp = new ArrowShot;
 						myMovieClip = new FlxMovieClip(400,300);
 						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
