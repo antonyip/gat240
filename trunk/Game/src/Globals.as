@@ -87,18 +87,18 @@ package
 			e1.Calissa();
 			e2.Anton();
 			e3.Kevin();
-			e1.playerSkill1.aSwipe();
-			e1.playerSkill2.aSwipe();
-			e1.playerSkill3.aSwipe();
-			e1.playerSkill4.aSwipe();
+			e1.playerSkill1.aMagicMissile();
+			e1.playerSkill2.aStarFrost();
+			e1.playerSkill3.aWhirlwindGale();
+			e1.playerSkill4.aMagicMissile();
 			e2.playerSkill1.aSwipe();
-			e2.playerSkill2.aSwipe();
-			e2.playerSkill3.aSwipe();
+			e2.playerSkill2.aLavaClaws();
+			e2.playerSkill3.aTorrentSlash();
 			e2.playerSkill4.aSwipe();
-			e3.playerSkill1.aSwipe();
-			e3.playerSkill2.aSwipe();
-			e3.playerSkill3.aSwipe();
-			e3.playerSkill4.aSwipe();
+			e3.playerSkill1.aFireArrow();
+			e3.playerSkill2.aWhirlwindGale();
+			e3.playerSkill3.aWhirlwindGale();
+			e3.playerSkill4.aFireArrow();
 		}
 		
 		public static function getCharacterFromString(characterName:String):CharacterClass
