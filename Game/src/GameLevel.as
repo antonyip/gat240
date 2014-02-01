@@ -109,7 +109,6 @@ package
 			add(guiText5);
 			topBarText.alignment = "center";
 			
-			
 			add(p1hp);
 			add(p2hp);
 			add(p3hp);
