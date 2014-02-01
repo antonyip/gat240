@@ -56,7 +56,7 @@ package
 		
 		public function checkDead():Boolean
 		{
-			if (playerHP < 0)
+			if (playerHP <= 0)
 				isDisabled = true;
 				
 			if (playerSpecialPoints < 0 )
@@ -114,6 +114,29 @@ package
 			playerSkill1.aMagicMissile();
 		}
 		
+		public function eCalissa():void
+		{
+			name = "Calissa";
+			element = "Ice" // Wind, Ice, Fire
+			job = "Mage" // Warrior, Mage, Archer
+			playerHP = 320;
+			playerMAXHP = 320;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
+			
+			playerAttackPower = 60;
+			playerSpecialAttack = 80;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
+			baseSpeed = 20;
+			
+			smallFace = Assets.mageHeadFemale;
+			bigCharacter = Assets.mageSpriteFemale;
+			sideViewCharater = Assets.mageEvilSide;
+			deadCharacter = Assets.mageSideDead;
+			playerSkill1.aMagicMissile();
+		}
+		
 		public function Anton():void
 		{
 			name = "Anton";
@@ -137,6 +160,29 @@ package
 			deadCharacter = Assets.warriorSideDead;
 		}
 		
+		public function eAnton():void
+		{
+			name = "Anton";
+			element = "Wind" // Wind, Ice, Fire
+			job = "Warrior" // Warrior, Mage, Archer
+			playerHP = 380;
+			playerMAXHP = 380;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
+			
+			playerAttackPower = 80;
+			playerSpecialAttack = 60;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
+			baseSpeed = 50;
+			playerSkill1.aSwipe();
+			
+			smallFace = Assets.warriorHead;
+			bigCharacter = Assets.warriorSpriteMale;
+			sideViewCharater = Assets.warriorEvilSide;
+			deadCharacter = Assets.warriorSideDead;
+		}
+		
 		public function Kevin():void
 		{
 			name = "Kevin";
@@ -157,6 +203,29 @@ package
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;
+			deadCharacter = Assets.archerSideDead;
+		}
+		
+		public function eKevin():void
+		{
+			name = "Kevin";
+			element = "Fire" // Wind, Ice, Fire
+			job = "Archer" // Warrior, Mage, Archer
+			playerHP = 580;
+			playerMAXHP = 580;
+			playerSpecialPoints = 100;
+			playerMaxSpecialPoints = 100;
+			
+			playerAttackPower = 80;
+			playerSpecialAttack = 60;
+			playerPhysicalDefense = 20;
+			playerSpecialDefense = 40;
+			baseSpeed = 80;
+			playerSkill1.aFireArrow();
+			
+			smallFace = Assets.archerHead;
+			bigCharacter = Assets.archerSpriteMale;
+			sideViewCharater = Assets.archerEvilSide;
 			deadCharacter = Assets.archerSideDead;
 		}
 		
