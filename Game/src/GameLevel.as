@@ -371,7 +371,14 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
-						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						if (p1.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						else if (p2.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+						else if (p3.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+						else
+							trace ("Shouldn't come here");
 					}
 					
 					// select e2 skill
@@ -395,7 +402,14 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
-						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						if (p1.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						else if (p2.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+						else if (p3.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+						else
+							trace ("Shouldn't come here");
 					}
 					
 					// select e3 skill
@@ -419,7 +433,14 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
-						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						if (p1.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						else if (p2.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+						else if (p3.playerHP > 0)
+							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+						else
+							trace ("Shouldn't come here");
 					}
 					
 					turn = 500;
@@ -497,26 +518,38 @@ package
 						if (skillsUsedThisTurn[j].target == "p1")
 						{
 							p1.playerHP -= skillsUsedThisTurn[j].damage;
+							if (p1.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p1.name, "p1"));
 						}
 						if (skillsUsedThisTurn[j].target == "p2")
 						{
 							p2.playerHP -= skillsUsedThisTurn[j].damage;
+							if (p2.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p2.name, "p2"));							
 						}
 						if (skillsUsedThisTurn[j].target == "p3")
 						{
 							p3.playerHP -= skillsUsedThisTurn[j].damage;
+							if (p3.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, p3.name, "p3"));	
 						}
 						if (skillsUsedThisTurn[j].target == "e1")
 						{
 							e1.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e1.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e1.name, "e1"));
 						}
 						if (skillsUsedThisTurn[j].target == "e2")
 						{
 							e2.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e2.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e2.name, "e2"));							
 						}
 						if (skillsUsedThisTurn[j].target == "e3")
 						{
 							e3.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e3.playerHP < 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e3.name, "e3"));							
 						}
 						skillsUsedThisTurn[j].callTextDisplay();
 					}
@@ -525,12 +558,6 @@ package
 					break;
 				case 600:
 					//trace ("Animations occur here");
-					//p1hp.text = p1.playerHP.toString();
-					//p2hp.text = p2.playerHP.toString();
-					//p3hp.text = p3.playerHP.toString();
-					//e1hp.text = e1.playerHP.toString();
-					//e2hp.text = e2.playerHP.toString();
-					//e3hp.text = e3.playerHP.toString();
 	
 					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
 					{
@@ -553,6 +580,23 @@ package
 						{
 							topBarText.text	= "";
 							handleSkillAnimation(animationThisTurn[animationStatus]);
+						}
+						if (animationThisTurn[animationStatus].type == AnimationClassDisplay.CHARCTER_DIES)
+						{
+							if (animationThisTurn[animationStatus].target == "p1")
+								playerSprite1.loadGraphic(p1.deadCharacter);
+							if (animationThisTurn[animationStatus].target == "p2")
+								playerSprite2.loadGraphic(p2.deadCharacter);
+							if (animationThisTurn[animationStatus].target == "p3")
+								playerSprite3.loadGraphic(p3.deadCharacter);
+							if (animationThisTurn[animationStatus].target == "e1")
+								enemySprite1.loadGraphic(e1.deadCharacter);
+							if (animationThisTurn[animationStatus].target == "e2")
+								enemySprite2.loadGraphic(e2.deadCharacter);
+							if (animationThisTurn[animationStatus].target == "e3")
+								enemySprite3.loadGraphic(e3.deadCharacter);
+																																										
+								
 						}
 						animationDoOnce = false;
 					}

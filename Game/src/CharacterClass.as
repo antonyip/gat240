@@ -110,7 +110,7 @@ package
 			smallFace = Assets.mageHeadFemale;
 			bigCharacter = Assets.mageSpriteFemale;
 			sideViewCharater = Assets.mageSide;
-			
+			deadCharacter = Assets.mageSideDead;
 			playerSkill1.aMagicMissile();
 		}
 		
@@ -134,6 +134,7 @@ package
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
+			deadCharacter = Assets.warriorSideDead;
 		}
 		
 		public function Kevin():void
@@ -156,6 +157,7 @@ package
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;
+			deadCharacter = Assets.archerSideDead;
 		}
 		
 		public function ChengLip():void
@@ -178,6 +180,7 @@ package
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
+			deadCharacter = Assets.warriorSideDead;
 		}
 		
 		public function Issac():void
@@ -200,6 +203,7 @@ package
 			smallFace = Assets.mageHeadMale;
 			bigCharacter = Assets.mageSpriteMale;
 			sideViewCharater = Assets.mageSide;
+			deadCharacter = Assets.mageSideDead;
 		}
 		
 		public function Jonathan():void
@@ -222,6 +226,7 @@ package
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;
+			deadCharacter = Assets.archerSideDead;
 		}
 		
 		public function ChinKiong():void
@@ -244,6 +249,7 @@ package
 			smallFace = Assets.warriorHead;
 			bigCharacter = Assets.warriorSpriteMale;
 			sideViewCharater = Assets.warriorSide;
+			deadCharacter = Assets.warriorSideDead;
 		}
 		
 		public function ChinKai():void
@@ -266,6 +272,7 @@ package
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;			
+			deadCharacter = Assets.archerSideDead;
 		}
 		
 		public function Melvin():void
@@ -288,7 +295,9 @@ package
 			smallFace = Assets.archerHead;
 			bigCharacter = Assets.archerSpriteMale;
 			sideViewCharater = Assets.archerSide;			
+			deadCharacter = Assets.archerSideDead;
 		}
+		
 	}
 
 }

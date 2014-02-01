@@ -14,6 +14,7 @@ package
 		public var animation:String;
 		
 		public static var CASTER_ON_TARGET_WITH_SKILL:String = "CasterOnTargetWithSkill";
+		public static var CHARCTER_DIES:String = "characterDies";
 		public static var AOE_SKILL:String = "AoeSkill";
 		public static var ANIMATION:String = "Animation";
 		public static var CASTER_DAMAGE:String = "CasterDamage";
@@ -36,6 +37,8 @@ package
 				topText = caster + " dealt " + others + " damage.";
 			if (type == NO_DAMAGE)
 				topText = "No Damage was felt.";
+			if (type == CHARCTER_DIES)
+				topText = caster + " fainted.";
 		}
 		
 	}
