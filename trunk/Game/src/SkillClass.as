@@ -29,7 +29,7 @@ package
 		public static var listOfSkills:Array = new Array( //"Swipe", "Magic Missile", "Fire Arrow" ,
 														 "Blizzard",
 														 "Star Frost", "Crystallic Shield", "Frost Dispel",
-														 "Torrent Slash", "Piercing Flames", "Hellfire", "Lava Claws",
+														 "Torrent Slash", "Piercing Flames", "Hell Fire", "Lava Claws",
 														 "Roaring Flare", "Fireball", "Whirlwind Gale", "Feather Dance",
 														 "Shooting Star", "Healing Winds", "Sacred Wish");
 		
@@ -58,7 +58,7 @@ package
 				aTorrentSlash();
 			if (skillName == "Piercing Flames")
 				aPiercingFlames();
-			if (skillName == "Hellfire")
+			if (skillName == "Hell Fire")
 				aHellFire();
 			if (skillName == "Lava Claws")
 				aLavaClaws();
@@ -277,7 +277,7 @@ package
 		}
 		public function aFireball():void
 		{
-			name = "Fire ball";
+			name = "Fireball";
 			power = 70;
 			speed = 75;
 			type = "Fire"

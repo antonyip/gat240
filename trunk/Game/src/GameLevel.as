@@ -182,12 +182,26 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
-			p1.playerSkill1.aSwipe();
-			p2.playerSkill1.aSwipe();
-			p3.playerSkill1.aSwipe();
-			p1.playerSkill2.aSwipe();
-			p2.playerSkill2.aSwipe();
-			p3.playerSkill2.aSwipe();
+			p1.playerSkill1.aFireball();
+			p2.playerSkill1.aFireball();
+			p3.playerSkill1.aFireball();
+			e1.playerSkill1.aFireball();
+			e2.playerSkill1.aFireball();
+			e3.playerSkill1.aFireball();
+			/*
+			p2.playerSkill1.aCrystallicShield();
+			p3.playerSkill1.aTorrentSlash();
+			p1.playerSkill2.aHellFire();
+			p2.playerSkill2.aLavaClaws();
+			p3.playerSkill2.aFireball();
+			p1.playerSkill3.aWhirlwindGale();
+			p2.playerSkill3.aHealingWinds();
+			p3.playerSkill3.aSacredWish();
+			p1.playerSkill4.aSwipe();
+			p2.playerSkill4.aMagicMissile();
+			p3.playerSkill4.aFireArrow();
+			*/
+			
 		} // create close bracket
 		
 		// called everyframe
@@ -428,7 +442,8 @@ package
 				case 400:
 					trace ("AI's Turn");
 					// select e1 skill
-					var temp:int = Globals.randomInt(1, 4);
+					//var temp:int = Globals.randomInt(1, 4);
+					var temp:int = Globals.randomInt(1, 1);
 					switch (temp)
 					{
 						case 1:
@@ -448,6 +463,8 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+						/*
 						if (p1.playerHP > 0)
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
 						else if (p2.playerHP > 0)
@@ -456,10 +473,11 @@ package
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
 						else
 							trace ("Shouldn't come here");
+						*/
 					}
 					
 					// select e2 skill
-					temp = Globals.randomInt(1, 4);
+					//temp = Globals.randomInt(1, 4);
 					switch (temp)
 					{
 						case 1:
@@ -479,6 +497,8 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+						/*
 						if (p1.playerHP > 0)
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
 						else if (p2.playerHP > 0)
@@ -487,10 +507,11 @@ package
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
 						else
 							trace ("Shouldn't come here");
+						*/
 					}
 					
 					// select e3 skill
-					temp = Globals.randomInt(1, 4);
+					//temp = Globals.randomInt(1, 4);
 					switch (temp)
 					{
 						case 1:
@@ -510,6 +531,8 @@ package
 					if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.hasTarget)
 					{
 						// setTarget
+						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+						/*
 						if (p1.playerHP > 0)
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
 						else if (p2.playerHP > 0)
@@ -518,6 +541,7 @@ package
 							skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
 						else
 							trace ("Shouldn't come here");
+						*/
 					}
 					
 					turn = 500;
@@ -530,6 +554,7 @@ package
 					for (var i:int = 0; i < skillsUsedThisTurn.length; i++) 
 					{
 						skillsUsedThisTurn[i].updateSpeeds();
+						Globals.getCharacterFromString(skillsUsedThisTurn[i].caster).playerSpecialPoints -= skillsUsedThisTurn[i].thisSkill.cost;
 						trace (skillsUsedThisTurn[i].caster, skillsUsedThisTurn[i].target ,skillsUsedThisTurn[i].thisSkill.name , skillsUsedThisTurn[i].speedOfSkill)
 					}
 					
@@ -600,28 +625,90 @@ package
 							skillsUsedThisTurn[j].destroyed = true;
 							continue;
 						}
-						
-						var tmpSkill:SkillClass = skillsUsedThisTurn[j].thisSkill;
-						var baseDamage:int 	= tmpSkill.power 
-											+ tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
-						var baseDefense:int = tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerPhysicalDefense	 : Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerSpecialDefense;
-						var elementalMultiplier:Number = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
-						var classResistance:Number = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
-														
-						skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
-						//trace (baseDamage, baseDefense, elementalMultiplier, classResistance);
-						//trace ("dps:" ,skillsUsedThisTurn[j].damage);
-						
-						if (skillsUsedThisTurn[j].damage < 0)
-							skillsUsedThisTurn[j].damage = 0;
-						
-						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
-						animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
-						if (skillsUsedThisTurn[j].damage)
-							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
-						else
-							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
-						
+						if (skillsUsedThisTurn[j].target != "none") // single target
+						{
+							var tmpSkill:SkillClass = skillsUsedThisTurn[j].thisSkill;
+							var baseDamage:int 	= tmpSkill.power 
+												+ tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
+							var baseDefense:int = tmpSkill.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerPhysicalDefense	 : Globals.getCharacterFromString(skillsUsedThisTurn[j].target).playerSpecialDefense;
+							var elementalMultiplier:Number = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+							var classResistance:Number = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+															
+							skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
+							//trace (baseDamage, baseDefense, elementalMultiplier, classResistance);
+							//trace ("dps:" ,skillsUsedThisTurn[j].damage);
+							
+							if (skillsUsedThisTurn[j].damage < 0)
+								skillsUsedThisTurn[j].damage = 0;
+								
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							if (skillsUsedThisTurn[j].damage)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
+							else
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
+						}
+						else // AOE
+						{
+							var tmpSkill2:SkillClass = skillsUsedThisTurn[j].thisSkill;
+							var baseDamage2:int 	= tmpSkill2.power 
+												+ tmpSkill2.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
+							var baseDefense2:int = tmpSkill2.isPhysical ? Globals.e1.playerPhysicalDefense	 : Globals.e1.playerSpecialDefense;
+							var elementalMultiplier2:Number = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].caster);
+							var classResistance2:Number = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+															
+							skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
+							
+							if (skillsUsedThisTurn[j].damage < 0)
+								skillsUsedThisTurn[j].damage = 0;
+								
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							if (skillsUsedThisTurn[j].damage)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, "e1", skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
+							else
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
+								
+								// 2
+						    tmpSkill2 = skillsUsedThisTurn[j].thisSkill;
+							baseDamage2	= tmpSkill2.power 
+											+ tmpSkill2.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
+							baseDefense2 = tmpSkill2.isPhysical ? Globals.e1.playerPhysicalDefense	 : Globals.e1.playerSpecialDefense;
+							elementalMultiplier2 = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].caster);
+							classResistance2 = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+															
+							skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
+							
+							if (skillsUsedThisTurn[j].damage < 0)
+								skillsUsedThisTurn[j].damage = 0;
+								
+							//animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							//animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							if (skillsUsedThisTurn[j].damage)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, "e2", skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
+							else
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
+								
+								// 3
+							tmpSkill2 = skillsUsedThisTurn[j].thisSkill;
+							baseDamage2 	= tmpSkill2.power 
+											+ tmpSkill2.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
+							baseDefense2 = tmpSkill2.isPhysical ? Globals.e1.playerPhysicalDefense	 : Globals.e1.playerSpecialDefense;
+							elementalMultiplier2 = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].caster);
+							classResistance2 = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
+															
+							skillsUsedThisTurn[j].damage = (baseDamage * elementalMultiplier) - (baseDefense * classResistance);
+							
+							if (skillsUsedThisTurn[j].damage < 0)
+								skillsUsedThisTurn[j].damage = 0;
+								
+							//animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_ON_TARGET_WITH_SKILL, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							//animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.ANIMATION, skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target, skillsUsedThisTurn[j].thisSkill.name, skillsUsedThisTurn[j].thisSkill.name,skillsUsedThisTurn[j].thisSkill.name));
+							if (skillsUsedThisTurn[j].damage)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CASTER_DAMAGE, skillsUsedThisTurn[j].caster, "e3", skillsUsedThisTurn[j].damage.toString(), skillsUsedThisTurn[j].thisSkill.name));	
+							else
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.NO_DAMAGE, "", ""));
+						}
 						
 						// calculating damage to be done
 						if (skillsUsedThisTurn[j].target == "p1")
@@ -660,6 +747,18 @@ package
 							if (e3.playerHP <= 0)
 								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e3.name, "e3"));							
 						}
+						if (skillsUsedThisTurn[j].target == "none")
+						{
+							e1.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e1.playerHP <= 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e1.name, "e1"));
+							e2.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e2.playerHP <= 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e2.name, "e2"));										
+							e3.playerHP -= skillsUsedThisTurn[j].damage;
+							if (e3.playerHP <= 0)
+								animationThisTurn.push(new AnimationClassDisplay(AnimationClassDisplay.CHARCTER_DIES, e3.name, "e3"));
+						}
 						skillsUsedThisTurn[j].callTextDisplay();
 					}
 					animationStatus = 0;
@@ -675,6 +774,14 @@ package
 					guiText3.text = "";
 					guiText4.text = "";
 					
+					if (animationStatus == animationThisTurn.length)
+					{
+						animationDoOnce = false;
+						turn = 700;
+						topBarText.text = "Character 1's turn";
+						break;
+					}
+					
 					if (FlxG.keys.justReleased("SPACE")) // lets the user press the space bar to continue viewing what happened
 					{
 						++animationStatus;
@@ -682,6 +789,7 @@ package
 						
 						if (animationStatus == animationThisTurn.length)
 						{
+							animationDoOnce = false;
 							turn = 700;
 							topBarText.text = "Character 1's turn";
 							break;
@@ -690,8 +798,7 @@ package
 					
 					if (animationDoOnce) // animation happens here
 					{
-						
-						topBarText.text = animationThisTurn[animationStatus].topText;
+					    topBarText.text = animationThisTurn[animationStatus].topText;
 						if (topBarText.text == "AntonCode") // stupid hardcode way of knowing that its time to play an animation
 						{
 							topBarText.text	= "";
@@ -883,36 +990,399 @@ package
 						break;
 					case "Magic Missile":					
 						tmp = new MagicMissle;
+												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 66;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;
 					case "Arrow Shot":
 						tmp = new ArrowShot;
+												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 66;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;
 					case "Star Frost":
 						tmp = new StarFrost;
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 172;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 159;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 198;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 610;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14+500;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46+500;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;
 					case "Torrent Slash":
-						tmp = new TorrentSlash;				
+						tmp = new TorrentSlash;	
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 66 + 181;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14 + 181;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46 + 181;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;
 					case  "Crystallic Shield":
-						tmp = new CrystallicShield;					
+						tmp = new CrystallicShield;	
+						myMovieClip = new FlxMovieClip(-100001,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "p1")
+						{
+							myMovieClip.x = 33;
+							myMovieClip.y = 24;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.x = 1;
+							myMovieClip.y = 122;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.x = 14;
+							myMovieClip.y = 224;
+						}						
+						add(myMovieClip);
 						break;		
 					case "Lava Claws":
-						tmp = new LavaStrike;					
+						tmp = new LavaStrike;		
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 487;
+							myMovieClip.y = 34;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 516;
+							myMovieClip.y = 124;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 501;
+							myMovieClip.y = 219;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 312;
+							myMovieClip.y = 32;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 284;
+							myMovieClip.y = 127;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 289;
+							myMovieClip.y = 239;
+						}						
+						add(myMovieClip);
 						break;						
 					case "Fireball":
 						tmp = new Fireball;
+												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 180;
+							myMovieClip.y = 127;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 94;
+							myMovieClip.y = 224;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 154;
+							myMovieClip.y = 327;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 630;
+							myMovieClip.y = 126;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 701;
+							myMovieClip.y = 217;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 641;
+							myMovieClip.y = 320;
+						}						
+						add(myMovieClip);
 						break;						
 					case "Whirlwind Gale":
 						tmp = new WhirlwindGale;
+												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 66;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;			
 					case "Healing Winds":
 						tmp = new HealingWinds;
+						myMovieClip = new FlxMovieClip(100000,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 351;
+							myMovieClip.y = 60;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 268;
+							myMovieClip.y = 160;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 329;
+							myMovieClip.y = 252;
+						}						
+						add(myMovieClip);
 						break;
 					case "Sacred Wish":
 						tmp = new SacredWish;
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 66;
+							myMovieClip.y = 101;
+						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46;
+							myMovieClip.y = 295;
+						}						
+						add(myMovieClip);
 						break;
-					case "Hellfire":
-						tmp = new HellFire;					
+					case "Hell Fire":
+						tmp = new HellFire;				
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 542-40;
+							myMovieClip.y = 1;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 603;
+							myMovieClip.y = 28;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 544;
+							myMovieClip.y = 120;
+						}
+						if (object.target == "p1")
+						{
+							//myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 1;
+							myMovieClip.y = 1;
+						}
+						if (object.target == "p2")
+						{
+							//myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 1;
+							myMovieClip.y = 29;
+						}
+						if (object.target == "p3")
+						{
+							//myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 1;
+							myMovieClip.y = 121;
+						}					
+						add(myMovieClip);
 						break;
 						
 // ----------------- AOE						
@@ -982,7 +1452,6 @@ package
 						}
 						add(myMovieClip);
 						break;
-
 					default:
 						trace("ERROR! - Skill not found - ",object.skillName);
 						break;

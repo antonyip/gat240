@@ -94,6 +94,9 @@ package
 		[Embed(source = "../art/Characters/Mage_Side.png")]
 		public static var mageSide:Class;
 		
+		[Embed(source="../art/Characters/Mage_Male_Side.png")]
+		public static var mageSideMale:Class;
+		
 		[Embed(source="../art/Characters/Warrior_Side.png")]
 		public static var warriorSide:Class;
 		
