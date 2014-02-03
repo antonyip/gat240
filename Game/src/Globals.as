@@ -127,12 +127,50 @@ package
 		
 		public static function checkElementalDifference(attackerName:String, defenderName:String):Number
 		{
-			return 1;
+			if (attackerName == "Wind" && defenderName == "Ice")
+			{
+				return 1.5;
+			}
+			else if (attackerName == "Fire" && defenderName == "Ice")
+			{
+				return 1.5;
+			}
+			else if (attackerName == "Wind" && defenderName == "Fire")
+			{
+				return 1.5;
+			}
+			else if (attackerName == "Wind" && defenderName == "Ice")
+			{
+				return 1.5;
+			}
+			else 
+			{
+				return 1;
+			}
 		}
 		
 		public static function checkClassResistance(attackerName:String, defenderName:String):Number
 		{
-			return 1;
+			if (attackerName == "Warrior" && defenderName == "Archer")
+			{
+				return 0.75;
+			}
+			else if (attackerName == "Warrior" && defenderName == "Mage")
+			{
+				return 0.75;
+			}
+			else if (attackerName == "Archer" && defenderName == "Mage")
+			{
+				return 0.75;
+			}
+			else if (attackerName == "Archer" && defenderName == "Warrior")
+			{
+				return 0.75;
+			}
+			else 
+			{
+				return 1;
+			}
 		}
 		
 	}

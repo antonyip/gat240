@@ -149,8 +149,8 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
-			p1.playerSkill1.aBlizzard();
-			p1.playerSkill2.aStarFrost();
+			//p1.playerSkill1.aBlizzard();
+			//p1.playerSkill2.aStarFrost();
 		} // create close bracket
 		
 		// called everyframe
@@ -638,8 +638,6 @@ package
 								enemySprite2.loadGraphic(e2.deadCharacter);
 							if (animationThisTurn[animationStatus].target == "e3")
 								enemySprite3.loadGraphic(e3.deadCharacter);
-																																										
-								
 						}
 						animationDoOnce = false;
 					}
@@ -647,6 +645,7 @@ package
 					break;
 				case 700:
 					skillSelectImage.visible = true;
+					animationDoOnce = true;
 					add(arrowSprite);
 					
 					if (myMovieClip)
@@ -681,7 +680,29 @@ package
 					skillsUsedThisTurn = new Array();
 					animationThisTurn = null;
 					animationThisTurn = new Vector.<AnimationClassDisplay>;
-					turn = 100;
+					
+					if (p3.playerHP <= 0)
+						turn = 900;
+					else if (e1.playerHP <= 0 && e2.playerHP <= 0 && e3.playerHP <= 0)
+						turn = 800;
+					else
+						turn = 100;
+					break;
+				case 800:
+					if (animationDoOnce)
+					{
+						add(new FlxSprite(0, 0, Assets.winPageBackground));
+					}
+					if (FlxG.keys.justReleased("SPACE"))
+						FlxG.switchState(new MainMenu);
+					break;
+				case 900:
+					if (animationDoOnce)
+					{
+						add(new FlxSprite(0, 0, Assets.losePageBackground));
+					}
+					if (FlxG.keys.justReleased("SPACE"))
+						FlxG.switchState(new MainMenu);
 					break;
 				default:
 					trace("Uncoded Turn - Anton to check");

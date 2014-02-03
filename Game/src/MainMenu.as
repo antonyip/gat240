@@ -10,16 +10,18 @@ package
 	 */
 	public class MainMenu extends FlxState 
 	{
-		public var startGame:FlxButton = new org.flixel.FlxButton(400, 300, "Start Game", startGameFn);
-		public var howToPlay:FlxButton = new org.flixel.FlxButton(400, 400, "How To Play", howToPlayFn);
+		//public var startGame:FlxButton = new org.flixel.FlxButton(400, 300, "Start Game", startGameFn);
+		//public var howToPlay:FlxButton = new org.flixel.FlxButton(400, 400, "How To Play", howToPlayFn);
+		private var background:FlxSprite = new FlxSprite(0, 0, Assets.mainPageBackground);
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
 		public var selector:int = 0;
 		// do once when come into game
 		public override function create():void
 		{
-			add(startGame);
-			add(howToPlay);
-			add(arrowSprite);
+			add(background);
+			//add(startGame);
+			//add(howToPlay);
+			//add(arrowSprite);
 			if (FlxG.stage)
 				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 				
@@ -27,6 +29,7 @@ package
 		public override function update():void
 		{
 			// handle inputs WS
+			/*
 			if (FlxG.keys.justReleased("W") || FlxG.keys.justReleased("UP"))
 			{
 				if (selector > 0)
@@ -37,18 +40,13 @@ package
 				if (selector < 1)
 					selector++;
 			}
-			if (FlxG.keys.justPressed("K"))
-			{
-				Globals.toggle_fullscreen(new Event(Event.RESIZE));
-			}
+			*/
 			if (FlxG.keys.justReleased("SPACE"))
 			{
-				if (selector == 0)
 					startGameFn();
-				else
-					howToPlayFn();
 			}
 			
+			/*
 			switch (selector) 
 			{
 			case 0:
@@ -60,7 +58,7 @@ package
 					arrowSprite.y = howToPlay.y;
 				break;
 			}
-			
+			*/
 			
 		}
 		
