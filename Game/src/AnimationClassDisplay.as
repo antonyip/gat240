@@ -30,11 +30,16 @@ package
 			animation = animation_;
 			
 			if (type == CASTER_ON_TARGET_WITH_SKILL)
-				topText = caster + " used " + skillName_ + " on " + target + ".";
+			{
+				if (target != "none")
+					topText = caster + " used " + skillName_ + " on " + target + ".";
+				else
+					topText = caster + " used " + skillName_ +".";
+			}
 			if (type == ANIMATION)
 				topText = "AntonCode";
 			if (type == CASTER_DAMAGE)
-				topText = caster + " dealt " + others + " damage.";
+				topText = caster + " dealt " + others + " damage to "  + target + ".";
 			if (type == NO_DAMAGE)
 				topText = "No Damage was felt.";
 			if (type == CHARCTER_DIES)

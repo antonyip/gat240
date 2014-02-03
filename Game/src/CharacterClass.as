@@ -141,7 +141,7 @@ package
 		{
 			name = "Anton";
 			element = "Wind" // Wind, Ice, Fire
-			job = "Warrior" // Warrior, Mage, Archer
+			job = "Mage" // Warrior, Mage, Archer
 			playerHP = 380;
 			playerMAXHP = 380;
 			playerSpecialPoints = 100;
@@ -152,12 +152,12 @@ package
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 50;
-			playerSkill1.aSwipe();
+			playerSkill1.aMagicMissile();
 			
-			smallFace = Assets.warriorHead;
-			bigCharacter = Assets.warriorSpriteMale;
-			sideViewCharater = Assets.warriorSide;
-			deadCharacter = Assets.warriorSideDead;
+			smallFace = Assets.mageHeadMale;
+			bigCharacter = Assets.mageSpriteMale;
+			sideViewCharater = Assets.mageSideMale;
+			deadCharacter = Assets.mageSideDead;
 		}
 		
 		public function eAnton():void
