@@ -187,7 +187,7 @@ package
 		{
 			name = "Kevin";
 			element = "Fire" // Wind, Ice, Fire
-			job = "Archer" // Warrior, Mage, Archer
+			job = "Ranger" // Warrior, Mage, Archer
 			playerHP = 580;
 			playerMAXHP = 580;
 			playerSpecialPoints = 100;
@@ -210,7 +210,7 @@ package
 		{
 			name = "Evil Kevin";
 			element = "Fire" // Wind, Ice, Fire
-			job = "Archer" // Warrior, Mage, Archer
+			job = "Ranger" // Warrior, Mage, Archer
 			playerHP = 380;
 			playerMAXHP = 380;
 			playerSpecialPoints = 100;
@@ -279,7 +279,7 @@ package
 		{
 			name = "Jonathan";
 			element = "Fire" // Wind, Ice, Fire
-			job = "Archer" // Warrior, Mage, Archer
+			job = "Ranger" // Warrior, Mage, Archer
 			playerHP = 370;
 			playerMAXHP = 370;
 			playerSpecialPoints = 100;

@@ -182,9 +182,12 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
-			//p1.playerSkill1.aBlizzard();
-			//p1.playerSkill1.aBlizzard();
-			p1.playerSkill2.aStarFrost();
+			p1.playerSkill1.aSwipe();
+			p2.playerSkill1.aSwipe();
+			p3.playerSkill1.aSwipe();
+			p1.playerSkill2.aSwipe();
+			p2.playerSkill2.aSwipe();
+			p3.playerSkill2.aSwipe();
 		} // create close bracket
 		
 		// called everyframe
@@ -248,10 +251,11 @@ package
 					guiText1.text = e1.name;
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
-					guiText4.text = "Back";
+					guiText4.text = " ";
 					guiText5.text = "Player 1 Target";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
+						turn = 200;
 						switch (selector)
 						{
 							case 1:
@@ -264,11 +268,13 @@ package
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
 								break;
 							case 4:
+								turn = 110;
+								break;
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
 						}
-						turn = 200;
+						
 					}
 					break;
 				case 200:
@@ -320,10 +326,11 @@ package
 					guiText1.text = e1.name;
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
-					guiText4.text = "Back";
+					guiText4.text = " ";
 					guiText5.text = "Player 2 Target";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
+						turn = 300;
 						switch (selector)
 						{
 							case 1:
@@ -336,12 +343,13 @@ package
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
 								break;
 							case 4:
+								turn = 210;
+								break;
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
 						}
-						turn = 200;
-						turn = 300;
+						
 					}
 					break;					
 				case 300:
@@ -393,7 +401,7 @@ package
 					guiText1.text = e1.name;
 					guiText2.text = e2.name;
 					guiText3.text = e3.name;
-					guiText4.text = "Back";
+					guiText4.text = " ";
 					guiText5.text = "Player 3 Target";
 					if (FlxG.keys.justReleased("SPACE"))
 					{
@@ -410,6 +418,7 @@ package
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
 								break;
 							case 4:
+								turn = 310;
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
@@ -835,204 +844,145 @@ package
 				{
 					case "Swipe":
 						tmp = new Swipe;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target == "e1")
+						{
+							myMovieClip.x = 572;
+							myMovieClip.y = 100;
+						}
+						if (object.target == "e2")
+						{
+							myMovieClip.x = 659;
+							myMovieClip.y = 199;
+						}
+						if (object.target == "e3")
+						{
+							myMovieClip.x = 598;
+							myMovieClip.y = 294;
+						}
+						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 66;
+							myMovieClip.y = 101;
 						}
+						if (object.target == "p2")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = -14;
+							myMovieClip.y = 191;
+						}
+						if (object.target == "p3")
+						{
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 46;
+							myMovieClip.y = 295;
+						}						
 						add(myMovieClip);
 						break;
-					case "Magic Missile":
+					case "Magic Missile":					
 						tmp = new MagicMissle;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);
 						break;
 					case "Arrow Shot":
 						tmp = new ArrowShot;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);
 						break;
-					case "Blizzard":
-						tmp = new Blizzard;
-						myMovieClip = new FlxMovieClip(200, 150);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);
-					break;
-					
 					case "Star Frost":
 						tmp = new StarFrost;
-						myMovieClip = new FlxMovieClip(400,300);
+						break;
+					case "Torrent Slash":
+						tmp = new TorrentSlash;				
+						break;
+					case  "Crystallic Shield":
+						tmp = new CrystallicShield;					
+						break;		
+					case "Lava Claws":
+						tmp = new LavaStrike;					
+						break;						
+					case "Fireball":
+						tmp = new Fireball;
+						break;						
+					case "Whirlwind Gale":
+						tmp = new WhirlwindGale;
+						break;			
+					case "Healing Winds":
+						tmp = new HealingWinds;
+						break;
+					case "Sacred Wish":
+						tmp = new SacredWish;
+						break;
+					case "Hellfire":
+						tmp = new HellFire;					
+						break;
+						
+// ----------------- AOE						
+					case "Blizzard":
+						tmp = new Blizzard;
+						myMovieClip = new FlxMovieClip(1,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
-						if (object.caster.charAt(0) == "p")
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
 							myMovieClip.x = 799;
 						}
 						add(myMovieClip);
 					break;
-					
-					case  "Crystallic Shield":
-						tmp = new CrystallicShield;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);						
-						break;
 					case "Frost Dispel":
-						tmp = new FrostDispel;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						tmp = new FrostDispel;	
+						myMovieClip = new FlxMovieClip(475,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);					
-						break;
-					case "Torrent Slash":
-						tmp = new TorrentSlash;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);						
-						break;
-					case "Piercing Flames":
-						tmp = new PiercingFlames;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
 						add(myMovieClip);
 						break;
-					case "Hellfire":
-						tmp = new HellFire;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+					case "Piercing Flames":
+						tmp = new PiercingFlames;
+						myMovieClip = new FlxMovieClip(400,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
-						add(myMovieClip);						
-						break;
-					case "Lava Claws":
-						tmp = new LavaStrike;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);						
+						add(myMovieClip);
 						break;
 					case "Roaring Flare":
-						tmp = new RoaringFlare;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						tmp = new RoaringFlare;	
+						myMovieClip = new FlxMovieClip(1,110);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
-						add(myMovieClip);					
-						break;
-					case "Fireball":
-						tmp = new Fireball;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);				
-						break;
-					case "Whirlwind Gale":
-						tmp = new WhirlwindGale;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);				
+						add(myMovieClip);
 						break;
 					case "Feather Dance":
 						tmp = new FeatherDance;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
-						add(myMovieClip);			
+						add(myMovieClip);
 						break;
 					case "Shooting Star":
 						tmp = new ShootingStar;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						myMovieClip = new FlxMovieClip(400,1);
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.target.charAt(0) == "e")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
-						add(myMovieClip);					
+						add(myMovieClip);
 						break;
-					case "Healing Winds":
-						tmp = new HealingWinds;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);						
-						break;
-					case "Sacred Wish":
-						tmp = new SacredWish;
-						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
-						{
-							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
-						}
-						add(myMovieClip);						
-						break;
+
 					default:
 						trace("ERROR! - Skill not found - ",object.skillName);
 						break;
