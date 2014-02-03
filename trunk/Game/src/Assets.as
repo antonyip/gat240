@@ -139,6 +139,24 @@ package
 		[Embed(source = "../art/Play_Screen/Play_Skill_Select_Arrows.png")]
 		public static var gameLevelSkillSelectArrows:Class;
 		
+		[Embed(source="../art/Main_Page.png")]
+		public static var mainPageBackground:Class;
+		
+		[Embed(source="../art/Victory_Screen.png")]
+		public static var winPageBackground:Class;
+		
+		[Embed(source = "../art/Defeated_Screen.png")]
+		public static var losePageBackground:Class;
+		
+		[Embed(source="../art/Fight_Screen.png")]
+		public static var fightPageBackground:Class;
+		
+		[Embed(source = "../art/Health_Heart.png")]
+		public static var healthHeart:Class;
+		
+		[Embed(source = "../art/Stamina_Heart.png")]
+		public static var staminaHeart:Class;
+		
 		public function Assets() 
 		{
 			

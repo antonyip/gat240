@@ -116,16 +116,16 @@ package
 		
 		public function eCalissa():void
 		{
-			name = "Calissa";
+			name = "Evil Calissa";
 			element = "Ice" // Wind, Ice, Fire
 			job = "Mage" // Warrior, Mage, Archer
-			playerHP = 320;
-			playerMAXHP = 320;
+			playerHP = 280;
+			playerMAXHP = 280;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 60;
-			playerSpecialAttack = 80;
+			playerAttackPower = 40;
+			playerSpecialAttack = 60;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 20;
@@ -162,16 +162,16 @@ package
 		
 		public function eAnton():void
 		{
-			name = "Anton";
+			name = "Evil Anton";
 			element = "Wind" // Wind, Ice, Fire
 			job = "Warrior" // Warrior, Mage, Archer
-			playerHP = 380;
-			playerMAXHP = 380;
+			playerHP = 280;
+			playerMAXHP = 280;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 80;
-			playerSpecialAttack = 60;
+			playerAttackPower = 60;
+			playerSpecialAttack = 40;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 50;
@@ -208,16 +208,16 @@ package
 		
 		public function eKevin():void
 		{
-			name = "Kevin";
+			name = "Evil Kevin";
 			element = "Fire" // Wind, Ice, Fire
 			job = "Archer" // Warrior, Mage, Archer
-			playerHP = 580;
-			playerMAXHP = 580;
+			playerHP = 380;
+			playerMAXHP = 380;
 			playerSpecialPoints = 100;
 			playerMaxSpecialPoints = 100;
 			
-			playerAttackPower = 80;
-			playerSpecialAttack = 60;
+			playerAttackPower = 60;
+			playerSpecialAttack = 40;
 			playerPhysicalDefense = 20;
 			playerSpecialDefense = 40;
 			baseSpeed = 80;
@@ -347,7 +347,7 @@ package
 		public function Melvin():void
 		{
 			name = "Melvin";
-			element = "Wind " // Wind, Ice, Fire
+			element = "Wind" // Wind, Ice, Fire
 			job = "Ranger" // Warrior, Mage, Archer
 			playerHP = 300;
 			playerMAXHP = 300;
