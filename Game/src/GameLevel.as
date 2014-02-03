@@ -182,12 +182,12 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
-			p1.playerSkill1.aFireball();
-			p2.playerSkill1.aFireball();
-			p3.playerSkill1.aFireball();
-			e1.playerSkill1.aFireball();
-			e2.playerSkill1.aFireball();
-			e3.playerSkill1.aFireball();
+			p1.playerSkill1.aHellFire();
+			p2.playerSkill1.aHellFire();
+			p3.playerSkill1.aHellFire();
+			e1.playerSkill1.aHellFire();
+			e2.playerSkill1.aHellFire();
+			e3.playerSkill1.aHellFire();
 			/*
 			p2.playerSkill1.aCrystallicShield();
 			p3.playerSkill1.aTorrentSlash();
@@ -955,114 +955,114 @@ package
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 572;
-							myMovieClip.y = 100;
+							myMovieClip.x = 478;
+							myMovieClip.y = 13;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 659;
-							myMovieClip.y = 199;
+							myMovieClip.x = 570;
+							myMovieClip.y = 110;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 598;
-							myMovieClip.y = 294;
+							myMovieClip.x = 509;
+							myMovieClip.y = 221;
 						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 66;
-							myMovieClip.y = 101;
+							myMovieClip.x = 309;
+							myMovieClip.y = 4;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14;
-							myMovieClip.y = 191;
+							myMovieClip.x = 235;
+							myMovieClip.y = 93;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46;
-							myMovieClip.y = 295;
+							myMovieClip.x = 292;
+							myMovieClip.y = 216;
 						}						
 						add(myMovieClip);
 						break;
 					case "Magic Missile":					
 						tmp = new MagicMissle;
-												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip = new FlxMovieClip(1,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 572;
-							myMovieClip.y = 100;
+							myMovieClip.x = 180;
+							myMovieClip.y = 134;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 659;
-							myMovieClip.y = 199;
+							myMovieClip.x = 100;
+							myMovieClip.y = 239;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 598;
-							myMovieClip.y = 294;
+							myMovieClip.x = 168;
+							myMovieClip.y = 328;
 						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 66;
-							myMovieClip.y = 101;
+							myMovieClip.x = 623;
+							myMovieClip.y = 141;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14;
-							myMovieClip.y = 191;
+							myMovieClip.x = 699;
+							myMovieClip.y = 237;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46;
-							myMovieClip.y = 295;
+							myMovieClip.x = 645;
+							myMovieClip.y = 333;
 						}						
 						add(myMovieClip);
 						break;
 					case "Arrow Shot":
 						tmp = new ArrowShot;
-												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip = new FlxMovieClip(1,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 572;
-							myMovieClip.y = 100;
+							myMovieClip.x = 175;
+							myMovieClip.y = 152;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 659;
-							myMovieClip.y = 199;
+							myMovieClip.x = 107;
+							myMovieClip.y = 255;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 598;
-							myMovieClip.y = 294;
+							myMovieClip.x = 171;
+							myMovieClip.y = 361;
 						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 66;
-							myMovieClip.y = 101;
+							myMovieClip.x = 620;
+							myMovieClip.y = 162;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14;
-							myMovieClip.y = 191;
+							myMovieClip.x = 683;
+							myMovieClip.y = 253;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46;
-							myMovieClip.y = 295;
+							myMovieClip.x = 630;
+							myMovieClip.y = 356;
 						}						
 						add(myMovieClip);
 						break;
@@ -1072,36 +1072,36 @@ package
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 172;
+							myMovieClip.x = 43;
 							myMovieClip.y = 100;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 159;
-							myMovieClip.y = 199;
+							myMovieClip.x = 1;
+							myMovieClip.y = 208;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 198;
-							myMovieClip.y = 294;
+							myMovieClip.x = 12;
+							myMovieClip.y = 307;
 						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 610;
-							myMovieClip.y = 101;
+							myMovieClip.x = 778;
+							myMovieClip.y = 87;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14+500;
-							myMovieClip.y = 191;
+							myMovieClip.x = 799;
+							myMovieClip.y = 197;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46+500;
-							myMovieClip.y = 295;
+							myMovieClip.x = 773;
+							myMovieClip.y = 294;
 						}						
 						add(myMovieClip);
 						break;
@@ -1206,7 +1206,7 @@ package
 						break;						
 					case "Fireball":
 						tmp = new Fireball;
-												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip = new FlxMovieClip(1,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
@@ -1245,40 +1245,40 @@ package
 						break;						
 					case "Whirlwind Gale":
 						tmp = new WhirlwindGale;
-												myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip = new FlxMovieClip(1,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 572;
-							myMovieClip.y = 100;
+							myMovieClip.x = 495;
+							myMovieClip.y = 14;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 659;
-							myMovieClip.y = 199;
+							myMovieClip.x = 575;
+							myMovieClip.y = 112;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 598;
-							myMovieClip.y = 294;
+							myMovieClip.x = 516;
+							myMovieClip.y = 200;
 						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 66;
-							myMovieClip.y = 101;
+							myMovieClip.x = 304;
+							myMovieClip.y = 6;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14;
-							myMovieClip.y = 191;
+							myMovieClip.x = 226;
+							myMovieClip.y = 92;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46;
-							myMovieClip.y = 295;
+							myMovieClip.x = 280;
+							myMovieClip.y = 191;
 						}						
 						add(myMovieClip);
 						break;			
@@ -1308,40 +1308,25 @@ package
 						break;
 					case "Sacred Wish":
 						tmp = new SacredWish;
-						myMovieClip = new FlxMovieClip(1,1);
+						myMovieClip = new FlxMovieClip(100000,1);
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
-						if (object.target == "e1")
-						{
-							myMovieClip.x = 572;
-							myMovieClip.y = 100;
-						}
-						if (object.target == "e2")
-						{
-							myMovieClip.x = 659;
-							myMovieClip.y = 199;
-						}
-						if (object.target == "e3")
-						{
-							myMovieClip.x = 598;
-							myMovieClip.y = 294;
-						}
 						if (object.target == "p1")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 66;
-							myMovieClip.y = 101;
+							myMovieClip.x = 253;
+							myMovieClip.y = 59;
 						}
 						if (object.target == "p2")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = -14;
-							myMovieClip.y = 191;
+							myMovieClip.x = 169;
+							myMovieClip.y = 157;
 						}
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 46;
-							myMovieClip.y = 295;
+							myMovieClip.x = 227;
+							myMovieClip.y = 264;
 						}						
 						add(myMovieClip);
 						break;
@@ -1351,36 +1336,36 @@ package
 						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
 						if (object.target == "e1")
 						{
-							myMovieClip.x = 542-40;
+							myMovieClip.x = 520;
 							myMovieClip.y = 1;
 						}
 						if (object.target == "e2")
 						{
-							myMovieClip.x = 603;
-							myMovieClip.y = 28;
+							myMovieClip.x = 609;
+							myMovieClip.y = 22;
 						}
 						if (object.target == "e3")
 						{
-							myMovieClip.x = 544;
-							myMovieClip.y = 120;
+							myMovieClip.x = 541;
+							myMovieClip.y = 118;
 						}
 						if (object.target == "p1")
 						{
-							//myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 1;
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 273;
 							myMovieClip.y = 1;
 						}
 						if (object.target == "p2")
 						{
-							//myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 1;
-							myMovieClip.y = 29;
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 188;
+							myMovieClip.y = 27;
 						}
 						if (object.target == "p3")
 						{
-							//myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 1;
-							myMovieClip.y = 121;
+							myMovieClip.scale.x = -myMovieClip.scale.x;
+							myMovieClip.x = 249;
+							myMovieClip.y = 122;
 						}					
 						add(myMovieClip);
 						break;
