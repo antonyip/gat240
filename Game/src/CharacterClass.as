@@ -25,9 +25,9 @@ package
 		public var playerSkill3:SkillClass = new SkillClass();
 		public var playerSkill4:SkillClass = new SkillClass();
 		
-		public var smallFace:Class = Assets.archerSpriteMale;
+		public var smallFace:Class = Assets.mageHeadFemale;
 		public var bigCharacter:Class = Assets.archerSpriteMale;
-		public var sideViewCharater:Class = Assets.archerSpriteMale;
+		public var sideViewCharater:Class = Assets.mageSideDead;
 		public var deadCharacter:Class = Assets.archerSpriteMale;
 		
 		public static var listOfCharacters:Array = new Array("Calissa", "Anton", "Kevin", "Cheng Lip", "Issac", "Jonathan","Chin Kiong", "Chin Kai", "Melvin");

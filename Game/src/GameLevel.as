@@ -17,15 +17,15 @@ package
 		private var background:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelBackground);
 		// GUI Sprites
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.gameLevelSkillSelectArrows);
-		private var guiText1:FlxText = new FlxText(400, 250, 120, "");
-		private var guiText2:FlxText = new FlxText(400, 280, 120, "");
-		private var guiText3:FlxText = new FlxText(400, 310, 120, "");
-		private var guiText4:FlxText = new FlxText(400, 340, 120, "");
+		private var guiText1:FlxText = new FlxText(406-60, 220.5-5, 120, "");
+		private var guiText2:FlxText = new FlxText(406-60, 259.5-5, 120, "");
+		private var guiText3:FlxText = new FlxText(406-60, 298.5-5, 120, "");
+		private var guiText4:FlxText = new FlxText(406-60, 337.5-5, 120, "");
 		private var guiText5:FlxText = new FlxText(-400, 420, 120, "");
-		private var topBarText:FlxText = new FlxText(200, 100, 600, "I tell you what happens here");
+		private var topBarText:FlxText = new FlxText(400.5-100, 25, 200, "I tell you what happens here");
 		
-		private var topBarImage:FlxSprite = new FlxSprite(200, 50, Assets.gameLevelTopBorder);
-		private var skillSelectImage:FlxSprite = new FlxSprite(300, 200, Assets.gameLevelSkillSelect);
+		private var topBarImage:FlxSprite = new FlxSprite(141, 0, Assets.gameLevelTopBorder);
+		private var skillSelectImage:FlxSprite = new FlxSprite(286, 201, Assets.gameLevelSkillSelect);
 		
 		// Game Calculations
 		private var p1:CharacterClass = Globals.p1; // player 1
@@ -35,31 +35,42 @@ package
 		private var e2:CharacterClass = Globals.e2; // enemy 2
 		private var e3:CharacterClass = Globals.e3; // enemy 3
 		
-		private var playerSprite1:FlxSprite = new FlxSprite(80, 100, p1.sideViewCharater);
-		private var playerSprite2:FlxSprite = new FlxSprite(40, 200, p2.sideViewCharater);
-		private var playerSprite3:FlxSprite = new FlxSprite(80, 300, p3.sideViewCharater);
-		private var enemySprite1:FlxSprite = new FlxSprite(550, 100, e1.sideViewCharater);
-		private var enemySprite2:FlxSprite = new FlxSprite(600, 200, e2.sideViewCharater);
-		private var enemySprite3:FlxSprite = new FlxSprite(550, 300, e3.sideViewCharater);
+		private var playerSprite1:FlxSprite = new FlxSprite(66, 101, p1.sideViewCharater);
+		private var playerSprite2:FlxSprite = new FlxSprite(-14, 191, p2.sideViewCharater);
+		private var playerSprite3:FlxSprite = new FlxSprite(46, 295, p3.sideViewCharater);
+		private var enemySprite1:FlxSprite  = new FlxSprite(572, 100, e1.sideViewCharater);
+		private var enemySprite2:FlxSprite  = new FlxSprite(659, 199, e2.sideViewCharater);
+		private var enemySprite3:FlxSprite  = new FlxSprite(598, 294, e3.sideViewCharater);
 		
-		private var playerFaceSprite1:FlxSprite = new FlxSprite(50,  450, p1.smallFace);
-		private var playerFaceSprite2:FlxSprite = new FlxSprite(250, 450, p2.smallFace);
-		private var playerFaceSprite3:FlxSprite = new FlxSprite(450, 450, p3.smallFace);
+		private var p1nametext:FlxText  = new FlxText(100 - 45 + 5-80, 488 + 20 - 2, 200, p1.name);
+		private var p2nametext:FlxText  = new FlxText(344 - 45 + 5-80, 488 + 20 - 2, 200, p2.name);
+		private var p3nametext:FlxText  = new FlxText(610 - 45 + 1-80, 488 + 20 - 2, 200, p3.name);
+		
+		private var playerFaceSprite1:FlxSprite = new FlxSprite(37-41, 510-41, p1.smallFace);
+		private var playerFaceSprite2:FlxSprite = new FlxSprite(294-51, 510-41, p2.smallFace);
+		private var playerFaceSprite3:FlxSprite = new FlxSprite(546-41, 510-41, p3.smallFace);
 		
 		// gui text for hp and stam
-		private var p1hp:FlxText = new FlxText(200, 450, 120, "");
-		private var p2hp:FlxText = new FlxText(250, 450, 120, "");
-		private var p3hp:FlxText = new FlxText(300, 450, 120, "");
+		private var p1hp:FlxText = new FlxText(105+10+26	, 523+2, 120, "");
+		private var p2hp:FlxText = new FlxText(343+10+10+26	, 523+2, 120, "");
+		private var p3hp:FlxText = new FlxText(609+10+5+26	, 523+2, 120, "");
 		private var e1hp:FlxText = new FlxText(400, 450, 120, "");
 		private var e2hp:FlxText = new FlxText(450, 450, 120, "");
 		private var e3hp:FlxText = new FlxText(500, 450, 120, "");
 		
-		private var p1s:FlxText = new FlxText(200, 480, 120, "");
-		private var p2s:FlxText = new FlxText(250, 480, 120, "");
-		private var p3s:FlxText = new FlxText(300, 480, 120, "");
-		private var e1s:FlxText = new FlxText(400, 480, 120, "");
-		private var e2s:FlxText = new FlxText(450, 480, 120, "");
-		private var e3s:FlxText = new FlxText(500, 480, 120, "");
+		private var p1h:FlxSprite = new FlxSprite (105+10	, 523+2, Assets.healthHeart);
+		private var p2h:FlxSprite = new FlxSprite (343+10+10, 523+2, Assets.healthHeart);
+		private var p3h:FlxSprite = new FlxSprite (609+10+5	, 523+2, Assets.healthHeart);
+		private var p1s1:FlxSprite = new FlxSprite(105+10	, 548, Assets.staminaHeart);
+		private var p2s1:FlxSprite = new FlxSprite(343+10+10, 548, Assets.staminaHeart);
+		private var p3s1:FlxSprite = new FlxSprite(609+10+5	, 548, Assets.staminaHeart);
+		
+		private var p1s:FlxText = new FlxText(105+10+26		, 548+2, 120, "");
+		private var p2s:FlxText = new FlxText(343+10+10+26	, 548+2, 120, "");
+		private var p3s:FlxText = new FlxText(609+10+5+26	, 548+2, 120, "");
+		private var e1s:FlxText = new FlxText(-400, 480, 120, "");
+		private var e2s:FlxText = new FlxText(-450, 480, 120, "");
+		private var e3s:FlxText = new FlxText(-500, 480, 120, "");
 		
 		// OtherStats
 		private var damageVariance:Number = 0; 	// 0-1 .. if you put 0.5.. the damage will become 0.5 to 1.5 times.. works like a +- system
@@ -108,6 +119,12 @@ package
 			add(guiText4);
 			add(guiText5);
 			topBarText.alignment = "center";
+
+			guiText1.alignment = "center";
+			guiText2.alignment = "center";
+			guiText3.alignment = "center";
+			guiText4.alignment = "center";
+			
 			
 			add(p1hp);
 			add(p2hp);
@@ -121,6 +138,13 @@ package
 			add(e1s);
 			add(e2s);
 			add(e3s);
+			
+			add(p1h);
+			add(p2h);
+			add(p3h);
+			add(p1s1);
+			add(p2s1);
+			add(p3s1);
 			
 			p1hp.text = p1.playerHP.toString();
 			p2hp.text = p2.playerHP.toString();
@@ -144,13 +168,23 @@ package
 			
 			add(topBarText);
 			
+			p1nametext.alignment = "center";
+			p2nametext.alignment = "center";
+			p3nametext.alignment = "center";
+			
+			add(p1nametext);
+			add(p2nametext);
+			add(p3nametext);
+			
+			
 			//FlxG.stage.addChild(crystallicShield);
 			//crystallicShield.x = 400;
 			//crystallicShield.y = 300
 			// HACKS
 			
 			//p1.playerSkill1.aBlizzard();
-			//p1.playerSkill2.aStarFrost();
+			//p1.playerSkill1.aBlizzard();
+			p1.playerSkill2.aStarFrost();
 		} // create close bracket
 		
 		// called everyframe
@@ -220,6 +254,16 @@ package
 					{
 						switch (selector)
 						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
+								break;
+							case 4:
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
@@ -282,6 +326,16 @@ package
 					{
 						switch (selector)
 						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
+								break;
+							case 4:
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
@@ -346,6 +400,16 @@ package
 						turn = 400;
 						switch (selector)
 						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e3";
+								break;
+							case 4:
 							default:
 								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
 								break;
@@ -732,23 +796,23 @@ package
 				break;
 			case 1:
 					arrowSprite.visible = true;
-					arrowSprite.x = guiText1.x - 100;
-					arrowSprite.y = guiText1.y;
+					arrowSprite.x = 268;
+					arrowSprite.y = 204;
 				break;
 			case 2:
 					arrowSprite.visible = true;
-					arrowSprite.x = guiText2.x - 100;
-					arrowSprite.y = guiText2.y;
+					arrowSprite.x = 268;
+					arrowSprite.y = 243;
 				break;				
 			case 3:
 					arrowSprite.visible = true;
-					arrowSprite.x = guiText3.x - 100;
-					arrowSprite.y = guiText3.y;
+					arrowSprite.x = 268;
+					arrowSprite.y = 282;
 				break;
 			case 4:
 					arrowSprite.visible = true;
-					arrowSprite.x = guiText4.x - 100;
-					arrowSprite.y = guiText4.y;
+					arrowSprite.x = 268;
+					arrowSprite.y = 321;
 				break;				
 			default:
 				trace("arrowSprite - Default shouldn't happen");
@@ -817,11 +881,11 @@ package
 					case "Star Frost":
 						tmp = new StarFrost;
 						myMovieClip = new FlxMovieClip(400,300);
-						myMovieClip.loadMovieClip(tmp, tmp.width, tmp.height, false, true);
-						if (object.caster.charAt(0) == "e")
+						myMovieClip.loadMovieClip(tmp, 800, 600, false, true);
+						if (object.caster.charAt(0) == "p")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
-							myMovieClip.x = 400;
+							myMovieClip.x = 799;
 						}
 						add(myMovieClip);
 					break;

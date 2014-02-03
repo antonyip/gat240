@@ -1,5 +1,6 @@
 package  
 {
+	import com.greensock.motionPaths.CirclePath2D;
 	import org.flixel.*;
 	import flash.events.Event;
 	import org.flixel.plugin.funstorm.FlxMovieClip;
@@ -16,8 +17,12 @@ package
 		private var arrowSprite:FlxSprite = new FlxSprite(0, 0, Assets.arrowSprite);
 		public var selector:int = 0;
 		// do once when come into game
+		
+		//private var movieclip:FlxMovieClip = new FlxMovieClip(1, 1);
 		public override function create():void
 		{
+
+			
 			add(background);
 			//add(startGame);
 			//add(howToPlay);
@@ -29,12 +34,16 @@ package
 		public override function update():void
 		{
 			// handle inputs WS
-			/*
+			
 			if (FlxG.keys.justReleased("W") || FlxG.keys.justReleased("UP"))
 			{
-				if (selector > 0)
-					selector --;
+				/*
+				var tmp:* = new WhirlwindGale;
+				movieclip.loadMovieClip(tmp, 800, 600, false, true);
+				add(movieclip);
+				*/
 			}
+			/*
 			if (FlxG.keys.justReleased("S") || FlxG.keys.justReleased("DOWN"))
 			{
 				if (selector < 1)
@@ -61,6 +70,9 @@ package
 			*/
 			
 		}
+		
+		
+		
 		
 		public function startGameFn():void 
 		{
