@@ -182,9 +182,9 @@ package
 			//crystallicShield.y = 300
 			// HACKS
 			
-			p1.playerSkill1.aHellFire();
-			p2.playerSkill1.aHellFire();
-			p3.playerSkill1.aHellFire();
+			p1.playerSkill1.aCrystallicShield();
+			p2.playerSkill1.aHealingWinds();
+			p3.playerSkill1.aSacredWish();
 			e1.playerSkill1.aHellFire();
 			e2.playerSkill1.aHellFire();
 			e3.playerSkill1.aHellFire();
@@ -257,6 +257,13 @@ package
 								break;
 						}
 						
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Crystallic Shield")
+							turn = 120;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Healing Winds")
+							turn = 120;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Sacred Wish")
+							turn = 120;
+						
 						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p1";
 						selector = 1;
 					}
@@ -291,6 +298,36 @@ package
 						
 					}
 					break;
+				case 120: // targeting mode
+					guiText1.text = p1.name;
+					guiText2.text = p2.name;
+					guiText3.text = p3.name;
+					guiText4.text = " ";
+					guiText5.text = "Player 1 Target";
+					if (FlxG.keys.justReleased("SPACE"))
+					{
+						turn = 200;
+						switch (selector)
+						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+								break;
+							case 4:
+								turn = 120;
+								break;
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+								break;
+						}
+						
+					}
+					break;					
 				case 200:
 					guiText1.text = p2.playerSkill1.name;
 					guiText2.text = p2.playerSkill2.name;
@@ -333,6 +370,12 @@ package
 								break;
 						}
 						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p2";
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Crystallic Shield")
+							turn = 220;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Healing Winds")
+							turn = 220;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Sacred Wish")
+							turn = 220;
 						selector = 1;
 					}
 					break;
@@ -365,7 +408,36 @@ package
 						}
 						
 					}
-					break;					
+					break;
+				case 220: // targeting mode
+					guiText1.text = p1.name;
+					guiText2.text = p2.name;
+					guiText3.text = p3.name;
+					guiText4.text = " ";
+					guiText5.text = "Player 2 Target";
+					if (FlxG.keys.justReleased("SPACE"))
+					{
+						turn = 300;
+						switch (selector)
+						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+								break;
+							case 4:
+								turn = 220;
+								break;
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+						}
+					}
+					break;							
 				case 300:
 					guiText1.text = p3.playerSkill1.name;
 					guiText2.text = p3.playerSkill2.name;
@@ -408,6 +480,12 @@ package
 								break;
 						}
 						skillsUsedThisTurn[skillsUsedThisTurn.length - 1].caster = "p3";
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Crystallic Shield")
+							turn = 320;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Healing Winds")
+							turn = 320;
+						if (skillsUsedThisTurn[skillsUsedThisTurn.length - 1].thisSkill.name == "Sacred Wish")
+							turn = 320;
 						selector = 1;
 					}
 					break;
@@ -439,6 +517,34 @@ package
 						}					
 					}
 					break;					
+				case 320: // targeting mode
+					guiText1.text = p1.name;
+					guiText2.text = p2.name;
+					guiText3.text = p3.name;
+					guiText4.text = " ";
+					guiText5.text = "Player 3 Target";
+					if (FlxG.keys.justReleased("SPACE"))
+					{
+						turn = 400;
+						switch (selector)
+						{
+							case 1:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p1";
+								break;
+							case 2:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p2";
+								break;
+							case 3:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "p3";
+								break;
+							case 4:
+								turn = 320;
+							default:
+								skillsUsedThisTurn[skillsUsedThisTurn.length - 1].target = "e1";
+								break;
+						}
+					}
+					break;									
 				case 400:
 					trace ("AI's Turn");
 					// select e1 skill
@@ -1321,7 +1427,7 @@ package
 							myMovieClip.scale.x = -myMovieClip.scale.x;
 							myMovieClip.x = 169;
 							myMovieClip.y = 157;
-						}
+						}	
 						if (object.target == "p3")
 						{
 							myMovieClip.scale.x = -myMovieClip.scale.x;
@@ -1370,7 +1476,7 @@ package
 						add(myMovieClip);
 						break;
 						
-// ----------------- AOE						
+					// ----------------- AOE						
 					case "Blizzard":
 						tmp = new Blizzard;
 						myMovieClip = new FlxMovieClip(1,1);
