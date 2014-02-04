@@ -36,26 +36,26 @@ package
 			if (type == CASTER_ON_TARGET_WITH_SKILL)
 			{
 				if (target != "none")
-					topText = caster + " used " + skillName_ + " on " + target + ".";
+					topText = Globals.getCharacterFromString(caster).name + " used " + skillName_ + " on " + Globals.getCharacterFromString(target).name + ".";
 				else
-					topText = caster + " used " + skillName_ +".";
+					topText = Globals.getCharacterFromString(caster).name + " used " + skillName_ +".";
 			}
 			if (type == ANIMATION)
 				topText = "AntonCode";
 			if (type == CASTER_DAMAGE)
-				topText = caster + " dealt " + others + " damage to "  + target + ".";
+				topText = Globals.getCharacterFromString(caster).name + " dealt " + others + " damage to "  + Globals.getCharacterFromString(target).name + ".";
 			if (type == NO_DAMAGE)
 				topText = "No Damage was felt.";
 			if (type == CHARCTER_DIES)
-				topText = caster + " fainted.";
+				topText = Globals.getCharacterFromString(caster).name + " fainted.";
 			if (type == FEATHER_DANCE)
 				topText = "Your team's attack power increased by 50%.";
 			if (type == CRYSTAL_SHIELD)
-				topText = target_ + " defence increased by 50%!";
+				topText = Globals.getCharacterFromString(target_).name + " defence increased by 50%!";
 			if (type == HEALING_WINDS)
-				topText = target_ + " recovered health by " + others + ".";
+				topText = Globals.getCharacterFromString(target_).name + " recovered health by " + others + ".";
 			if (type == SACRED_WISH)
-				topText = target_ + " increased speed by 50%!";
+				topText = Globals.getCharacterFromString(target_).name + " increased speed by 50%!";
 			}
 		
 	}
