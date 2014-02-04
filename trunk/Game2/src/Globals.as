@@ -48,13 +48,13 @@ package
 		
 		public static function outOfScreen(x:Number, y:Number):Boolean
 		{
-			if (x < -50)
+			if (x < -200)
 				return true;
-			if (x > 850)
+			if (x > 1000)
 				return true;
-			if (y < -50)
+			if (y < -200)
 				return true;
-			if (y > 850)
+			if (y > 1000)
 				return true;
 			
 			return false;			
