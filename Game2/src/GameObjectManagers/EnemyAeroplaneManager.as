@@ -44,7 +44,7 @@ package GameObjectManagers
 			switch (enemyString) 
 			{
 				case ENEMY_BASIC:
-					add(new EnemyObject(Globals.randomInt(0, 800), 0, Assets.enemySprite));
+					add(new EnemyObject(Globals.randomInt(0, 750), 0, Assets.enemySprite));
 					break;
 					/*
 				case POWERUP_SPEED:
