@@ -6,6 +6,7 @@ package
 	 */
 	import flash.events.Event;
 	import GameObjectManagers.PlayerBulletManager;
+	import GameObjectManagers.PowerUpManager;
 	import GameObjects.PlayerBullet;
 	import org.flixel.FlxG;
 	import org.flixel.FlxCamera;
@@ -14,6 +15,7 @@ package
 	public class Globals 
 	{
 		public static var playerBulletManager:PlayerBulletManager = new PlayerBulletManager();
+		public static var powerUpManager:PowerUpManager = new PowerUpManager();
 		
 		public function Globals() 
 		{
