@@ -12,22 +12,22 @@ package
 	public class GameLevel extends FlxState 
 	{
 		// Sprites
-		private var bulletTest:Bullet;
+		private var aeroplane:Aeroplane;
+		
 		// do once when come into game
 		public override function create():void
 		{
-			bulletTest = new PlayerStraightBullet(400, 300, Assets.testArt1);
-			add(bulletTest);
+			aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
+			add(aeroplane);
+			add(Globals.playerBulletManager);
 		} // create close bracket
 		
 		// called everyframe
 		public override function update():void
 		{
 			super.update();
-			
-			
-			
 		} //update close bracket
+		
 	}
 
 }
