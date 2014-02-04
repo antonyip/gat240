@@ -20,6 +20,7 @@ package
 			aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
 			add(aeroplane);
 			add(Globals.playerBulletManager);
+			add(Globals.powerUpManager);
 		} // create close bracket
 		
 		// called everyframe

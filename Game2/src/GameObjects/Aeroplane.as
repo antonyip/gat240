@@ -9,26 +9,75 @@ package GameObjects
 	 */
 	public class Aeroplane extends FlxSprite 
 	{
+		public static var WEAPON_BASIC:String = "basicWeapon";
+		public static var WEAPON_SPREAD:String = "spreadWeapon";
+		
+		// movement
+		public var planeAccleration:Number = 5;
+		
+		// fire
+		public var rateOfFire:int = 12; // 12 frames shoot 1 bullet
+		private var rateOfFireCounter:int = 0;
+		
+		// weapons
+		private var weaponType:String = WEAPON_BASIC;
+		
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SimpleGraphic);
+			
+			// variables of movements
+			maxVelocity.x = 200;
+			maxVelocity.y = 200;
+			//drag.x
+			//drag.y
 		}
 		
 		public override function update():void
 		{
+			++rateOfFireCounter;
 			if (FlxG.keys.SPACE)
 			{
-				Globals.playerBulletManager.createNormalBullet(x, y);
+				switch (weaponType) 
+				{
+				case WEAPON_BASIC:
+					if (rateOfFireCounter >= rateOfFire)
+					{
+						rateOfFireCounter = 0;
+						Globals.playerBulletManager.createNormalBullet(x, y);
+					}
+					break;
+					
+				case WEAPON_SPREAD:
+					
+				break;
+				default:
+					
+					break;
+				}
+
 			}
 			if (FlxG.keys.A)
 			{
-				x--;
+				velocity.x -= planeAccleration;
 			}
 			if (FlxG.keys.D)
 			{
-				x++;
+				velocity.x += planeAccleration;
 			}
+			if (FlxG.keys.W)
+			{
+				velocity.y -= planeAccleration;
+			}
+			if (FlxG.keys.S)
+			{
+				velocity.y += planeAccleration;
+			}
+			if (x < 0 || x > 800-width)
+				velocity.x *= -1;
+			if (y < 0 || y > 600-height)
+				velocity.y *= -1;
 		}
 		
 	}
