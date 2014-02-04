@@ -58,19 +58,19 @@ package GameObjects
 				}
 
 			}
-			if (FlxG.keys.A)
+			if (FlxG.keys.A || FlxG.keys.LEFT)
 			{
 				velocity.x -= planeAccleration;
 			}
-			if (FlxG.keys.D)
+			if (FlxG.keys.D || FlxG.keys.RIGHT)
 			{
 				velocity.x += planeAccleration;
 			}
-			if (FlxG.keys.W)
+			if (FlxG.keys.W || FlxG.keys.UP)
 			{
 				velocity.y -= planeAccleration;
 			}
-			if (FlxG.keys.S)
+			if (FlxG.keys.S || FlxG.keys.DOWN)
 			{
 				velocity.y += planeAccleration;
 			}
