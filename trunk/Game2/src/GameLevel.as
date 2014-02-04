@@ -12,12 +12,11 @@ package
 	public class GameLevel extends FlxState 
 	{
 		// Sprites
-		private var aeroplane:Aeroplane;
+		private var aeroplane:Aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
 		
 		// do once when come into game
 		public override function create():void
 		{
-			aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
 			add(Globals.playerBulletManager);
 			add(aeroplane);
 			add(Globals.enemyBulletManager);
