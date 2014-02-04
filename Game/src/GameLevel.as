@@ -22,7 +22,7 @@ package
 		private var guiText3:FlxText = new FlxText(406-60, 298.5-5, 120, "");
 		private var guiText4:FlxText = new FlxText(406-60, 337.5-5, 120, "");
 		private var guiText5:FlxText = new FlxText(-400, 420, 120, "");
-		private var topBarText:FlxText = new FlxText(400.5-100, 25, 200, "I tell you what happens here");
+		private var topBarText:FlxText = new FlxText(400.5-300, 25, 600, "I tell you what happens here");
 		
 		private var topBarImage:FlxSprite = new FlxSprite(141, 0, Assets.gameLevelTopBorder);
 		private var skillSelectImage:FlxSprite = new FlxSprite(286, 201, Assets.gameLevelSkillSelect);
