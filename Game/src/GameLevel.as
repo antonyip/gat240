@@ -54,13 +54,18 @@ package
 		private var p1hp:FlxText = new FlxText(105+10+26	, 523+2, 120, "");
 		private var p2hp:FlxText = new FlxText(343+10+10+26	, 523+2, 120, "");
 		private var p3hp:FlxText = new FlxText(609+10+5+26	, 523+2, 120, "");
-		private var e1hp:FlxText = new FlxText(400, 450, 120, "");
-		private var e2hp:FlxText = new FlxText(450, 450, 120, "");
-		private var e3hp:FlxText = new FlxText(500, 450, 120, "");
+		private var e1hp:FlxText = new FlxText(572+25, 100, 120, "");
+		private var e2hp:FlxText = new FlxText(659+25, 199, 120, "");
+		private var e3hp:FlxText = new FlxText(598+25, 294, 120, "");
 		
 		private var p1h:FlxSprite = new FlxSprite (105+10	, 523+2, Assets.healthHeart);
 		private var p2h:FlxSprite = new FlxSprite (343+10+10, 523+2, Assets.healthHeart);
-		private var p3h:FlxSprite = new FlxSprite (609+10+5	, 523+2, Assets.healthHeart);
+		private var p3h:FlxSprite = new FlxSprite (609 + 10 + 5	, 523 + 2, Assets.healthHeart);
+		private var e1h:FlxSprite = new FlxSprite (572, 100, Assets.healthHeart);
+		private var e2h:FlxSprite = new FlxSprite (659, 199, Assets.healthHeart);
+		private var e3h:FlxSprite = new FlxSprite (598, 294, Assets.healthHeart);
+		
+		
 		private var p1s1:FlxSprite = new FlxSprite(105+10	, 548, Assets.staminaHeart);
 		private var p2s1:FlxSprite = new FlxSprite(343+10+10, 548, Assets.staminaHeart);
 		private var p3s1:FlxSprite = new FlxSprite(609+10+5	, 548, Assets.staminaHeart);
@@ -138,6 +143,10 @@ package
 			add(e1s);
 			add(e2s);
 			add(e3s);
+			
+			add(e1h);
+			add(e2h);
+			add(e3h);
 			
 			add(p1h);
 			add(p2h);
