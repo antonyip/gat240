@@ -24,6 +24,19 @@ package
 		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
 		public static var bulletSprite:Class;
 		
+		[Embed(source = "../art/Test Art/Ametrine Crystal01.png")]
+		public static var healthPowerUp:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal02.png")]
+		public static var speedPowerUp:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var shieldPowerUp:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var attackPowerUp:Class;
+		
+		
 		public function Assets() 
 		{
 			
