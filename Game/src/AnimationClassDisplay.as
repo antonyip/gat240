@@ -19,6 +19,10 @@ package
 		public static var ANIMATION:String = "Animation";
 		public static var CASTER_DAMAGE:String = "CasterDamage";
 		public static var NO_DAMAGE:String = "NoDamage";
+		public static var FEATHER_DANCE:String = "FeatherDance";
+		public static var CRYSTAL_SHIELD:String = "Shield";
+		public static var HEALING_WINDS:String = "Heals";
+		public static var SACRED_WISH:String = "SacredWish";
 		
 		
 		public function AnimationClassDisplay(type_:String, caster_:String, target_:String, others:String = null, animation_:String = null, skillName_:String = null)
@@ -44,7 +48,15 @@ package
 				topText = "No Damage was felt.";
 			if (type == CHARCTER_DIES)
 				topText = caster + " fainted.";
-		}
+			if (type == FEATHER_DANCE)
+				topText = "Your team's attack power increased by 50%.";
+			if (type == CRYSTAL_SHIELD)
+				topText = target_ + " defence increased by 50%!";
+			if (type == HEALING_WINDS)
+				topText = target_ + " recovered health by " + others + ".";
+			if (type == SACRED_WISH)
+				topText = target_ + " increased speed by 50%!";
+			}
 		
 	}
 
