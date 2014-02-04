@@ -47,19 +47,19 @@ package GameObjectManagers
 			switch (pwrUp) 
 			{
 				case POWERUP_HEALTH:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.healthPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.healthPowerUp));
 					break;
 					
 				case POWERUP_SPEED:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.speedPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.speedPowerUp));
 					break;
 					
 				case POWERUP_ATTACK:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.attackPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.attackPowerUp));
 					break;
 					
 				case POWERUP_SHIELD:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.shieldPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.shieldPowerUp));
 					break;
 				default:
 					trace ("unknown power up");

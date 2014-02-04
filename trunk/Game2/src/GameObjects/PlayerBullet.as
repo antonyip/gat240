@@ -16,7 +16,8 @@ package  GameObjects
 		public override function update():void
 		{
 			super.update();
-			
+			if (Globals.outOfScreen(x, y))
+				kill();
 		}
 		
 	}
