@@ -1,7 +1,6 @@
 package GameObjectManagers 
 {
-	import GameObjects.PlayerBullet;
-	import GameObjects.PlayerStraightBullet;
+	import GameObjects.*;
 	import org.flixel.FlxGroup;
 	/**
 	 * ...
@@ -17,6 +16,18 @@ package GameObjectManagers
 		public function createNormalBullet(x:Number, y:Number):void
 		{
 			add(new PlayerStraightBullet(x, y, Assets.bulletSprite));
+		}
+		
+		public function createSpreadBullet(x:Number, y:Number):void
+		{
+			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 1));
+			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 2));
+			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 3));
+		}
+		
+		public function createAoeBullet(x:Number, y:Number):void
+		{
+			add(new PlayerAoeBullet(x, y, Assets.bulletSprite));
 		}
 		
 	}

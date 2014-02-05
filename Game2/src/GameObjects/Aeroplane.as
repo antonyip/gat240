@@ -11,6 +11,7 @@ package GameObjects
 	{
 		public static var WEAPON_BASIC:String = "basicWeapon";
 		public static var WEAPON_SPREAD:String = "spreadWeapon";
+		public static var WEAPON_AOE:String = "AOEWEAPON";
 		
 		// movement
 		public var planeAccleration:Number = 5;
@@ -20,7 +21,7 @@ package GameObjects
 		private var rateOfFireCounter:int = 0;
 		
 		// weapons
-		private var weaponType:String = WEAPON_BASIC;
+		private var weaponType:String = WEAPON_AOE;
 		
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
@@ -50,8 +51,19 @@ package GameObjects
 					break;
 					
 				case WEAPON_SPREAD:
-					
+					if (rateOfFireCounter >= rateOfFire)
+					{
+						rateOfFireCounter = 0;
+						Globals.playerBulletManager.createSpreadBullet(x, y);
+					}
 				break;
+				case WEAPON_AOE:
+					if (rateOfFireCounter >= rateOfFire)
+					{
+						rateOfFireCounter = 0;
+						Globals.playerBulletManager.createAoeBullet(x, y);
+					}
+				break;				
 				default:
 					
 					break;
