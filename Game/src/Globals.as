@@ -127,19 +127,19 @@ package
 		
 		public static function checkElementalDifference(attackerName:String, defenderName:String):Number
 		{
-			if (attackerName == "Wind" && defenderName == "Ice")
+			if (getCharacterFromString(attackerName).element == "Wind" && getCharacterFromString(defenderName).element == "Ice")
 			{
 				return 1.5;
 			}
-			else if (attackerName == "Fire" && defenderName == "Ice")
+			else if (getCharacterFromString(attackerName).element == "Fire" && getCharacterFromString(defenderName).element == "Ice")
 			{
 				return 1.5;
 			}
-			else if (attackerName == "Wind" && defenderName == "Fire")
+			else if (getCharacterFromString(attackerName).element == "Wind" && getCharacterFromString(defenderName).element == "Fire")
 			{
 				return 1.5;
 			}
-			else if (attackerName == "Wind" && defenderName == "Ice")
+			else if (getCharacterFromString(attackerName).element == "Wind" && getCharacterFromString(defenderName).element == "Ice")
 			{
 				return 1.5;
 			}
@@ -151,19 +151,19 @@ package
 		
 		public static function checkClassResistance(attackerName:String, defenderName:String):Number
 		{
-			if (attackerName == "Warrior" && defenderName == "Archer")
+			if (getCharacterFromString(attackerName).job == "Warrior" && getCharacterFromString(defenderName).job == "Ranger")
 			{
 				return 0.75;
 			}
-			else if (attackerName == "Warrior" && defenderName == "Mage")
+			else if (getCharacterFromString(attackerName).job == "Warrior" && getCharacterFromString(defenderName).job == "Mage")
 			{
 				return 0.75;
 			}
-			else if (attackerName == "Archer" && defenderName == "Mage")
+			else if (getCharacterFromString(attackerName).job == "Ranger" && getCharacterFromString(defenderName).job == "Mage")
 			{
 				return 0.75;
 			}
-			else if (attackerName == "Archer" && defenderName == "Warrior")
+			else if (getCharacterFromString(attackerName).job == "Ranger" && getCharacterFromString(defenderName).job == "Warrior")
 			{
 				return 0.75;
 			}
