@@ -21,7 +21,7 @@ package GameObjects
 		private var rateOfFireCounter:int = 0;
 		
 		// weapons
-		private var weaponType:String = WEAPON_AOE;
+		private var weaponType:String = WEAPON_SPREAD;
 		
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 

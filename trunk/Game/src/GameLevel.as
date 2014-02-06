@@ -231,7 +231,7 @@ package
 					guiText3.text = p1.playerSkill3.name;
 					guiText4.text = p1.playerSkill4.name;
 					guiText5.text = "Player 1 Turn";
-					topBarText.text = "Character 1's turn";
+					topBarText.text = Globals.getCharacterFromString("p1").name + "'s turn";
 					
 					if (p1.checkDead())
 					{
@@ -343,7 +343,7 @@ package
 					guiText3.text = p2.playerSkill3.name;
 					guiText4.text = p2.playerSkill4.name;
 					guiText5.text = "Player 2 Turn";
-					topBarText.text = "Character 2's turn";
+					topBarText.text = Globals.getCharacterFromString("p2").name + "'s turn";
 					
 					if (p2.checkDead())
 					{
@@ -453,7 +453,7 @@ package
 					guiText3.text = p3.playerSkill3.name;
 					guiText4.text = p3.playerSkill4.name;
 					guiText5.text = "Player 3 Turn";
-					topBarText.text = "Character 3's turn";
+					topBarText.text = Globals.getCharacterFromString("p3").name + "'s turn";
 					
 					if (p3.checkDead())
 					{
