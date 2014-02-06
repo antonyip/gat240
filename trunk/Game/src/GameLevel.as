@@ -843,7 +843,7 @@ package
 								tmpSkill2 = skillsUsedThisTurn[j].thisSkill;
 								baseDamage2	= tmpSkill2.power 
 												+ tmpSkill2.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
-								baseDefense2 = tmpSkill2.isPhysical ? Globals.e1.playerPhysicalDefense	 : Globals.e1.playerSpecialDefense;
+								baseDefense2 = tmpSkill2.isPhysical ? Globals.e2.playerPhysicalDefense	 : Globals.e2.playerSpecialDefense;
 								elementalMultiplier2 = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].caster);
 								classResistance2 = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
 																
@@ -863,7 +863,7 @@ package
 								tmpSkill2 = skillsUsedThisTurn[j].thisSkill;
 								baseDamage2 	= tmpSkill2.power 
 												+ tmpSkill2.isPhysical ? Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerAttackPower		 : Globals.getCharacterFromString(skillsUsedThisTurn[j].caster).playerSpecialAttack;
-								baseDefense2 = tmpSkill2.isPhysical ? Globals.e1.playerPhysicalDefense	 : Globals.e1.playerSpecialDefense;
+								baseDefense2 = tmpSkill2.isPhysical ? Globals.e3.playerPhysicalDefense	 : Globals.e3.playerSpecialDefense;
 								elementalMultiplier2 = Globals.checkElementalDifference(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].caster);
 								classResistance2 = Globals.checkClassResistance(skillsUsedThisTurn[j].caster, skillsUsedThisTurn[j].target);
 																
