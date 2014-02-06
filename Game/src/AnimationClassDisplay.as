@@ -47,7 +47,7 @@ package
 			if (type == NO_DAMAGE)
 				topText = "No Damage was felt.";
 			if (type == CHARCTER_DIES)
-				topText = Globals.getCharacterFromString(caster).name + " fainted.";
+				topText = Globals.getCharacterFromString(target_).name + " fainted.";
 			if (type == FEATHER_DANCE)
 				topText = "Your team's attack power increased by 50%.";
 			if (type == CRYSTAL_SHIELD)
