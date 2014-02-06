@@ -103,8 +103,8 @@ package
 			
 			playerAttackPower = 60;
 			playerSpecialAttack = 80;
-			playerPhysicalDefense = 20;
-			playerSpecialDefense = 40;
+			playerPhysicalDefense = 10;
+			playerSpecialDefense = 30;
 			baseSpeed = 20;
 			
 			smallFace = Assets.mageHeadFemale;
@@ -149,8 +149,8 @@ package
 			
 			playerAttackPower = 80;
 			playerSpecialAttack = 60;
-			playerPhysicalDefense = 20;
-			playerSpecialDefense = 40;
+			playerPhysicalDefense = 30;
+			playerSpecialDefense = 50;
 			baseSpeed = 50;
 			playerSkill1.aMagicMissile();
 			
