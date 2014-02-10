@@ -11,7 +11,9 @@ package GameObjects
 	{
 		public static var WEAPON_BASIC:String = "basicWeapon";
 		public static var WEAPON_SPREAD:String = "spreadWeapon";
-		public static var WEAPON_AOE:String = "AOEWEAPON";
+		public static var WEAPON_CHASE:String = "chaser";
+		public var livesLeft:int;
+		public var noDeath:int = 0;
 		
 		// movement
 		public var planeAccleration:Number = 5;
@@ -21,8 +23,9 @@ package GameObjects
 		private var rateOfFireCounter:int = 0;
 		
 		// weapons
-		private var weaponType:String = WEAPON_SPREAD;
-		
+		private var weaponType:String = WEAPON_BASIC;
+		private var listOfWeapons:Array = [WEAPON_BASIC, WEAPON_SPREAD, WEAPON_CHASE];
+		private var weaponTypeCounter:int = 0;
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
@@ -33,6 +36,15 @@ package GameObjects
 			maxVelocity.y = 200;
 			//drag.x
 			//drag.y
+			livesLeft = 2;
+		}
+		
+		public function switchNextWeapon():void
+		{
+			++weaponTypeCounter;
+			if (weaponTypeCounter == listOfWeapons.length)
+				weaponTypeCounter = 0;
+			weaponType = listOfWeapons[weaponTypeCounter];
 		}
 		
 		public override function update():void
@@ -57,7 +69,7 @@ package GameObjects
 						Globals.playerBulletManager.createSpreadBullet(x, y);
 					}
 				break;
-				case WEAPON_AOE:
+				case WEAPON_CHASE:
 					if (rateOfFireCounter >= rateOfFire)
 					{
 						rateOfFireCounter = 0;
@@ -85,6 +97,10 @@ package GameObjects
 			if (FlxG.keys.S || FlxG.keys.DOWN)
 			{
 				velocity.y += planeAccleration;
+			}
+			if (FlxG.keys.justPressed("F"))
+			{
+				switchNextWeapon();
 			}
 			if (x < 0 || x > 800-width)
 				velocity.x *= -1;
