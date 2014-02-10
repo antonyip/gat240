@@ -12,7 +12,7 @@ package GameObjects
 		public function EnemyBullet(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SimpleGraphic);
-			velocity.y = 5;
+			velocity.y = 50;
 		}
 		
 		public override function update():void
