@@ -1,5 +1,6 @@
 package GameObjectManagers 
 {
+	import GameObjects.EnemyBullet;
 	import org.flixel.FlxGroup;
 	
 	/**
@@ -14,6 +15,10 @@ package GameObjectManagers
 			super(MaxSize);
 		}
 		
+		public function spawnBullet(x:int, y:int, img:Class):void
+		{
+			add(new EnemyBullet(x, y, img));
+		}
 	}
 
 }

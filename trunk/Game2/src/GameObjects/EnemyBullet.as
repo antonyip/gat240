@@ -18,9 +18,8 @@ package GameObjects
 		public override function update():void
 		{
 			super.update();
-			
+			y += 5;
 		}
-		
 	}
 
 }
