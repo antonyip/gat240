@@ -12,7 +12,10 @@ package GameObjects
 			super(X, Y, SimpleGraphic);
 			
 		}
-		
+		public override function update():void 
+		{
+			super.update();
+		}
 	}
 
 }

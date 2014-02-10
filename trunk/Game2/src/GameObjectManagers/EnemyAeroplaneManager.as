@@ -16,12 +16,10 @@ package GameObjectManagers
 		public static var ENEMY_CHASER:String = "ENEMY_CHASER";
 		public static var ENEMY_BOSS:String = "ENEMY_BOSS";
 		public static var ENEMY_SHOOTER:String = "ENEMY_SHOOTER";
-		public static var listOfEnemies:Array = //[ENEMY_BASIC,
-												//ENEMY_CHASER,
-												[ENEMY_SHOOTER]
-												//ENEMY_BOSS];
+		public static var listOfEnemies:Array = [ENEMY_BASIC,
+												ENEMY_CHASER,
+												ENEMY_SHOOTER];
 		
-		// power up spawn -- so this will make the spawn every 20 - 30 seconds
 		public var counter:int = 0;
 		public var waitAtLeastHowManyFrames:int = 60 * 10; // 60 frames a second, 10 seconds
 		public var minVariance:int = 0; // 60 frames a second, 10 seconds
