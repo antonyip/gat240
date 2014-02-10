@@ -21,6 +21,18 @@ package
 		[Embed(source = "../art/Test Art/Ametrine Crystal02.png")]
 		public static var enemySprite:Class;
 		
+		[Embed(source = "../art/Test Art/Ametrine Crystal01.png")]
+		public static var enemyShooter:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal02.png")]
+		public static var enemyChaser:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var enemyBoss:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var enemyBullet:Class;
+		
 		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
 		public static var bulletSprite:Class;
 		
