@@ -14,7 +14,7 @@ package
 			
 		}
 		
-		public function update():void
+		public override function update():void
 		{
 			if (FlxG.keys.justPressed("SPACE"))
 			{
