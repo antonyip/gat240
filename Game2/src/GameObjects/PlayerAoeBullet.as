@@ -45,7 +45,7 @@ package GameObjects
 			}
 			else
 			{
-				y -= 5;
+				velocity.y = -bulletSpeed;
 			}
 		}
 		

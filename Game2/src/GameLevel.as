@@ -32,6 +32,26 @@ package
 		{
 			
 			super.update();
+			// -- Input for Power ups -- //
+			if (FlxG.keys.justPressed("Z"))
+			{
+				// stop enemies in their tracks
+			}
+			
+			if (FlxG.keys.justPressed("X"))
+			{
+				// Destroy all enemies and bullets
+				Globals.enemyAeroplaneManager.kill();
+				Globals.enemyBulletManager.kill();
+			}
+			
+			if (FlxG.keys.justPressed("C"))
+			{
+				// No Damage
+				Globals.aeroplane.noDeath = 1200;
+				Globals.aeroplane.flicker(10);
+			}
+			
 			// ------------------ update collision			 --------------------------------- //
 			FlxG.collide(Globals.aeroplane, Globals.powerUpManager, aeroplaneOnPowerUp);
 			
