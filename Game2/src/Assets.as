@@ -48,6 +48,17 @@ package
 		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
 		public static var attackPowerUp:Class;
 		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var mainMenuBG:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var GameLevelBG:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var LoseLevelBG:Class;
+		
+		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		public static var WinLevelBG:Class;
 		
 		public function Assets() 
 		{
