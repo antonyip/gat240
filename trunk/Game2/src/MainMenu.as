@@ -11,8 +11,10 @@ package
 	public class MainMenu extends FlxState 
 	{
 		// do once when come into game
+		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.mainMenuBG);
 		public override function create():void
 		{
+			add(bg);
 			if (FlxG.stage)
 				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 				
