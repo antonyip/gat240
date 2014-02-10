@@ -1,6 +1,9 @@
 package GameObjectManagers 
 {
+	import GameObjects.EnemyBoss;
+	import GameObjects.EnemyChaser;
 	import GameObjects.EnemyObject;
+	import GameObjects.EnemyShooter;
 	import org.flixel.FlxGroup;
 	
 	/**
@@ -9,11 +12,11 @@ package GameObjectManagers
 	 */
 	public class EnemyAeroplaneManager extends FlxGroup 
 	{
-		public static var ENEMY_BASIC:String = "enemy_BASIC";
-		//public static var POWERUP_SPEED:String = "powerUpSpeed";
-		//public static var POWERUP_ATTACK:String = "powerUpAttack";
-		//public static var POWERUP_SHIELD:String = "powerUpShield";
-		public static var listOfEnemies:Array = [ENEMY_BASIC];
+		public static var ENEMY_BASIC:String = "ENEMY_BASIC";
+		public static var ENEMY_CHASER:String = "ENEMY_CHASER";
+		public static var ENEMY_BOSS:String = "ENEMY_BOSS";
+		public static var ENEMY_SHOOTER:String = "ENEMY_SHOOTER";
+		public static var listOfEnemies:Array = [ENEMY_BASIC, ENEMY_CHASER, ENEMY_SHOOTER, ENEMY_BOSS];
 		
 		// power up spawn -- so this will make the spawn every 20 - 30 seconds
 		public var counter:int = 0;
@@ -46,19 +49,19 @@ package GameObjectManagers
 				case ENEMY_BASIC:
 					add(new EnemyObject(Globals.randomInt(0, 750), 0, Assets.enemySprite));
 					break;
-					/*
-				case POWERUP_SPEED:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.speedPowerUp));
+					
+				case ENEMY_CHASER:
+					add(new EnemyChaser(Globals.randomInt(0, 750), 0, Assets.enemySprite));
 					break;
 					
-				case POWERUP_ATTACK:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.attackPowerUp));
+				case ENEMY_SHOOTER:
+					add(new EnemyShooter(Globals.randomInt(0, 750), 0, Assets.enemySprite));
 					break;
 					
-				case POWERUP_SHIELD:
-					add(new PowerUp(Globals.randomInt(0, 800), 0, Assets.shieldPowerUp));
+				case ENEMY_BOSS:
+					add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemySprite));
 					break;
-					*/
+					
 				default:
 					trace ("unknown eenmy");
 					break;
