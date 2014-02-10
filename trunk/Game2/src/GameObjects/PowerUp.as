@@ -8,7 +8,6 @@ package GameObjects
 	 */
 	public class PowerUp extends FlxSprite 
 	{
-		
 		private var speed:int = 50;
 		
 		public function PowerUp(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
