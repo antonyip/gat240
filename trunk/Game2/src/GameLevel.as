@@ -12,14 +12,15 @@ package
 	public class GameLevel extends FlxState 
 	{
 		// Sprites
-		private var aeroplane:Aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
 		
 		// do once when come into game
 		public override function create():void
 		{
+			Globals.aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
+			
 			add(Globals.playerBulletManager);
-			add(aeroplane);
+			add(Globals.aeroplane);
 			add(Globals.enemyBulletManager);
 			add(Globals.enemyAeroplaneManager);
 			add(Globals.powerUpManager);
@@ -29,18 +30,19 @@ package
 		// called everyframe
 		public override function update():void
 		{
+			
 			super.update();
 			// ------------------ update collision			 --------------------------------- //
-			FlxG.collide(aeroplane, Globals.powerUpManager, aeroplaneOnPowerUp);
+			FlxG.collide(Globals.aeroplane, Globals.powerUpManager, aeroplaneOnPowerUp);
 			
-			if (aeroplane.noDeath < 0)
+			if (Globals.aeroplane.noDeath < 0)
 			{
-				FlxG.collide(aeroplane, Globals.enemyBulletManager, aeroplaneOnBullet);
-				FlxG.collide(aeroplane, Globals.enemyAeroplaneManager, aeroplaneOnAeroplane);
+				FlxG.collide(Globals.aeroplane, Globals.enemyBulletManager, aeroplaneOnBullet);
+				FlxG.collide(Globals.aeroplane, Globals.enemyAeroplaneManager, aeroplaneOnAeroplane);
 			}
 			else
 			{
-				--aeroplane.noDeath;	
+				--Globals.aeroplane.noDeath;	
 			}
 			
 			FlxG.collide(Globals.playerBulletManager, Globals.enemyAeroplaneManager, playerBulletOnEnemy);
@@ -48,13 +50,13 @@ package
 			// ---------- update game status --------------------------------- //
 			
 			// check health less then 0 .. game over :: TODO
-			if (aeroplane.livesLeft < 0)
+			if (Globals.aeroplane.livesLeft < 0)
 				FlxG.switchState(new GameOver);
 			
 			// check enemies left == 0 && no more waves .. game victory :: TODO
 			
 			//------------------- update gui --------------------------------- //
-			livesLeftOnPlayer.text = "Lives Left: " + aeroplane.livesLeft.toString();
+			livesLeftOnPlayer.text = "Lives Left: " + Globals.aeroplane.livesLeft.toString();
 			
 			
 		} //update close bracket
@@ -84,7 +86,7 @@ package
 			--plane.livesLeft;
 			plane.noDeath = 120; // 120 frames of no death
 			plane.x = 400;
-			plane.y = 550;
+			plane.y = 500;
 		}
 		
 		private function playerBulletOnEnemy(obj1:FlxBasic, obj2:FlxBasic):void 
