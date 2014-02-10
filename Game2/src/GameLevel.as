@@ -13,7 +13,6 @@ package
 	{
 		// Sprites
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
-		
 		// do once when come into game
 		public override function create():void
 		{
@@ -36,6 +35,7 @@ package
 			if (FlxG.keys.justPressed("Z"))
 			{
 				// stop enemies in their tracks
+				Globals.enemyAeroplaneManager.active = !Globals.enemyAeroplaneManager.active;
 			}
 			
 			if (FlxG.keys.justPressed("X"))

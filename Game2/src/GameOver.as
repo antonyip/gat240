@@ -1,6 +1,6 @@
 package  
 {
-	import org.flixel.FlxState;
+	import org.flixel.*;
 	
 	/**
 	 * ...
@@ -12,6 +12,14 @@ package
 		public function GameOver() 
 		{
 			
+		}
+		
+		public function update():void
+		{
+			if (FlxG.keys.justPressed("SPACE"))
+			{
+				FlxG.switchState(new MainMenu);
+			}
 		}
 		
 	}

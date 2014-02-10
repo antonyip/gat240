@@ -14,6 +14,14 @@ package
 			
 		}
 		
+		public function update():void
+		{
+			if (FlxG.keys.justPressed("SPACE"))
+			{
+				FlxG.switchState(new MainMenu);
+			}
+		}
+		
 	}
 
 }
