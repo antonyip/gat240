@@ -9,9 +9,11 @@ package
 	public class GameWin extends FlxState 
 	{
 		
-		public function GameWin() 
+		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.WinLevelBG);
+		
+		public override function create():void
 		{
-			
+			add(bg);
 		}
 		
 		public override function update():void
