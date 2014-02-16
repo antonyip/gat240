@@ -1,6 +1,10 @@
 package  
 {
 	import flash.display.MovieClip;
+	import GameObjectManagers.EnemyAeroplaneManager;
+	import GameObjectManagers.EnemyBulletManager;
+	import GameObjectManagers.PlayerBulletManager;
+	import GameObjectManagers.PowerUpManager;
 	import GameObjects.*;
 	import org.flixel.*;
 	import org.flixel.plugin.funstorm.FlxMovieClip;
@@ -13,10 +17,18 @@ package
 	{
 		// Sprites
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
+		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.GameLevelBG);
 		// do once when come into game
 		public override function create():void
 		{
+			add(bg);
 			Globals.aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
+			
+			Globals.playerBulletManager = new PlayerBulletManager();
+			Globals.aeroplane = new Aeroplane(400, 450, Assets.aeroplaneSprite);
+			Globals.enemyBulletManager = new EnemyBulletManager();
+			Globals.enemyAeroplaneManager = new EnemyAeroplaneManager();
+			Globals.powerUpManager = new PowerUpManager();
 			
 			add(Globals.playerBulletManager);
 			add(Globals.aeroplane);
