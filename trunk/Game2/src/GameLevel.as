@@ -147,8 +147,11 @@ package
 			obj1.kill();
 			var plane:FlxSprite = obj2 as EnemyBoss;
 			plane.flicker();
-			plane.kill();
-			Globals.bossKilled = true;
+			plane.hurt(1);
+			if (!plane.alive)
+			{
+				Globals.bossKilled = true;
+			}
 		}	
 	}
 
