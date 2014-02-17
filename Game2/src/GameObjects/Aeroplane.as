@@ -1,5 +1,6 @@
 package GameObjects 
 {
+	import org.flixel.FlxPoint;
 	import org.flixel.FlxSprite;
 	import org.flixel.FlxG;
 	
@@ -26,6 +27,7 @@ package GameObjects
 		private var weaponType:String = WEAPON_BASIC;
 		private var listOfWeapons:Array = [WEAPON_BASIC, WEAPON_SPREAD, WEAPON_CHASE];
 		private var weaponTypeCounter:int = 0;
+		private var shootingPoint:FlxPoint = new FlxPoint(0, 0);
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
@@ -37,6 +39,9 @@ package GameObjects
 			//drag.x
 			//drag.y
 			livesLeft = 2;
+			
+			shootingPoint.x = width / 2;
+			shootingPoint.y = 0;
 		}
 		
 		public function switchNextWeapon():void
@@ -58,7 +63,7 @@ package GameObjects
 					if (rateOfFireCounter >= rateOfFire)
 					{
 						rateOfFireCounter = 0;
-						Globals.playerBulletManager.createNormalBullet(x, y);
+						Globals.playerBulletManager.createNormalBullet(x + shootingPoint.x, y + shootingPoint.y);
 					}
 					break;
 					
@@ -66,14 +71,14 @@ package GameObjects
 					if (rateOfFireCounter >= rateOfFire)
 					{
 						rateOfFireCounter = 0;
-						Globals.playerBulletManager.createSpreadBullet(x, y);
+						Globals.playerBulletManager.createSpreadBullet(x+ shootingPoint.x, y + shootingPoint.y);
 					}
 				break;
 				case WEAPON_CHASE:
 					if (rateOfFireCounter >= rateOfFire)
 					{
 						rateOfFireCounter = 0;
-						Globals.playerBulletManager.createAoeBullet(x, y);
+						Globals.playerBulletManager.createAoeBullet(x+shootingPoint.x,y+ shootingPoint.y);
 					}
 				break;				
 				default:

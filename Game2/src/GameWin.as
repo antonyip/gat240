@@ -1,6 +1,6 @@
 package  
 {
-	import org.flixel.FlxState;
+	import org.flixel.*;
 	
 	/**
 	 * ...
