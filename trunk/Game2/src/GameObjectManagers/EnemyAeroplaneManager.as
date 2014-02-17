@@ -52,15 +52,16 @@ package GameObjectManagers
 					break;
 					
 				case ENEMY_CHASER:
-					add(new EnemyChaser(Globals.randomInt(0, 750), 0, Assets.enemySprite));
+					add(new EnemyChaser(Globals.randomInt(0, 750), 0, Assets.enemyChaser));
 					break;
 					
 				case ENEMY_SHOOTER:
-					add(new EnemyShooter(Globals.randomInt(0, 750), 0, Assets.enemySprite));
+					add(new EnemyShooter(Globals.randomInt(0, 750), 0, Assets.enemyShooter));
 					break;
 					
 				case ENEMY_BOSS:
-					add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemySprite));
+					Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemyBoss));
+					trace("Boss Added");
 					break;
 					
 				default:

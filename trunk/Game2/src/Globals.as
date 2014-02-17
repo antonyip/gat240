@@ -13,11 +13,15 @@ package
 	 
 	public class Globals 
 	{
-		public static var playerBulletManager:PlayerBulletManager = new PlayerBulletManager();
-		public static var powerUpManager:PowerUpManager = new PowerUpManager();
-		public static var enemyBulletManager:EnemyBulletManager = new EnemyBulletManager();
-		public static var enemyAeroplaneManager:EnemyAeroplaneManager = new EnemyAeroplaneManager();
+		public static var playerBulletManager:PlayerBulletManager;
+		public static var powerUpManager:PowerUpManager;
+		public static var enemyBulletManager:EnemyBulletManager;
+		public static var enemyAeroplaneManager:EnemyAeroplaneManager;
+		public static var enemyBossManager:EnemyBossManager;
+		public static var spawnManager:SpawnManager;
 		public static var aeroplane:Aeroplane;
+		public static var widthOfBullet1:Number = 10;
+		public static var bossKilled:Boolean = false;
 		
 		public function Globals() 
 		{

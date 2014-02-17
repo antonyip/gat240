@@ -15,19 +15,19 @@ package GameObjectManagers
 		
 		public function createNormalBullet(x:Number, y:Number):void
 		{
-			add(new PlayerStraightBullet(x, y, Assets.bulletSprite));
+			add(new PlayerStraightBullet(x-Globals.widthOfBullet1, y, Assets.bulletSprite));
 		}
 		
 		public function createSpreadBullet(x:Number, y:Number):void
 		{
-			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 1));
-			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 2));
-			add(new PlayerSpreadBullet(x, y, Assets.bulletSprite, 3));
+			add(new PlayerSpreadBullet(x-Globals.widthOfBullet1, y, Assets.bulletSprite, 1));
+			add(new PlayerSpreadBullet(x-Globals.widthOfBullet1, y, Assets.bulletSprite, 2));
+			add(new PlayerSpreadBullet(x-Globals.widthOfBullet1, y, Assets.bulletSprite, 3));
 		}
 		
 		public function createAoeBullet(x:Number, y:Number):void
 		{
-			add(new PlayerAoeBullet(x, y, Assets.bulletSprite));
+			add(new PlayerAoeBullet(x-Globals.widthOfBullet1, y, Assets.bulletSprite));
 		}
 		
 	}

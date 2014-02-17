@@ -2,9 +2,11 @@ package
 {
 	import flash.display.MovieClip;
 	import GameObjectManagers.EnemyAeroplaneManager;
+	import GameObjectManagers.EnemyBossManager;
 	import GameObjectManagers.EnemyBulletManager;
 	import GameObjectManagers.PlayerBulletManager;
 	import GameObjectManagers.PowerUpManager;
+	import GameObjectManagers.SpawnManager;
 	import GameObjects.*;
 	import org.flixel.*;
 	import org.flixel.plugin.funstorm.FlxMovieClip;
@@ -21,6 +23,7 @@ package
 		// do once when come into game
 		public override function create():void
 		{
+			Globals.bossKilled = false;
 			add(bg);
 			Globals.aeroplane = new Aeroplane(400, 500, Assets.aeroplaneSprite);
 			
@@ -29,8 +32,11 @@ package
 			Globals.enemyBulletManager = new EnemyBulletManager();
 			Globals.enemyAeroplaneManager = new EnemyAeroplaneManager();
 			Globals.powerUpManager = new PowerUpManager();
+			Globals.spawnManager = new SpawnManager();
+			Globals.enemyBossManager = new EnemyBossManager;
 			
-			add(Globals.playerBulletManager);
+			add(Globals.playerBulletManager); 
+			add(Globals.enemyBossManager);
 			add(Globals.aeroplane);
 			add(Globals.enemyBulletManager);
 			add(Globals.enemyAeroplaneManager);
@@ -66,17 +72,18 @@ package
 			
 			// ------------------ update collision			 --------------------------------- //
 			FlxG.collide(Globals.aeroplane, Globals.powerUpManager, aeroplaneOnPowerUp);
-			
 			if (Globals.aeroplane.noDeath < 0)
 			{
 				FlxG.collide(Globals.aeroplane, Globals.enemyBulletManager, aeroplaneOnBullet);
 				FlxG.collide(Globals.aeroplane, Globals.enemyAeroplaneManager, aeroplaneOnAeroplane);
+				
 			}
 			else
 			{
 				--Globals.aeroplane.noDeath;	
 			}
 			
+			FlxG.collide(Globals.playerBulletManager, Globals.enemyBossManager, playerBulletOnBoss);
 			FlxG.collide(Globals.playerBulletManager, Globals.enemyAeroplaneManager, playerBulletOnEnemy);
 			
 			// ---------- update game status --------------------------------- //
@@ -90,6 +97,10 @@ package
 			//------------------- update gui --------------------------------- //
 			livesLeftOnPlayer.text = "Lives Left: " + Globals.aeroplane.livesLeft.toString();
 			
+			if (Globals.bossKilled)
+			{
+				FlxG.switchState(new GameWin);
+			}
 			
 		} //update close bracket
 		
@@ -129,6 +140,16 @@ package
 			plane.flicker();
 			plane.kill();
 		}		
+		
+		private function playerBulletOnBoss(obj1:FlxBasic, obj2:FlxBasic):void 
+		{
+			trace("playerBulletOnEnemy");
+			obj1.kill();
+			var plane:FlxSprite = obj2 as EnemyBoss;
+			plane.flicker();
+			plane.kill();
+			Globals.bossKilled = true;
+		}	
 	}
 
 }
