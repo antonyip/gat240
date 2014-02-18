@@ -17,7 +17,7 @@ package GameObjects
 		public var noDeath:int = 0;
 		
 		// movement
-		public var planeAccleration:Number = 5;
+		public var planeAccleration:Number = 5; //cali has tried 10 and likes it :3
 		
 		// fire
 		public var rateOfFire:int = 12; // 12 frames shoot 1 bullet
