@@ -60,7 +60,8 @@ package GameObjectManagers
 					break;
 					
 				case ENEMY_BOSS:
-					Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemyBoss));
+					//Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemyBoss));
+					Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(400, 450), 0, Assets.enemyBoss));
 					trace("Boss Added");
 					break;
 					
