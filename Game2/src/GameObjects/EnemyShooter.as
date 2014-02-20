@@ -8,7 +8,7 @@ package GameObjects
 	public class EnemyShooter extends EnemyObject 
 	{
 		private var rateOfFireCounter:int = 0;
-		private var rateOfFire:int = 60;
+		private var rateOfFire:int = 90;
 		private var shootingPoint:FlxPoint = new FlxPoint(0, 0);
 		public function EnemyShooter(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{

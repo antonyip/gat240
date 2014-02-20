@@ -106,7 +106,7 @@ package
 		
 		private function aeroplaneOnPowerUp(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			trace("aeroplaneOnPowerUp");
+			//trace("aeroplaneOnPowerUp");
 			obj2.kill();
 			var plane:FlxSprite = obj1 as FlxSprite;
 			plane.flicker();
@@ -114,7 +114,7 @@ package
 		
 		private function aeroplaneOnBullet(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			trace("aeroplaneOnBullet");
+			//trace("aeroplaneOnBullet");
 			obj2.kill();
 			var plane:FlxSprite = obj1 as FlxSprite;
 			plane.flicker();
@@ -122,7 +122,7 @@ package
 		
 		private function aeroplaneOnAeroplane(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			trace("aeroplaneOnAeroplane");
+			//trace("aeroplaneOnAeroplane");
 			obj2.kill();
 			var plane:Aeroplane = obj1 as Aeroplane;
 			plane.flicker();
@@ -134,7 +134,7 @@ package
 		
 		private function playerBulletOnEnemy(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			trace("playerBulletOnEnemy");
+			//trace("playerBulletOnEnemy");
 			obj1.kill();
 			var plane:FlxSprite = obj2 as FlxSprite;
 			plane.flicker();
@@ -143,7 +143,7 @@ package
 		
 		private function playerBulletOnBoss(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			trace("playerBulletOnEnemy");
+			//trace("playerBulletOnEnemy");
 			obj1.kill();
 			var plane:FlxSprite = obj2 as EnemyBoss;
 			plane.flicker();
