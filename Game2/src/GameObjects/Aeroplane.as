@@ -42,6 +42,7 @@ package GameObjects
 			
 			shootingPoint.x = width / 2;
 			shootingPoint.y = 0;
+			
 		}
 		
 		public function switchNextWeapon():void

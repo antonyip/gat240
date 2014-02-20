@@ -87,7 +87,7 @@ package
 			{
 				FlxG.collide(Globals.aeroplane, Globals.enemyBulletManager, aeroplaneOnBullet);
 				FlxG.collide(Globals.aeroplane, Globals.enemyAeroplaneManager, aeroplaneOnAeroplane);
-				
+				//trace("anything");
 			}
 			else
 			{
@@ -159,7 +159,7 @@ package
 		
 		private function aeroplaneOnAeroplane(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
-			//trace("aeroplaneOnAeroplane");
+			trace("aeroplaneOnAeroplane");
 			obj2.kill();
 			var plane:Aeroplane = obj1 as Aeroplane;
 			plane.flicker();
