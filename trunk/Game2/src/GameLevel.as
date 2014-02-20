@@ -61,6 +61,8 @@ package
 				// Destroy all enemies and bullets
 				Globals.enemyAeroplaneManager.kill();
 				Globals.enemyBulletManager.kill();
+				Globals.enemyAeroplaneManager.revive();
+				Globals.enemyBulletManager.revive();
 			}
 			
 			if (FlxG.keys.justPressed("C"))
@@ -110,14 +112,37 @@ package
 			obj2.kill();
 			var plane:FlxSprite = obj1 as FlxSprite;
 			plane.flicker();
+			var pUp:PowerUp = obj2 as PowerUp;
+			switch (pUp.type) 
+			{
+				case PowerUpManager.POWERUP_ATTACK:	 // z
+				Globals.enemyAeroplaneManager.active = !Globals.enemyAeroplaneManager.active;
+				break;
+				
+				case PowerUpManager.POWERUP_HEALTH: // x
+				Globals.enemyAeroplaneManager.kill();
+				Globals.enemyBulletManager.kill();
+				Globals.enemyAeroplaneManager.revive();
+				Globals.enemyBulletManager.revive();
+				break;
+				
+				case PowerUpManager.POWERUP_SPEED: // c
+				Globals.aeroplane.noDeath = 1200;
+				Globals.aeroplane.flicker(10);
+				break;
+			}
 		}
 		
 		private function aeroplaneOnBullet(obj1:FlxBasic, obj2:FlxBasic):void 
 		{
 			//trace("aeroplaneOnBullet");
 			obj2.kill();
-			var plane:FlxSprite = obj1 as FlxSprite;
+			var plane:Aeroplane = obj1 as Aeroplane;
 			plane.flicker();
+			--plane.livesLeft;
+			plane.noDeath = 120; // 120 frames of no death
+			plane.x = 400;
+			plane.y = 500;
 		}
 		
 		private function aeroplaneOnAeroplane(obj1:FlxBasic, obj2:FlxBasic):void 
