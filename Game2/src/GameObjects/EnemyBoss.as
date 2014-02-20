@@ -20,6 +20,9 @@ package GameObjects
 		public function doStuffs(e:FlxTimer):void
 		{
 			bCounter ++;
+			
+			if (bCounter % 10 == 0)
+				Globals.enemyBulletManager.spawnBullet(x, y, Assets.enemyBullet);
 			//trace(bCounter);
 			switch (bCounter) 
 			{		

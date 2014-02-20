@@ -14,8 +14,7 @@ package GameObjectManagers
 		public static var POWERUP_HEALTH:String = "powerUpHealth";
 		public static var POWERUP_SPEED:String = "powerUpSpeed";
 		public static var POWERUP_ATTACK:String = "powerUpAttack";
-		public static var POWERUP_SHIELD:String = "powerUpShield";
-		public static var listOfPowerUps:Array = [POWERUP_HEALTH, POWERUP_SPEED, POWERUP_ATTACK, POWERUP_SHIELD];
+		public static var listOfPowerUps:Array = [POWERUP_HEALTH, POWERUP_SPEED, POWERUP_ATTACK];
 		
 		
 		// power up spawn -- so this will make the spawn every 20 - 30 seconds
@@ -47,19 +46,15 @@ package GameObjectManagers
 			switch (pwrUp) 
 			{
 				case POWERUP_HEALTH:
-					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.healthPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.healthPowerUp,POWERUP_HEALTH)); //  z
 					break;
 					
 				case POWERUP_SPEED:
-					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.speedPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.speedPowerUp,POWERUP_SPEED)); // x
 					break;
 					
 				case POWERUP_ATTACK:
-					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.attackPowerUp));
-					break;
-					
-				case POWERUP_SHIELD:
-					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.shieldPowerUp));
+					add(new PowerUp(Globals.randomInt(0, 750), 0, Assets.attackPowerUp,POWERUP_ATTACK)); // c
 					break;
 				default:
 					trace ("unknown power up");

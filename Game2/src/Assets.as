@@ -27,7 +27,7 @@ package
 		[Embed(source="../art/Enemies/Enemy_3.png")]
 		public static var enemyChaser:Class;
 		
-		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		[Embed(source="../art/Enemies/Boss/Boss_Full.png")]
 		public static var enemyBoss:Class;
 		
 		[Embed(source="../art/Enemies/Enemy_Bullet_1.png")]
@@ -36,16 +36,16 @@ package
 		[Embed(source="../art/Player_Bullet.png")]
 		public static var bulletSprite:Class;
 		
-		[Embed(source="../art/Freeze_Enemies_PU.png")]
+		[Embed(source="../art/Kill_All_Enemies_PU.png")]
 		public static var healthPowerUp:Class;
 		
-		[Embed(source="../art/Kill_All_Enemies_PU.png")]
+		[Embed(source="../art/Shield_PU.png")]
 		public static var speedPowerUp:Class;
 		
 		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
 		public static var shieldPowerUp:Class;
 		
-		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
+		[Embed(source="../art/Freeze_Enemies_PU.png")]
 		public static var attackPowerUp:Class;
 		
 		[Embed(source="../art/Screens/MainMenu.png")]
