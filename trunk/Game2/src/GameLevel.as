@@ -143,6 +143,8 @@ package
 			plane.noDeath = 120; // 120 frames of no death
 			plane.x = 400;
 			plane.y = 500;
+			plane.velocity.x = 0;
+			plane.velocity.y = 0;
 		}
 		
 		private function aeroplaneOnAeroplane(obj1:FlxBasic, obj2:FlxBasic):void 
@@ -155,6 +157,8 @@ package
 			plane.noDeath = 120; // 120 frames of no death
 			plane.x = 400;
 			plane.y = 500;
+			plane.velocity.x = 0;
+			plane.velocity.y = 0;
 		}
 		
 		private function playerBulletOnEnemy(obj1:FlxBasic, obj2:FlxBasic):void 
