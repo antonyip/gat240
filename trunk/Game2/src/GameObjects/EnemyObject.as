@@ -14,6 +14,7 @@ package GameObjects
 		{
 			super(X, Y, SimpleGraphic);
 			velocity.y = speed;
+			immovable = true;
 		}
 		
 		public override function update():void
