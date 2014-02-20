@@ -8,7 +8,7 @@ package GameObjects
 	 */
 	public class EnemyObject extends FlxSprite 
 	{
-		private var speed:int = 10;
+		private var speed:int = 150;
 		
 		public function EnemyObject(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{

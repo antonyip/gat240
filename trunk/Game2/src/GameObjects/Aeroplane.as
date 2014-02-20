@@ -17,7 +17,7 @@ package GameObjects
 		public var noDeath:int = 0;
 		
 		// movement
-		public var planeAccleration:Number = 5; //cali has tried 10 and likes it :3
+		public var planeAccleration:Number = 12; //original 5, cali has tried 10 and likes it :3
 		
 		// fire
 		public var rateOfFire:int = 12; // 12 frames shoot 1 bullet
@@ -38,7 +38,7 @@ package GameObjects
 			maxVelocity.y = 200;
 			//drag.x
 			//drag.y
-			livesLeft = 2;
+			livesLeft = 10;
 			
 			shootingPoint.x = width / 2;
 			shootingPoint.y = 0;

@@ -38,30 +38,32 @@ package GameObjectManagers
 			if (counter >= waitAtLeastHowManyFrames + timeToNextPowerUp)
 			{
 				counter = 0;
-				spawnEnemy(listOfEnemies[Globals.randomInt(0, listOfEnemies.length)]);
+				//spawnEnemy(listOfEnemies[Globals.randomInt(0, listOfEnemies.length)]);
 				timeToNextPowerUp = Globals.randomInt(minVariance, maxVariance);
 			}
 		} // update close
 		
-		public function spawnEnemy(enemyString:String):void
+		public function spawnEnemy(enemyString:String,x:int = 0,y:int = 0):void
 		{
+			var xval:int = x ? x : Globals.randomInt(0, 750);
+			var yval:int = y ? y : Globals.randomInt(-15, 0);
 			switch (enemyString) 
 			{
 				case ENEMY_BASIC:
-					add(new EnemyObject(Globals.randomInt(0, 750), 0, Assets.enemySprite));
+					add(new EnemyObject(xval, yval, Assets.enemySprite));
 					break;
 					
 				case ENEMY_CHASER:
-					add(new EnemyChaser(Globals.randomInt(0, 750), 0, Assets.enemyChaser));
+					add(new EnemyChaser(xval, yval, Assets.enemyChaser));
 					break;
 					
 				case ENEMY_SHOOTER:
-					add(new EnemyShooter(Globals.randomInt(0, 750), 0, Assets.enemyShooter));
+					add(new EnemyShooter(xval, yval, Assets.enemyShooter));
 					break;
 					
 				case ENEMY_BOSS:
 					//Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(0, 750), 0, Assets.enemyBoss));
-					Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(400, 450), 0, Assets.enemyBoss));
+					Globals.enemyBossManager.add(new EnemyBoss(Globals.randomInt(350, 400), 0, Assets.enemyBoss));
 					trace("Boss Added");
 					break;
 					
@@ -69,9 +71,7 @@ package GameObjectManagers
 					trace ("unknown eenmy");
 					break;
 			}
-		}
-		
-		
+		}	
 		
 	}
 
