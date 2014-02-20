@@ -19,11 +19,17 @@ package GameObjects
 		public override function update():void
 		{
 			super.update();
-			if (FlxU.getDistance(Globals.aeroplane.getMidpoint(), getMidpoint()) < 300)
+			if (getMidpoint().y > Globals.aeroplane.getMidpoint().y)
+			{
+				velocity.y = 50;
+				target = null;
+			}
+			else if (FlxU.getDistance(Globals.aeroplane.getMidpoint(), getMidpoint()) < 300)
 			{
 				//trace(FlxU.getDistance(Globals.aeroplane.getMidpoint(), getMidpoint()));
 				target = Globals.aeroplane;
 			}
+			
 			if (target)
 			{
 				// calculate the new position if the enemy is alive
