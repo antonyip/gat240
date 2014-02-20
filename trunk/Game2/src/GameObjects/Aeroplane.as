@@ -42,7 +42,6 @@ package GameObjects
 			
 			shootingPoint.x = width / 2;
 			shootingPoint.y = 0;
-			immovable = true;
 		}
 		
 		public function switchNextWeapon():void

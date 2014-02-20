@@ -54,6 +54,7 @@ package
 			{
 				// stop enemies in their tracks
 				Globals.enemyAeroplaneManager.active = !Globals.enemyAeroplaneManager.active;
+				Globals.freezeSeconds = 240;
 			}
 			
 			if (FlxG.keys.justPressed("X"))
@@ -74,6 +75,14 @@ package
 			
 			// ------------------ update collision			 --------------------------------- //
 			FlxG.collide(Globals.aeroplane, Globals.powerUpManager, aeroplaneOnPowerUp);
+			if (Globals.freezeSeconds > 0)
+			{
+				--Globals.freezeSeconds;
+				if (Globals.freezeSeconds == 0)
+				{
+					Globals.enemyAeroplaneManager.active = true;
+				}
+			}
 			if (Globals.aeroplane.noDeath < 0)
 			{
 				FlxG.collide(Globals.aeroplane, Globals.enemyBulletManager, aeroplaneOnBullet);
@@ -117,6 +126,7 @@ package
 			{
 				case PowerUpManager.POWERUP_ATTACK:	 // z
 				Globals.enemyAeroplaneManager.active = !Globals.enemyAeroplaneManager.active;
+				Globals.freezeSeconds = 240;
 				break;
 				
 				case PowerUpManager.POWERUP_HEALTH: // x

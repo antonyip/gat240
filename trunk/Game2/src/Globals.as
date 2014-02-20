@@ -22,6 +22,7 @@ package
 		public static var aeroplane:Aeroplane;
 		public static var widthOfBullet1:Number = 10;
 		public static var bossKilled:Boolean = false;
+		public static var freezeSeconds:int = 0;
 		
 		public function Globals() 
 		{
