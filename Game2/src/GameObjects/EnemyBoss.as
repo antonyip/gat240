@@ -14,7 +14,7 @@ package GameObjects
 			super(X, Y, SimpleGraphic);
 			timer = new FlxTimer();
 			timer.start(0.2, 9999999, doStuffs);
-			health = 20;			
+			health = 20;
 		}
 		
 		public function doStuffs(e:FlxTimer):void
