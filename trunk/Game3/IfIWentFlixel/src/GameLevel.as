@@ -30,15 +30,27 @@ package
 			
 			// omg no way imba camera
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
+			
+			FlxG.music = new FlxSound();
+			FlxG.music.loadEmbedded(Assets.backgroundMusic, true);
+			//FlxG.music.play();
+			FlxG.music.survive = false;
 		} // create close bracket
 		
 		// called everyframe
 		public override function update():void
 		{
 			super.update();
-			FlxG.collide(Globals.playerCharacter, Globals.floorManager);
+			FlxG.collide(Globals.playerCharacter, Globals.floorManager,hitFloor);
 		} //update close bracket
 		
+		public static function hitFloor(obj1:FlxSprite, obj2:FlxSprite):void
+		{
+			var player:Aeroplane = obj1 as Aeroplane;
+			// reset when hit floor
+			player.onFloor = true;
+			player.doubleJump = true;
+		}
 	
 	}
 
