@@ -16,6 +16,7 @@ package GameObjects
 		private var gravity:int = 1000;
 		public var onFloor:Boolean = true;
 		public var doubleJump:Boolean = true;
+		public var livesLeft:int = 3;
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{

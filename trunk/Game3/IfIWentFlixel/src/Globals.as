@@ -16,6 +16,8 @@ package
 		public static var playerCharacter:Aeroplane;
 		public static var floorManager:FloorManager;
 		public static var platformManager:PlatformManager;
+		public static var enemyManager:EnemyManager;
+		public static var checkPointManager:CheckPointManager;
 		
 		public function Globals() 
 		{

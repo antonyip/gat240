@@ -1,6 +1,8 @@
 package  
 {
 	import flash.display.MovieClip;
+	import GameObjectManagers.CheckPointManager;
+	import GameObjectManagers.EnemyManager;
 	import GameObjectManagers.FloorManager;
 	import GameObjectManagers.PlatformManager;
 	import GameObjects.*;
@@ -23,6 +25,7 @@ package
 		private var wallTest:Floor = new Floor(100, 200, Assets.enemyBoss);
 		private var movingPlatformTest:MovingPlatform = new MovingPlatform(300, 400, Assets.aeroplaneSprite, 400, 400, 240);
 		private var bouncyPlatformTest:BouncingPlatform = new BouncingPlatform(500, 400, Assets.enemyChaser);
+		private var enemyTest:EnemyObject = new EnemyObject(500,350,Assets.enemySprite);
 		
 		// do once when come into game
 		public override function create():void
@@ -31,6 +34,8 @@ package
 			Globals.playerCharacter = new Aeroplane(200, 300, Assets.aeroplaneSprite);
 			Globals.floorManager = new FloorManager();
 			Globals.platformManager = new PlatformManager();
+			Globals.enemyManager = new EnemyManager();
+			Globals.checkPointManager = new CheckPointManager();
 			
 			
 			// debug stuffs
@@ -38,13 +43,17 @@ package
 			Globals.floorManager.add(wallTest);
 			Globals.platformManager.add(movingPlatformTest);
 			Globals.platformManager.add(bouncyPlatformTest);
-			
+			Globals.enemyManager.add(enemyTest);
+			Globals.checkPointManager.add(new CheckPoint(200, 300, Assets.healthPowerUp));
+			Globals.checkPointManager.add(new CheckPoint(300, 100, Assets.healthPowerUp));
 			
 			// adding stuffs
 			add(bg);
 			add(Globals.playerCharacter);
 			add(Globals.floorManager);
 			add(Globals.platformManager);
+			add(Globals.enemyManager);
+			add(Globals.checkPointManager);
 			
 			// omg no way imba camera
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
@@ -62,6 +71,10 @@ package
 			super.update();
 			FlxG.collide(Globals.playerCharacter, Globals.floorManager, hitFloor);
 			FlxG.collide(Globals.playerCharacter, Globals.platformManager, hitPlatform);
+			FlxG.collide(Globals.playerCharacter, Globals.enemyManager, playerHitEnemy);
+			FlxG.collide(Globals.playerCharacter, Globals.checkPointManager, checkPointCollide);
+			FlxG.collide(Globals.enemyManager, Globals.floorManager);
+			FlxG.collide(Globals.enemyManager, Globals.platformManager,hitPlatform)
 		} //update close bracket
 		
 		public static function hitFloor(obj1:FlxSprite, obj2:FlxSprite):void
@@ -100,6 +113,33 @@ package
 			{
 				player.velocity.y = -600;
 			}
+		}
+		
+		public static function playerHitEnemy(obj1:FlxSprite, obj2:FlxSprite):void
+		{
+			var player:Aeroplane = obj1 as Aeroplane;
+			// reset when hit floor
+			player.kill();
+			--player.livesLeft;
+			if (player.livesLeft < 0)
+				FlxG.switchState(new GameOver);
+			else
+			{
+				player.x = Globals.checkPointManager.saveSpotX;
+				player.y = Globals.checkPointManager.saveSpotY;
+				player.revive();
+			}
+		}
+		
+		public static function checkPointCollide(obj1:FlxSprite, obj2:FlxSprite):void
+		{
+			var player:Aeroplane = obj1 as Aeroplane;
+			// reset when hit floor
+			Globals.checkPointManager.saveSpotX = obj2.x;
+			Globals.checkPointManager.saveSpotY = obj2.y;
+			obj2.kill();
+			trace("hw");
+			
 		}
 		
 	}
