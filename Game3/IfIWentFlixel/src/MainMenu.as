@@ -15,8 +15,8 @@ package
 		public override function create():void
 		{
 			add(bg);
-			if (FlxG.stage)
-				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
+			//if (FlxG.stage)
+				//FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 				
 		}
 		public override function update():void
