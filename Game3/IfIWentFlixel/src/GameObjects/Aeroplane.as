@@ -14,6 +14,8 @@ package GameObjects
 		private var jumpSpeed:int = 500;
 		private var jumpingSeconds:int = 3;
 		private var gravity:int = 1000;
+		public var onFloor:Boolean = true;
+		public var doubleJump:Boolean = true;
 		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
@@ -37,9 +39,18 @@ package GameObjects
 				velocity.x = 0;
 			}
 			
-			if (FlxG.keys.W || FlxG.keys.SPACE)
+			if ((FlxG.keys.justPressed("W") || FlxG.keys.justPressed("SPACE")) && (onFloor || doubleJump))
 			{
 				velocity.y = -jumpSpeed;
+				if (!onFloor)
+				{
+					doubleJump = false;
+				}
+				else
+				{
+					onFloor = false;
+				}
+				
 			}
 			
 		}

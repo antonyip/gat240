@@ -18,7 +18,7 @@ package
 			super(800, 600, MainMenu , 1, 120, 120, true);
 			if (FlxG.stage)
 			{
-				//FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
+				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 			}
 			Globals.GlobalsInit();
 			

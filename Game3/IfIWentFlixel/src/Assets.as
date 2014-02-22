@@ -60,6 +60,9 @@ package
 		[Embed(source="../art/Screens/VictoryScreen.png")]
 		public static var WinLevelBG:Class;
 		
+		[Embed(source="../sound/SolidStudiosMenuMusic.mp3")]
+		public static var backgroundMusic:Class;
+		
 		public function Assets() 
 		{
 			
