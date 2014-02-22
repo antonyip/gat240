@@ -15,6 +15,7 @@ package
 	{
 		public static var playerCharacter:Aeroplane;
 		public static var floorManager:FloorManager;
+		public static var platformManager:PlatformManager;
 		
 		public function Globals() 
 		{

@@ -28,15 +28,18 @@ package GameObjects
 			acceleration.y = gravity;
 			if (FlxG.keys.A || FlxG.keys.LEFT)
 			{
-				velocity.x = -moveSpeed;
+				//if (onFloor && doubleJump)
+					velocity.x = -moveSpeed;
 			}
 			else if (FlxG.keys.D || FlxG.keys.RIGHT)
 			{
-				velocity.x = moveSpeed;
+				//if (onFloor && doubleJump)
+					velocity.x = moveSpeed;
 			}
 			else
 			{
-				velocity.x = 0;
+				if (onFloor && doubleJump)
+					velocity.x = 0;
 			}
 			
 			if ((FlxG.keys.justPressed("W") || FlxG.keys.justPressed("SPACE")) && (onFloor || doubleJump))
