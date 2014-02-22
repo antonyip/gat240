@@ -12,7 +12,6 @@ package GameObjectManagers
 		public function PlatformManager(MaxSize:uint=0) 
 		{
 			super(MaxSize);
-			
 		}
 		
 	}

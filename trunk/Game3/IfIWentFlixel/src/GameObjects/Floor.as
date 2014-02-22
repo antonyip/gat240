@@ -17,7 +17,7 @@ package GameObjects
 		
 		public override function update():void
 		{
-			x++;
+			
 		}
 		
 	}
