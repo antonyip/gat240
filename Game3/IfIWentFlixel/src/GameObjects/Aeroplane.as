@@ -46,6 +46,7 @@ package GameObjects
 			if ((FlxG.keys.justPressed("W") || FlxG.keys.justPressed("SPACE")) && (onFloor || doubleJump))
 			{
 				velocity.y = -jumpSpeed;
+				FlxG.loadSound(Assets.jumpSound).play();
 				if (!onFloor)
 				{
 					doubleJump = false;

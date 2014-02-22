@@ -63,6 +63,24 @@ package
 		[Embed(source="../sound/SolidStudiosMenuMusic.mp3")]
 		public static var backgroundMusic:Class;
 		
+		[Embed(source="../sound/Fx07.mp3")]
+		public static var jumpSound:Class;
+		
+		[Embed(source="../sound/Book.mp3")]
+		public static var deathSound:Class;
+		
+		[Embed(source="../sound/Fx09.mp3")]
+		public static var enemyDeathSound1:Class;
+		
+		[Embed(source="../sound/Fx11.mp3")]
+		public static var enemyDeathSound2:Class;
+		
+		[Embed(source="../sound/Fx07.mp3")]
+		public static var enemyDeathSound3:Class;
+		
+		[Embed(source="../sound/Fx09.mp3")]
+		public static var victorySound:Class;
+		
 		public function Assets() 
 		{
 			
