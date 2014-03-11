@@ -21,11 +21,11 @@ package
 		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.GameLevelBG);
 		
 		// debug stuffs
-		private var floorTest:Floor = new Floor(150, 400, Assets.enemyBoss);
-		private var wallTest:Floor = new Floor(100, 200, Assets.enemyBoss);
-		private var movingPlatformTest:MovingPlatform = new MovingPlatform(300, 400, Assets.aeroplaneSprite, 400, 400, 240);
-		private var bouncyPlatformTest:BouncingPlatform = new BouncingPlatform(500, 400, Assets.enemyChaser);
-		private var enemyTest:EnemyObject = new EnemyObject(500,350,Assets.enemySprite);
+		private var floorTest:Floor = new Floor(150, 400, Assets.normalTile);
+		private var wallTest:Floor = new Floor(100, 200, Assets.normalTile);
+		private var movingPlatformTest:MovingPlatform = new MovingPlatform(300, 400, Assets.movingTile, 400, 400, 240);
+		private var bouncyPlatformTest:BouncingPlatform = new BouncingPlatform(500, 400, Assets.bouncingTile);
+		private var enemyTest:EnemyObject = new EnemyObject(500,350,Assets.enemy);
 		
 		// do once when come into game
 		public override function create():void
@@ -44,8 +44,8 @@ package
 			Globals.platformManager.add(movingPlatformTest);
 			Globals.platformManager.add(bouncyPlatformTest);
 			Globals.enemyManager.add(enemyTest);
-			Globals.checkPointManager.add(new CheckPoint(200, 300, Assets.healthPowerUp));
-			Globals.checkPointManager.add(new CheckPoint(300, 100, Assets.healthPowerUp));
+			Globals.checkPointManager.add(new CheckPoint(200, 300, Assets.checkpoint));
+			Globals.checkPointManager.add(new CheckPoint(300, 100, Assets.checkpoint));
 			
 			// adding stuffs
 			add(bg);

@@ -15,7 +15,7 @@ package
 		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
 		public static var testArt3:Class
 		
-		[Embed(source="../art/Player.png")]
+		[Embed(source="../art/TempArt/Player.png")]
 		public static var aeroplaneSprite:Class;
 		
 		[Embed(source="../art/Enemies/Enemy_1.png")]
@@ -80,6 +80,27 @@ package
 		
 		[Embed(source="../sound/Fx09.mp3")]
 		public static var victorySound:Class;
+		
+		[Embed(source="../art/TempArt/Normal_Tile.png")]
+		public static var normalTile:Class;
+		
+		[Embed(source="../art/TempArt/MovingPlatform_.png")]
+		public static var movingTile:Class;
+		
+		[Embed(source="../art/TempArt/BounceTile_.png")]
+		public static var bouncingTile:Class;
+		
+		[Embed(source="../art/TempArt/Enemy.png")]
+		public static var enemy:Class;
+		
+		[Embed(source="../art/TempArt/Spikes.png")]
+		public static var spikes:Class;
+		
+		[Embed(source="../art/TempArt/Upside_Down_Spike.png")]
+		public static var upsidedownspikes:Class;
+		
+		[Embed(source="../art/TempArt/Check_Point.png")]
+		public static var checkpoint:Class;
 		
 		public function Assets() 
 		{
