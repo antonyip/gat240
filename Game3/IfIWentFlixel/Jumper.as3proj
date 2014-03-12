@@ -56,6 +56,7 @@
     <element path="swc\GameOver.swc" />
     <element path="swc\nape-dev.swc" />
     <element path="swc\Skills.swc" />
+    <element path="swc\nape-release.swc" />
   </libraryPaths>
   <!-- External Libraries -->
   <externalLibraryPaths>
