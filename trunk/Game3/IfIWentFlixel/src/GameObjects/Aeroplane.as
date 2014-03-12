@@ -18,6 +18,8 @@ package GameObjects
 		public var doubleJump:Boolean = true;
 		public var livesLeft:int = 3;
 		
+		// physics stuffs
+		
 		public function Aeroplane(X:Number=0, Y:Number=0, SimpleGraphic:Class=null) 
 		{
 			super(X, Y, SimpleGraphic);
@@ -27,15 +29,20 @@ package GameObjects
 		{
 			super.update();
 			acceleration.y = gravity;
+			
 			if (FlxG.keys.A || FlxG.keys.LEFT)
 			{
-				//if (onFloor && doubleJump)
+				if (onFloor && doubleJump)
 					velocity.x = -moveSpeed;
+				else
+					velocity.x = -moveSpeed / 10;
 			}
 			else if (FlxG.keys.D || FlxG.keys.RIGHT)
 			{
-				//if (onFloor && doubleJump)
+				if (onFloor && doubleJump)
 					velocity.x = moveSpeed;
+				else
+					velocity.x = moveSpeed / 10;
 			}
 			else
 			{
@@ -57,6 +64,7 @@ package GameObjects
 				}
 				
 			}
+			
 			
 		}
 		

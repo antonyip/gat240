@@ -102,6 +102,9 @@ package
 		[Embed(source="../art/TempArt/Check_Point.png")]
 		public static var checkpoint:Class;
 		
+		[Embed(source = "../GameLevel.csv", mimeType = "application/octet-stream")]
+		public static var gameLevelCSV:Class;
+		
 		public function Assets() 
 		{
 			
