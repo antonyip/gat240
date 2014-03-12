@@ -125,7 +125,7 @@ package
 			
 			if (platform.myType == Platform.BOUNCING_PLATFORM)
 			{
-				player.velocity.y = -600;
+				player.velocity.y = -1300;
 			}
 		}
 		
