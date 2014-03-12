@@ -10,8 +10,8 @@ package GameObjects
 	 */
 	public class Aeroplane extends FlxSprite 
 	{
-		private var moveSpeed:int = 1000;
-		private var jumpSpeed:int = 500;
+		private var moveSpeed:int = 200;
+		private var jumpSpeed:int = 400;
 		private var jumpingSeconds:int = 3;
 		private var gravity:int = 1000;
 		public var onFloor:Boolean = true;
@@ -32,17 +32,17 @@ package GameObjects
 			
 			if (FlxG.keys.A || FlxG.keys.LEFT)
 			{
-				if (onFloor && doubleJump)
+				//if (onFloor && doubleJump)
 					velocity.x = -moveSpeed;
-				else
-					velocity.x = -moveSpeed / 10;
+				//else
+					//velocity.x = -moveSpeed / 10;
 			}
 			else if (FlxG.keys.D || FlxG.keys.RIGHT)
 			{
-				if (onFloor && doubleJump)
+				//if (onFloor && doubleJump)
 					velocity.x = moveSpeed;
-				else
-					velocity.x = moveSpeed / 10;
+				//else
+					//velocity.x = moveSpeed / 10;
 			}
 			else
 			{
