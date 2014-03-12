@@ -18,6 +18,7 @@ package
 		public static var platformManager:PlatformManager;
 		public static var enemyManager:EnemyManager;
 		public static var checkPointManager:CheckPointManager;
+		public static var jumpwallManager:JumpableWallManager;
 		
 		public function Globals() 
 		{

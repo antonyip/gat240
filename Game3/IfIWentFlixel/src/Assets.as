@@ -93,6 +93,9 @@ package
 		[Embed(source="../art/TempArt/Enemy.png")]
 		public static var enemy:Class;
 		
+		[Embed(source="../art/TempArt/ShootingEnemy.png")]
+		public static var shootingEnemy:Class;
+		
 		[Embed(source="../art/TempArt/Spikes.png")]
 		public static var spikes:Class;
 		
