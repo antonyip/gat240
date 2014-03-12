@@ -18,7 +18,8 @@ package
 		// Sprites
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
 		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.GameLevelBG);
-			
+		private var graphics:GraphicsManager = new GraphicsManager();
+		
 		// do once when come into game
 		public override function create():void
 		{
@@ -33,7 +34,8 @@ package
 			
 			// load the level
 			loadLevel();
-
+			loadGraphics();
+			
 			// adding stuffs
 			add(bg);
 			add(Globals.floorManager);
@@ -41,6 +43,7 @@ package
 			add(Globals.platformManager);
 			add(Globals.enemyManager);
 			add(Globals.checkPointManager);
+			add(graphics);
 			add(Globals.playerCharacter);
 			
 			// omg no way imba camera
@@ -63,8 +66,8 @@ package
 			FlxG.collide(Globals.playerCharacter, Globals.platformManager, hitPlatform);
 			FlxG.collide(Globals.playerCharacter, Globals.enemyManager, playerHitEnemy);
 			FlxG.collide(Globals.playerCharacter, Globals.checkPointManager, checkPointCollide);
-			FlxG.collide(Globals.enemyManager, Globals.floorManager);
-			FlxG.collide(Globals.enemyManager, Globals.platformManager, hitPlatform);
+			//FlxG.collide(Globals.enemyManager, Globals.floorManager);
+			//FlxG.collide(Globals.enemyManager, Globals.platformManager, hitPlatform);
 			
 		} //update close bracket
 		
@@ -203,11 +206,11 @@ package
 							Globals.enemyManager.add(patrol);
 							break;
 						case '5':
-							var spikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.spikes);
+							var spikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize+2, Assets.spikes);
 							Globals.enemyManager.add(spikes);
 							break;	
 						case '6':
-							var upspikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.upsidedownspikes);
+							var upspikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize-2, Assets.upsidedownspikes);
 							Globals.enemyManager.add(upspikes);
 							break;
 						case '7':
@@ -235,6 +238,67 @@ package
 						case 'C':
 							var jfloor:Floor = new Floor(j * tileSize, i * tileSize, Assets.movingTile)
 							Globals.jumpwallManager.add(jfloor);
+							break;
+						default:
+					}
+				}
+			}
+		}
+		
+		public function loadGraphics():void 
+		{
+			var b:ByteArray = new Assets.gameLevelCSV();
+			var gameHeight:int = 27;
+			var gameLength:int = 22;
+			var tileSize:int = 64;
+			
+			for (var i:int = 0; i < gameHeight; i++) 
+			{
+				// reading the array
+				var s:String;
+				if (b.bytesAvailable >= 45)
+					s = b.readUTFBytes(45);
+				else
+					s = b.readUTFBytes(b.bytesAvailable);
+				//trace(s);
+				for (var j:int = 0; j < gameLength; j++) 
+				{
+					//trace(s.charAt(j * 2));
+					// creating the tiles
+					switch (s.charAt(j*2)) // because commars
+					{
+						case '0':
+							break;
+						case '1':
+						case 'P':
+							var floor:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.movingTile)
+							graphics.add(floor);
+							break;
+						case '2':
+							//var bouncingFloor:BouncingPlatform = new BouncingPlatform(j * tileSize, i * tileSize, Assets.bouncingTile);
+							//Globals.platformManager.add(bouncingFloor);
+							break;
+						case '3':
+							//var shootingEnemy:EnemyShooter = new EnemyShooter(j * tileSize, i * tileSize, Assets.shootingEnemy);
+							//Globals.enemyManager.add(shootingEnemy);
+							break;
+						case '4':
+							//var patrol:MovingPlatform = new MovingPlatform(j * tileSize, i * tileSize, Assets.enemy,(j+2)*tileSize,i*tileSize);
+							//Globals.enemyManager.add(patrol);
+							break;
+						case '5':
+							var spikes:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.spikes);
+							graphics.add(spikes);
+							break;	
+						case '6':
+							var upspikes:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.upsidedownspikes);
+							graphics.add(upspikes);
+							break;
+						case '7':
+							break;
+						case '8':
+							break;							
+						case '9':
 							break;
 						default:
 					}
