@@ -182,15 +182,43 @@ package
 						case '0':
 							break;
 						case '1':
+						case 'P':
 							var floor:Floor = new Floor(j * tileSize, i * tileSize, Assets.normalTile)
 							Globals.floorManager.add(floor);
 							break;
 						case '2':
-							
+							var bouncingFloor:BouncingPlatform = new BouncingPlatform(j * tileSize, i * tileSize, Assets.bouncingTile);
+							Globals.platformManager.add(bouncingFloor);
 							break;
+						case '3':
+							var shootingEnemy:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.enemy);
+							Globals.enemyManager.add(shootingEnemy);
+							break;
+						case '4':
+							var enemy:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.enemy);
+							Globals.enemyManager.add(enemy);
+							break;
+						case '5':
+							var spikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.enemy);
+							Globals.enemyManager.add(spikes);
+							break;	
+						case '6':
+							var upspikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize, Assets.enemy);
+							Globals.enemyManager.add(upspikes);
+							break;
+						case '7':
+							var checkPoint:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.checkpoint);
+							Globals.checkPointManager.add(checkPoint);
+							break;
+						case '8':
+							var exit:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.checkpoint);
+							Globals.checkPointManager.add(exit);
+							break;							
 						case '9':
 							Globals.playerCharacter.x = j * tileSize;
 							Globals.playerCharacter.y = i * tileSize - 10;
+							Globals.checkPointManager.saveSpotX = j * tileSize;
+							Globals.checkPointManager.saveSpotY = i * tileSize - 10;
 							break;
 						default:
 					}
