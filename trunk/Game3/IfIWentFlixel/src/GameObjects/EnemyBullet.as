@@ -20,6 +20,8 @@ package GameObjects
 			super.update();
 			if (velocity.x == 0)
 				kill();
+			velocity.x = 500;				
+			velocity.y = 0;
 		}
 	}
 
