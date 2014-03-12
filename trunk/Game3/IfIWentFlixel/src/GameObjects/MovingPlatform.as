@@ -42,17 +42,18 @@ package GameObjects
 			if (timeInFramesCounter > timeInFrames)
 			{
 				timeInFramesCounter = 0;
+				isPositiveDirection = true;
 			}
 			
 			if (isPositiveDirection)
 			{
-				velocity.x = endPoint.x - originalPos.x;
-				velocity.y = endPoint.y - originalPos.y;
+				x = originalPos.x + (endPoint.x - originalPos.x) * timeInFramesCounter / (timeInFrames / 2.0);
+				y = originalPos.y + (endPoint.y - originalPos.y) * timeInFramesCounter / (timeInFrames / 2.0);
 			}
 			else
 			{
-				velocity.x = -(endPoint.x - originalPos.x);
-				velocity.y = -(endPoint.y - originalPos.y);
+				x = endPoint.x - (endPoint.x - originalPos.x) * (timeInFramesCounter-(timeInFrames/2)) / (timeInFrames / 2.0);
+				y = endPoint.y - (endPoint.y - originalPos.y) * (timeInFramesCounter-(timeInFrames/2)) / (timeInFrames / 2.0);
 			}
 		}
 	}
