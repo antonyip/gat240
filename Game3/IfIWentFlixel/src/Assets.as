@@ -31,14 +31,17 @@ package
 		[Embed(source="../art/FinalArt/Victory_Screen.png")]
 		public static var WinLevelBG:Class;
 		
-		[Embed(source="../sound/SolidStudiosMenuMusic.mp3")]
+		[Embed(source="../sounds/PossibleBg_1.mp3")]
 		public static var backgroundMusic:Class;
 		
 		[Embed(source="../sound/Fx07.mp3")]
 		public static var jumpSound:Class;
 		
-		[Embed(source="../sound/Book.mp3")]
+		[Embed(source="../sounds/DeathSound.mp3")]
 		public static var deathSound:Class;
+		
+		[Embed(source = "../sounds/CheckPointSound.mp3")]
+		public static var checkPointSound:Class;
 		
 		[Embed(source="../sound/Fx09.mp3")]
 		public static var enemyDeathSound1:Class;
@@ -63,6 +66,9 @@ package
 		
 		[Embed(source="../art/FinalArt/BounceTile_.png")]
 		public static var bouncingTile:Class;
+		
+		[Embed(source="../art/FinalArt/BounceTile.png")]
+		public static var bouncingTileOver:Class;
 		
 		[Embed(source="../art/FinalArt/Enemy.png")]
 		public static var enemy:Class;
@@ -93,6 +99,12 @@ package
 		
 		[Embed(source = "../art/FinalArt/Exit_Door.png")]
 		public static var exitImage:Class;
+		
+		[Embed(source="../art/FinalArt/WallJump_Tile.png")]
+		public static var wallJumpWall:Class;
+		
+		[Embed(source = "../art/FinalArt/WallJump_Tile_Over.png")]
+		public static var wallJumpWallOver:Class;
 		
 		public function Assets() 
 		{
