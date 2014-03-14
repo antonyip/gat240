@@ -18,6 +18,14 @@ package
 			if (FlxG.stage)
 				FlxG.stage.addEventListener(Event.RESIZE, Globals.toggle_fullscreen);
 				
+			if (FlxG.music == null)
+			{
+				FlxG.music = new FlxSound();
+				FlxG.music.loadEmbedded(Assets.backgroundMusic, true);
+				FlxG.music.play();
+				FlxG.music.survive = true;
+			}
+				
 		}
 		public override function update():void
 		{
