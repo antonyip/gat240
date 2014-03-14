@@ -43,6 +43,9 @@ package
 		[Embed(source = "../sounds/CheckPointSound.mp3")]
 		public static var checkPointSound:Class;
 		
+		[Embed(source="../sounds/PowerUp_Sound.mp3")]
+		public static var pupSound:Class;
+		
 		[Embed(source="../sound/Fx09.mp3")]
 		public static var enemyDeathSound1:Class;
 		

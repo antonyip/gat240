@@ -59,10 +59,7 @@ package
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
 			
 			// background music
-			FlxG.music = new FlxSound();
-			FlxG.music.loadEmbedded(Assets.backgroundMusic, true);
-			FlxG.music.play();
-			FlxG.music.survive = false;
+
 		} // create close bracket
 		
 		// called everyframe
@@ -185,17 +182,25 @@ package
 		{
 			var player:Aeroplane = obj1 as Aeroplane;
 			// reset when hit floor
-			Globals.checkPointManager.saveSpotX = obj2.x;
-			Globals.checkPointManager.saveSpotY = obj2.y;
-			FlxG.loadSound(Assets.checkPointSound).play();
 			obj2.kill();
 			//trace("cp");
 			
 			var cp:CheckPoint = obj2 as CheckPoint;
 			if (cp.myType == "exit") 
+			{
 				FlxG.switchState(new GameWin);
-			if (cp.myType == "health")
+			}
+			else if (cp.myType == "health")
+			{
+				FlxG.loadSound(Assets.pupSound).play();
 				++player.livesLeft;
+			}
+			else
+			{
+				Globals.checkPointManager.saveSpotX = obj2.x;
+				Globals.checkPointManager.saveSpotY = obj2.y;
+				FlxG.loadSound(Assets.checkPointSound).play();
+			}
 		}
 		
 		public function loadLevel():void 
