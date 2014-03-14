@@ -19,9 +19,8 @@ package GameObjects
 			++bulletcounterEshooter;
 			if (bulletcounterEshooter > fiveSeconds)
 			{
-				trace("pew");
 				bulletcounterEshooter = 0;
-				Globals.enemyManager.add(new EnemyBullet(x, y, Assets.enemyBullet));
+				Globals.enemyManager.add(new EnemyBullet(x+32, y+14, Assets.enemyBullet));
 			}
 			
 		}

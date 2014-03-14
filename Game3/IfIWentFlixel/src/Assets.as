@@ -6,31 +6,11 @@ package
 	 */
 	public class Assets 
 	{
-		[Embed(source = "../art/Test Art/Ametrine Crystal01.png")]
-		public static var testArt1:Class
-		
-		[Embed(source = "../art/Test Art/Ametrine Crystal02.png")]
-		public static var testArt2:Class
-		
-		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
-		public static var testArt3:Class
 		
 		[Embed(source="../art/TempArt/Player.png")]
 		public static var aeroplaneSprite:Class;
 		
-		[Embed(source="../art/Enemies/Enemy_1.png")]
-		public static var enemySprite:Class;
-		
-		[Embed(source="../art/Enemies/Enemy_2.png")]
-		public static var enemyShooter:Class;
-		
-		[Embed(source="../art/Enemies/Enemy_3.png")]
-		public static var enemyChaser:Class;
-		
-		[Embed(source="../art/Enemies/Boss/Boss_Full.png")]
-		public static var enemyBoss:Class;
-		
-		[Embed(source="../art/Enemies/Enemy_Bullet_1.png")]
+		[Embed(source="../art/FinalArt/Enemy_Bullet.png")]
 		public static var enemyBullet:Class;
 		
 		[Embed(source="../art/Player_Bullet.png")]
@@ -39,25 +19,16 @@ package
 		[Embed(source="../art/Kill_All_Enemies_PU.png")]
 		public static var healthPowerUp:Class;
 		
-		[Embed(source="../art/Shield_PU.png")]
-		public static var speedPowerUp:Class;
-		
-		[Embed(source = "../art/Test Art/Ametrine Crystal03.png")]
-		public static var shieldPowerUp:Class;
-		
-		[Embed(source="../art/Freeze_Enemies_PU.png")]
-		public static var attackPowerUp:Class;
-		
-		[Embed(source="../art/Screens/MainMenu.png")]
+		[Embed(source="../art/FinalArt/MainMenu.png")]
 		public static var mainMenuBG:Class;
 		
-		[Embed(source="../art/Screens/Background.png")]
+		[Embed(source="../art/FinalArt/Background.png")]
 		public static var GameLevelBG:Class;
 		
-		[Embed(source="../art/Screens/DefeatScreen.png")]
+		[Embed(source="../art/FinalArt/Defeated_Screen.png")]
 		public static var LoseLevelBG:Class;
 		
-		[Embed(source="../art/Screens/VictoryScreen.png")]
+		[Embed(source="../art/FinalArt/Victory_Screen.png")]
 		public static var WinLevelBG:Class;
 		
 		[Embed(source="../sound/SolidStudiosMenuMusic.mp3")]
@@ -81,32 +52,47 @@ package
 		[Embed(source="../sound/Fx09.mp3")]
 		public static var victorySound:Class;
 		
-		[Embed(source="../art/TempArt/Normal_Tile.png")]
+		[Embed(source="../art/FinalArt/Normal_Tile.png")]
 		public static var normalTile:Class;
 		
-		[Embed(source="../art/TempArt/MovingPlatform_.png")]
+		[Embed(source="../art/FinalArt/MovingPlatform_.png")]
 		public static var movingTile:Class;
 		
-		[Embed(source="../art/TempArt/BounceTile_.png")]
+		[Embed(source="../art/FinalArt/Normal_Tile_Over.png")]
+		public static var normalTileCover:Class;
+		
+		[Embed(source="../art/FinalArt/BounceTile_.png")]
 		public static var bouncingTile:Class;
 		
-		[Embed(source="../art/TempArt/Enemy.png")]
+		[Embed(source="../art/FinalArt/Enemy.png")]
 		public static var enemy:Class;
 		
-		[Embed(source="../art/TempArt/ShootingEnemy.png")]
+		[Embed(source="../art/FinalArt/ShootingEnemy.png")]
 		public static var shootingEnemy:Class;
 		
-		[Embed(source="../art/TempArt/Spikes.png")]
+		[Embed(source="../art/FinalArt/Spikes.png")]
 		public static var spikes:Class;
 		
-		[Embed(source="../art/TempArt/Upside_Down_Spike.png")]
+		[Embed(source="../art/FinalArt/Upside_Down_Spike.png")]
 		public static var upsidedownspikes:Class;
 		
-		[Embed(source="../art/TempArt/Check_Point.png")]
+		[Embed(source="../art/FinalArt/Check_Point.png")]
 		public static var checkpoint:Class;
 		
 		[Embed(source = "../GameLevel.csv", mimeType = "application/octet-stream")]
 		public static var gameLevelCSV:Class;
+		
+		[Embed(source="../art/FinalArt/DeerAll.png")]
+		public static var playerWalkTest:Class;
+		
+		[Embed(source="../art/FinalArt/Health_PU.png")]
+		public static var healthPowerUpImage:Class;
+		
+		[Embed(source = "../art/FinalArt/Key.png")]
+		public static var keyImage:Class;
+		
+		[Embed(source = "../art/FinalArt/Exit_Door.png")]
+		public static var exitImage:Class;
 		
 		public function Assets() 
 		{
