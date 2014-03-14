@@ -34,8 +34,11 @@ package
 		[Embed(source="../sounds/PossibleBg_1.mp3")]
 		public static var backgroundMusic:Class;
 		
-		[Embed(source="../sound/Fx07.mp3")]
+		[Embed(source="../sounds/JumpSound.mp3")]
 		public static var jumpSound:Class;
+		
+		[Embed(source="../sounds/BounceSound.mp3")]
+		public static var bounceSound:Class;
 		
 		[Embed(source="../sounds/DeathSound.mp3")]
 		public static var deathSound:Class;
