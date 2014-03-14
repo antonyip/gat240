@@ -45,7 +45,7 @@ package
 			add(Globals.checkPointManager);
 			add(graphics);
 			Globals.playerCharacter.loadGraphic(Assets.playerWalkTest, true, false, 48, 48);
-			Globals.playerCharacter.addAnimation("idle", [0], 1, true);
+			Globals.playerCharacter.addAnimation("idle", [11], 1, true);
 			Globals.playerCharacter.addAnimation("walk", [0, 1, 2, 3], 30, true);
 			Globals.playerCharacter.addAnimation("jump", [4, 5, 6], 30, false);
 			Globals.playerCharacter.addAnimation("die", [8, 9, 10], 120, false);
@@ -143,6 +143,7 @@ package
 				player.onFloor = false;
 				var bplatform:BouncingPlatform = obj2 as BouncingPlatform;
 				bplatform.myImage.play("bounce", false);
+				FlxG.loadSound(Assets.bounceSound).play();
 			}
 		}
 		
@@ -249,11 +250,11 @@ package
 							Globals.enemyManager.add(patrol);
 							break;
 						case '5':
-							var spikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize+2, Assets.spikes);
+							var spikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize+1, Assets.spikes);
 							Globals.enemyManager.add(spikes);
 							break;	
 						case '6':
-							var upspikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize-2, Assets.upsidedownspikes);
+							var upspikes:EnemyObject = new EnemyObject(j * tileSize, i * tileSize-1, Assets.upsidedownspikes);
 							Globals.enemyManager.add(upspikes);
 							break;
 						case '7':
