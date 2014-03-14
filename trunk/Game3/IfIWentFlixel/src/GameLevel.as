@@ -144,6 +144,8 @@ package
 				player.velocity.y = -1300;
 				player.play("jump", false);
 				player.onFloor = false;
+				var bplatform:BouncingPlatform = obj2 as BouncingPlatform;
+				bplatform.myImage.play("bounce", false);
 			}
 		}
 		
@@ -153,17 +155,18 @@ package
 			// reset when hit floor
 			//player.kill();
 			player.play("die", false);
+			FlxG.loadSound(Assets.deathSound).play();
 			player.allowControl = false;
-			//player.addAnimationCallback(reallyDie);
+			player.velocity.x = 0;
+			player.velocity.y = 0;
 			var timer:FlxTimer = new FlxTimer();
 			timer.start(1, 1, reallyDie);
 		}
 		
-		public static function  reallyDie(obj:FlxTimer):void 
+		public static function reallyDie(obj:FlxTimer):void 
 		{
 			var player:Aeroplane = Globals.playerCharacter;
-			player.velocity.x = 0;
-			player.velocity.y = 0;
+
 			--player.livesLeft;
 			player.allowControl = true;
 			if (player.livesLeft < 0)
@@ -184,9 +187,15 @@ package
 			// reset when hit floor
 			Globals.checkPointManager.saveSpotX = obj2.x;
 			Globals.checkPointManager.saveSpotY = obj2.y;
+			FlxG.loadSound(Assets.checkPointSound).play();
 			obj2.kill();
-			trace("cp");
+			//trace("cp");
 			
+			var cp:CheckPoint = obj2 as CheckPoint;
+			if (cp.myType == "exit") 
+				FlxG.switchState(new GameWin);
+			if (cp.myType == "health")
+				++player.livesLeft;
 		}
 		
 		public function loadLevel():void 
@@ -220,7 +229,10 @@ package
 							Globals.floorManager.add(floor);
 							break;
 						case '2':
-							var bouncingFloor:BouncingPlatform = new BouncingPlatform(j * tileSize, i * tileSize, Assets.bouncingTile);
+							var bouncingFloorI:FlxSprite = new FlxSprite(j * tileSize-20, i * tileSize-19, null);
+							bouncingFloorI.immovable = true;
+							graphics.add(bouncingFloorI);
+							var bouncingFloor:BouncingPlatform = new BouncingPlatform(j * tileSize, i * tileSize, Assets.bouncingTile, bouncingFloorI);
 							Globals.platformManager.add(bouncingFloor);
 							break;
 						case '3':
@@ -262,7 +274,7 @@ package
 							Globals.floorManager.add(movingRight);
 							break;
 						case 'C':
-							var jfloor:Floor = new Floor(j * tileSize, i * tileSize, Assets.movingTile)
+							var jfloor:Floor = new Floor(j * tileSize, i * tileSize, Assets.wallJumpWall)
 							Globals.jumpwallManager.add(jfloor);
 							break;
 						case 'D':
@@ -301,8 +313,6 @@ package
 					// creating the tiles
 					switch (s.charAt(j*2)) // because commars
 					{
-						case '0':
-							break;
 						case '1':
 						case 'P':
 							var floor:FlxSprite = new FlxSprite(j * tileSize -20, i * tileSize-19, Assets.normalTileCover)
@@ -311,31 +321,14 @@ package
 							graphics.add(floor);
 							break;
 						case '2':
-							//var bouncingFloor:BouncingPlatform = new BouncingPlatform(j * tileSize, i * tileSize, Assets.bouncingTile);
-							//Globals.platformManager.add(bouncingFloor);
-							break;
-						case '3':
-							//var shootingEnemy:EnemyShooter = new EnemyShooter(j * tileSize, i * tileSize, Assets.shootingEnemy);
-							//Globals.enemyManager.add(shootingEnemy);
-							break;
-						case '4':
-							//var patrol:MovingPlatform = new MovingPlatform(j * tileSize, i * tileSize, Assets.enemy,(j+2)*tileSize,i*tileSize);
-							//Globals.enemyManager.add(patrol);
-							break;
-						case '5':
-							var spikes:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.spikes);
-							graphics.add(spikes);
-							break;	
-						case '6':
-							var upspikes:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.upsidedownspikes);
-							graphics.add(upspikes);
-							break;
-						case '7':
-							break;
-						case '8':
+
 							break;							
-						case '9':
-							break;
+						case 'C':
+							var jfloor:FlxSprite = new FlxSprite(j * tileSize-20, i * tileSize-19, Assets.wallJumpWallOver)
+							jfloor.immovable = true;
+							jfloor.active = false;
+							graphics.add(jfloor);
+							break;							
 						default:
 					}
 				}

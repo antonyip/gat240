@@ -83,6 +83,9 @@ package GameObjects
 					{
 						velocity.x = 0;
 						this.play("idle", false);
+						animationLeft = false;
+						animationRight = false;
+						animationJump = false;
 					}
 				}
 				
