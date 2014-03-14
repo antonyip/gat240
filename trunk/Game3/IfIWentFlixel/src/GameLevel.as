@@ -17,7 +17,7 @@ package
 	{
 		// Sprites
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
-		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.GameLevelBG);
+		private var bg:FlxSprite = new FlxSprite(64, 64, Assets.GameLevelBG);
 		private var graphics:GraphicsManager = new GraphicsManager();
 		
 		// do once when come into game
@@ -44,9 +44,17 @@ package
 			add(Globals.enemyManager);
 			add(Globals.checkPointManager);
 			add(graphics);
+			Globals.playerCharacter.loadGraphic(Assets.playerWalkTest, true, false, 48, 48);
+			Globals.playerCharacter.addAnimation("idle", [0], 1, true);
+			Globals.playerCharacter.addAnimation("walk", [0, 1, 2, 3], 30, true);
+			Globals.playerCharacter.addAnimation("jump", [4, 5, 6], 30, false);
+			Globals.playerCharacter.addAnimation("die", [8, 9, 10], 120, false);
+			Globals.playerCharacter.play("idle", true);
 			add(Globals.playerCharacter);
 			
 			// omg no way imba camera
+			var s:Number = FlxG.stage.stage.stageHeight / 600;
+			FlxG.resetCameras(new FlxCamera(0, 0, 800, 600, s));
 			FlxG.camera.setBounds(0, 0, 22*64, 27*64, true);
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
 			
@@ -62,10 +70,13 @@ package
 		{
 			super.update();
 			FlxG.collide(Globals.playerCharacter, Globals.floorManager, hitFloor);
-			FlxG.collide(Globals.playerCharacter, Globals.jumpwallManager, hitJumpWall);
-			FlxG.collide(Globals.playerCharacter, Globals.platformManager, hitPlatform);
-			FlxG.collide(Globals.playerCharacter, Globals.enemyManager, playerHitEnemy);
-			FlxG.collide(Globals.playerCharacter, Globals.checkPointManager, checkPointCollide);
+			if (Globals.playerCharacter.allowControl)
+			{
+				FlxG.collide(Globals.playerCharacter, Globals.jumpwallManager, hitJumpWall);
+				FlxG.collide(Globals.playerCharacter, Globals.platformManager, hitPlatform);
+				FlxG.collide(Globals.playerCharacter, Globals.enemyManager, playerHitEnemy);
+				FlxG.collide(Globals.playerCharacter, Globals.checkPointManager, checkPointCollide);
+			}
 			//FlxG.collide(Globals.enemyManager, Globals.floorManager);
 			//FlxG.collide(Globals.enemyManager, Globals.platformManager, hitPlatform);
 			
@@ -119,8 +130,6 @@ package
 			}
 		}
 		
-		
-		
 		public static function hitPlatform(obj1:FlxSprite, obj2:FlxSprite):void
 		{
 			var player:Aeroplane = obj1 as Aeroplane;
@@ -133,6 +142,8 @@ package
 			if (platform.myType == Platform.BOUNCING_PLATFORM)
 			{
 				player.velocity.y = -1300;
+				player.play("jump", false);
+				player.onFloor = false;
 			}
 		}
 		
@@ -140,8 +151,21 @@ package
 		{
 			var player:Aeroplane = obj1 as Aeroplane;
 			// reset when hit floor
-			player.kill();
+			//player.kill();
+			player.play("die", false);
+			player.allowControl = false;
+			//player.addAnimationCallback(reallyDie);
+			var timer:FlxTimer = new FlxTimer();
+			timer.start(1, 1, reallyDie);
+		}
+		
+		public static function  reallyDie(obj:FlxTimer):void 
+		{
+			var player:Aeroplane = Globals.playerCharacter;
+			player.velocity.x = 0;
+			player.velocity.y = 0;
 			--player.livesLeft;
+			player.allowControl = true;
 			if (player.livesLeft < 0)
 				FlxG.switchState(new GameOver);
 			else
@@ -149,6 +173,8 @@ package
 				player.x = Globals.checkPointManager.saveSpotX;
 				player.y = Globals.checkPointManager.saveSpotY;
 				player.revive();
+				player.play("idle", false);
+				player.addAnimationCallback(null);
 			}
 		}
 		
@@ -202,7 +228,7 @@ package
 							Globals.enemyManager.add(shootingEnemy);
 							break;
 						case '4':
-							var patrol:MovingPlatform = new MovingPlatform(j * tileSize, i * tileSize, Assets.enemy,(j+2)*tileSize,i*tileSize);
+							var patrol:MovingPlatform = new MovingPlatform(j * tileSize, i * tileSize, Assets.enemy,(j+2)*tileSize,i*tileSize,240,"enemy");
 							Globals.enemyManager.add(patrol);
 							break;
 						case '5':
@@ -218,7 +244,7 @@ package
 							Globals.checkPointManager.add(checkPoint);
 							break;
 						case '8':
-							var exit:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.checkpoint);
+							var exit:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.exitImage,"exit");
 							Globals.checkPointManager.add(exit);
 							break;							
 						case '9':
@@ -238,6 +264,14 @@ package
 						case 'C':
 							var jfloor:Floor = new Floor(j * tileSize, i * tileSize, Assets.movingTile)
 							Globals.jumpwallManager.add(jfloor);
+							break;
+						case 'D':
+							var key:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.keyImage,"key");
+							Globals.checkPointManager.add(key);
+							break;
+						case 'E':
+							var pUp:CheckPoint = new CheckPoint(j * tileSize, i * tileSize, Assets.healthPowerUpImage,"health");
+							Globals.checkPointManager.add(pUp);
 							break;
 						default:
 					}
@@ -271,7 +305,9 @@ package
 							break;
 						case '1':
 						case 'P':
-							var floor:FlxSprite = new FlxSprite(j * tileSize, i * tileSize, Assets.movingTile)
+							var floor:FlxSprite = new FlxSprite(j * tileSize -20, i * tileSize-19, Assets.normalTileCover)
+							floor.immovable = true;
+							floor.active = false;
 							graphics.add(floor);
 							break;
 						case '2':

@@ -49,11 +49,19 @@ package GameObjects
 			{
 				x = originalPos.x + (endPoint.x - originalPos.x) * timeInFramesCounter / (timeInFrames / 2.0);
 				y = originalPos.y + (endPoint.y - originalPos.y) * timeInFramesCounter / (timeInFrames / 2.0);
+				if (myType == "enemy")
+				{
+					this.angle += 2;
+				}
 			}
 			else
 			{
 				x = endPoint.x - (endPoint.x - originalPos.x) * (timeInFramesCounter-(timeInFrames/2)) / (timeInFrames / 2.0);
-				y = endPoint.y - (endPoint.y - originalPos.y) * (timeInFramesCounter-(timeInFrames/2)) / (timeInFrames / 2.0);
+				y = endPoint.y - (endPoint.y - originalPos.y) * (timeInFramesCounter - (timeInFrames / 2)) / (timeInFrames / 2.0);
+				if (myType == "enemy")
+				{
+					this.angle -= 2;
+				}
 			}
 		}
 	}
