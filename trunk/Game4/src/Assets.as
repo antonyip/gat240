@@ -7,17 +7,8 @@ package
 	public class Assets 
 	{
 		
-		[Embed(source="../art/TempArt/Player.png")]
-		public static var aeroplaneSprite:Class;
-		
 		[Embed(source="../art/FinalArt/Enemy_Bullet.png")]
 		public static var enemyBullet:Class;
-		
-		[Embed(source="../art/Player_Bullet.png")]
-		public static var bulletSprite:Class;
-		
-		[Embed(source="../art/Kill_All_Enemies_PU.png")]
-		public static var healthPowerUp:Class;
 		
 		[Embed(source="../art/FinalArt/MainMenu.png")]
 		public static var mainMenuBG:Class;
@@ -48,18 +39,6 @@ package
 		
 		[Embed(source="../sounds/PowerUp_Sound.mp3")]
 		public static var pupSound:Class;
-		
-		[Embed(source="../sound/Fx09.mp3")]
-		public static var enemyDeathSound1:Class;
-		
-		[Embed(source="../sound/Fx11.mp3")]
-		public static var enemyDeathSound2:Class;
-		
-		[Embed(source="../sound/Fx07.mp3")]
-		public static var enemyDeathSound3:Class;
-		
-		[Embed(source="../sound/Fx09.mp3")]
-		public static var victorySound:Class;
 		
 		[Embed(source="../art/FinalArt/Normal_Tile.png")]
 		public static var normalTile:Class;
