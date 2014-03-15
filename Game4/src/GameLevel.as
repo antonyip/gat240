@@ -24,7 +24,7 @@ package
 		public override function create():void
 		{
 			// creating the managers
-			Globals.playerCharacter = new Aeroplane(200, 300, Assets.aeroplaneSprite);
+			Globals.playerCharacter = new Aeroplane(200, 300, Assets.playerWalkTest);
 			Globals.floorManager = new FloorManager();
 			Globals.platformManager = new PlatformManager();
 			Globals.enemyManager = new EnemyManager();
