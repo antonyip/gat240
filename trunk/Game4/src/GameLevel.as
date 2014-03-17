@@ -23,6 +23,7 @@ package
 		// do once when come into game
 		public override function create():void
 		{
+			
 			// creating the managers
 			Globals.playerCharacter = new Aeroplane(200, 300, Assets.playerWalkTest);
 			Globals.floorManager = new FloorManager();
@@ -58,8 +59,7 @@ package
 			FlxG.camera.setBounds(0, 0, 22*64, 27*64, true);
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
 			
-			// background music
-
+			FlxG.flash(0xffffffff, 1);
 		} // create close bracket
 		
 		// called everyframe
