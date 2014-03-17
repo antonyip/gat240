@@ -20,7 +20,7 @@ package
 		{
 			if (FlxG.keys.justPressed("SPACE"))
 			{
-				FlxG.switchState(new MainMenu);
+				FlxG.switchState(new CreditsScreen);
 			}
 		}
 		

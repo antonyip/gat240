@@ -91,6 +91,19 @@ package
 		[Embed(source = "../art/FinalArt/WallJump_Tile_Over.png")]
 		public static var wallJumpWallOver:Class;
 		
+		// splash screen
+		[Embed(source="../art/Anton's Awesome Art/engine screen.jpg")]
+		public static var splashEngineScreen:Class;
+		
+		[Embed(source = "../art/Anton's Awesome Art/logo.jpg")]
+		public static var splashLogoScreen:Class;
+		
+		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
+		public static var splashCreditsScreen:Class;
+		
+		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
+		public static var splashHowToPlay:Class;
+		
 		public function Assets() 
 		{
 			
