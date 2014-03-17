@@ -7,6 +7,7 @@ package
 	import GameObjectManagers.*;
 	import GameObjects.*;
 	import org.flixel.*;
+	import org.flixel.data.*;
 	
 	/**
 	 * ...
@@ -19,6 +20,7 @@ package
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
 		private var bg:FlxSprite = new FlxSprite(64, 64, Assets.GameLevelBG);
 		private var graphics:GraphicsManager = new GraphicsManager();
+		private var pauseMenu:PauseMenu = new PauseMenu();
 		
 		// do once when come into game
 		public override function create():void
@@ -59,12 +61,30 @@ package
 			FlxG.camera.setBounds(0, 0, 22*64, 27*64, true);
 			FlxG.camera.follow(Globals.playerCharacter, FlxCamera.STYLE_PLATFORMER);
 			
+			pauseMenu.visible = false;
+			add(pauseMenu);
+			
 			FlxG.flash(0xffffffff, 1);
 		} // create close bracket
 		
 		// called everyframe
 		public override function update():void
 		{
+			if (FlxG.keys.justReleased("ESCAPE") || FlxG.keys.justReleased("P"))
+			{
+				FlxG.paused = !FlxG.paused;
+				if (FlxG.paused)
+					pauseMenu.visible = true;
+				else
+					pauseMenu.visible = false;
+			}
+			
+			if (FlxG.paused)
+			{
+				pauseMenu.update();
+				return;
+			}
+			
 			super.update();
 			FlxG.collide(Globals.playerCharacter, Globals.floorManager, hitFloor);
 			if (Globals.playerCharacter.allowControl)
