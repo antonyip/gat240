@@ -104,6 +104,24 @@ package
 		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
 		public static var splashHowToPlay:Class;
 		
+		[Embed(source="../art/Anton's Awesome Art/AreYouSure.png")]
+		public static var areYouSure:Class;
+		
+		[Embed(source="../art/Anton's Awesome Art/AreYouSureYes.png")]
+		public static var areYouSureYes:Class;
+		
+		[Embed(source="../art/Anton's Awesome Art/AreYouSureNo.png")]
+		public static var areYouSureNo:Class;
+		
+		[Embed(source="../art/Anton's Awesome Art/Arrow.png")]
+		public static var areYouSureArrow:Class;
+		
+		[Embed(source = "../art/Anton's Awesome Art/ResumeGame.png")]
+		public static var resumeGameImage:Class;
+		
+		[Embed(source = "../art/Anton's Awesome Art/QuitGame.png")]
+		public static var quitGameImage:Class;
+		
 		public function Assets() 
 		{
 			

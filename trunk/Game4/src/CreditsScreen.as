@@ -1,7 +1,6 @@
 package  
 {
-	import org.flixel.FlxSprite;
-	import org.flixel.FlxState;
+	import org.flixel.*;
 	
 	/**
 	 * ...
@@ -10,15 +9,25 @@ package
 	public class CreditsScreen extends FlxState 
 	{
 		private var creditsSprite:FlxSprite = new FlxSprite(0, 0, Assets.splashCreditsScreen);
+		
 		override public function create():void
 		{
 			add(creditsSprite);
-			creditsSprite.velocity.y = -10;
+			creditsSprite.velocity.y = -100;
 		}
 		
 		override public function update():void 
 		{
 			super.update();
+			if (FlxG.keys.justReleased("SPACE") ||FlxG.keys.justReleased("ESCAPE") || FlxG.keys.justReleased("ENTER") )
+			{
+				FlxG.fade(0xffffffff, 1, switchMainMenu);
+			}
+		}
+		
+		public function switchMainMenu():void
+		{
+			FlxG.switchState(new MainMenu);
 		}
 		
 		

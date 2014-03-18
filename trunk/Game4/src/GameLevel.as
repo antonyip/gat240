@@ -21,6 +21,9 @@ package
 		private var bg:FlxSprite = new FlxSprite(64, 64, Assets.GameLevelBG);
 		private var graphics:GraphicsManager = new GraphicsManager();
 		private var pauseMenu:PauseMenu = new PauseMenu();
+		private var score:FlxText = new FlxText(10, 10, 120, "Score: ");
+		private var lives:FlxText = new FlxText(80, 10, 120, "lives: ");
+		private static var scoreTimer:FlxTimer = new FlxTimer();
 		
 		// do once when come into game
 		public override function create():void
@@ -65,20 +68,44 @@ package
 			add(pauseMenu);
 			
 			FlxG.flash(0xffffffff, 1);
+			
+			scoreTimer.start(0.001, 1000000, timerCounter);
+			
+			// GUI
+			score.scrollFactor.x = 0;
+			score.scrollFactor.y = 0;
+			add(score);
+			
+			lives.scrollFactor.x = 0;
+			lives.scrollFactor.y = 0;
+			add(lives);
 		} // create close bracket
+		
+		public function timerCounter(s:FlxTimer):void 
+		{
+			// idk do what. lol
+		}
 		
 		// called everyframe
 		public override function update():void
 		{
-			if (FlxG.keys.justReleased("ESCAPE") || FlxG.keys.justReleased("P"))
+			if (FlxG.keys.justReleased("ESCAPE") || FlxG.keys.justReleased("P") || Globals.iShouldUnpause)
 			{
+				Globals.iShouldUnpause = false;
 				FlxG.paused = !FlxG.paused;
+				scoreTimer.paused = FlxG.paused;
 				if (FlxG.paused)
+				{
 					pauseMenu.visible = true;
+				}
 				else
+				{
 					pauseMenu.visible = false;
+				}
 			}
 			
+			score.text = "Score: " + scoreTimer.loopsLeft;
+			lives.text = "Lives: " + Globals.playerCharacter.livesLeft;
 			if (FlxG.paused)
 			{
 				pauseMenu.update();
@@ -94,8 +121,6 @@ package
 				FlxG.collide(Globals.playerCharacter, Globals.enemyManager, playerHitEnemy);
 				FlxG.collide(Globals.playerCharacter, Globals.checkPointManager, checkPointCollide);
 			}
-			//FlxG.collide(Globals.enemyManager, Globals.floorManager);
-			//FlxG.collide(Globals.enemyManager, Globals.platformManager, hitPlatform);
 			
 		} //update close bracket
 		
@@ -209,6 +234,7 @@ package
 			var cp:CheckPoint = obj2 as CheckPoint;
 			if (cp.myType == "exit") 
 			{
+				Globals.currentScore = scoreTimer.loopsLeft/1000 as Number;
 				FlxG.switchState(new GameWin);
 			}
 			else if (cp.myType == "health")

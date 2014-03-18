@@ -24,7 +24,24 @@ package
 		public function switchSprite():void
 		{
 			bg.loadGraphic(Assets.splashLogoScreen);
-			FlxG.flash(0xffffffff, 1, switchState);
+			FlxG.flash(0xffffffff, 1);
+			var timer:FlxTimer = new FlxTimer();
+			timer.start(0.01, 1000, timerEvent);
+		}
+		
+		public function timerEvent(s:FlxTimer):void 
+		{
+			if (s.loopsLeft < 900)
+			{
+				bg.y -= 5;
+				bg.scale.x += 0.05;
+				bg.scale.y += 0.05;
+			}
+			//trace(s.loopsLeft);
+			if (s.loopsLeft < 750)
+			{
+				FlxG.fade(0xffffffff, 1,switchState);
+			}
 		}
 		
 		public function switchState():void
