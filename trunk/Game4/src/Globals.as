@@ -23,7 +23,7 @@ package
 		public static var jumpwallManager:JumpableWallManager;
 		public static var currentScore:Number;
 		public static var iShouldUnpause:Boolean = false;
-		public static var saver:FlxSave = new FlxSave();
+		public static var saver:FlxSave;
 		public static var highscoreTable:Array;
 		
 		public function Globals() 
@@ -51,16 +51,22 @@ package
 		
 		public static function GlobalsInit():void
 		{
-			trace("found savedfile? ", saver.bind("ohDeer"));
-			highscoreTable = saver.data.highscoreTable;
-			//trace(highscoreTable);
-			if (highscoreTable == null)
+			saver = new FlxSave();
+			saver.bind("ohDeer")
+			//trace("found savedfile? ", saver.bind("ohDeer"));		
+			if (saver.data.highscoreTable == null)
+			{
 				highscoreTable = new Array();
-			//highscoreTable.push(new HighscoreObject("ssanton", 660));
+				
+			}
+			else
+			{
+				highscoreTable = saver.data.highscoreTable;
+			}
 			highscoreTable.sortOn("score", Array.DESCENDING);
-			//trace(highscoreTable);
 			saver.data.highscoreTable = highscoreTable;
 			saver.flush();
+			
 			trace ("Highscores");
 			for (var i:int = 0; i < highscoreTable.length; i++) 
 			{
