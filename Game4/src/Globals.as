@@ -8,6 +8,8 @@ package
 	import GameObjectManagers.*;
 	import GameObjects.*;
 	import org.flixel.FlxG;
+	import org.flixel.FlxSave;
+	import org.flixel.FlxU;
 	import org.flixel.FlxCamera;
 	import flash.display.StageDisplayState;
 	 
@@ -19,6 +21,10 @@ package
 		public static var enemyManager:EnemyManager;
 		public static var checkPointManager:CheckPointManager;
 		public static var jumpwallManager:JumpableWallManager;
+		public static var currentScore:Number;
+		public static var iShouldUnpause:Boolean = false;
+		public static var saver:FlxSave = new FlxSave();
+		public static var highscoreTable:Array;
 		
 		public function Globals() 
 		{
@@ -45,7 +51,21 @@ package
 		
 		public static function GlobalsInit():void
 		{
-
+			trace("found savedfile? ", saver.bind("ohDeer"));
+			highscoreTable = saver.data.highscoreTable;
+			//trace(highscoreTable);
+			if (highscoreTable == null)
+				highscoreTable = new Array();
+			//highscoreTable.push(new HighscoreObject("ssanton", 660));
+			highscoreTable.sortOn("score", Array.DESCENDING);
+			//trace(highscoreTable);
+			saver.data.highscoreTable = highscoreTable;
+			saver.flush();
+			trace ("Highscores");
+			for (var i:int = 0; i < highscoreTable.length; i++) 
+			{
+				trace (highscoreTable[i].name, highscoreTable[i].score);
+			}
 		}
 		
 		public static function outOfScreen(x:Number, y:Number):Boolean
