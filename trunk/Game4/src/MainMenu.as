@@ -51,12 +51,18 @@ package
 		{
 			if (FlxG.keys.justReleased("ESCAPE"))
 			{
-				areYouSure.visible 		= !areYouSure.visible;	
-				areYouSureYes.visible 	= !areYouSureYes.visible; 	
-				areYouSureNo.visible 	= !areYouSureNo.visible;
-				areYouSureArrow.visible = !areYouSureArrow.visible;
-				arrowPos = false;
-				
+				if (!howToPlay.visible)
+				{
+					areYouSure.visible 		= !areYouSure.visible;	
+					areYouSureYes.visible 	= !areYouSureYes.visible; 	
+					areYouSureNo.visible 	= !areYouSureNo.visible;
+					areYouSureArrow.visible = !areYouSureArrow.visible;
+					arrowPos = false;
+				}
+				else
+				{
+					howToPlay.visible ? howToPlay.visible = false : howToPlay.visible = true;
+				}
 			}
 			
 			if (areYouSure.visible)

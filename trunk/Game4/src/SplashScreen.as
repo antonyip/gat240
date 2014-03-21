@@ -27,6 +27,7 @@ package
 			FlxG.flash(0xffffffff, 1);
 			var timer:FlxTimer = new FlxTimer();
 			timer.start(0.01, 1000, timerEvent);
+			FlxG.play(Assets.soundMeow);
 		}
 		
 		public function timerEvent(s:FlxTimer):void 
