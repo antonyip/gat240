@@ -22,12 +22,16 @@ package
 		private var graphics:GraphicsManager = new GraphicsManager();
 		private var pauseMenu:PauseMenu = new PauseMenu();
 		private var score:FlxText = new FlxText(10, 10, 120, "Score: ");
-		private var lives:FlxText = new FlxText(80, 10, 120, "lives: ");
+		private var lives:FlxText = new FlxText(160, 10, 120, "lives: ");
 		private static var scoreTimer:FlxTimer = new FlxTimer();
 		
 		// do once when come into game
 		public override function create():void
 		{
+			// preset fonts
+			score.setFormat("MANGA", 16, 0xfffffff);
+			lives.setFormat("MANGA", 16, 0xfffffff);
+			
 			
 			// creating the managers
 			Globals.playerCharacter = new Aeroplane(200, 300, Assets.playerWalkTest);

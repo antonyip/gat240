@@ -101,7 +101,7 @@ package
 		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
 		public static var splashCreditsScreen:Class;
 		
-		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
+		[Embed(source = "../art/NewArt/HelpPage.png")]
 		public static var splashHowToPlay:Class;
 		
 		[Embed(source="../art/Anton's Awesome Art/AreYouSure.png")]
@@ -121,6 +121,12 @@ package
 		
 		[Embed(source = "../art/Anton's Awesome Art/QuitGame.png")]
 		public static var quitGameImage:Class;
+		
+		[Embed(source = "../sounds/cuteMeow.mp3")]
+		public static var soundMeow:Class;
+		
+		[Embed(source="../art/Manga.ttf", fontFamily="MANGA", embedAsCFF="false")]
+		public static var FontManga:String;
 		
 		public function Assets() 
 		{
