@@ -19,6 +19,7 @@ package
 		// Sprites
 		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
 		private var bg:FlxSprite = new FlxSprite(64, 64, Assets.GameLevelBG);
+		private var tut:FlxSprite = new FlxSprite(64, 64, Assets.tutorial);
 		private var graphics:GraphicsManager = new GraphicsManager();
 		private var pauseMenu:PauseMenu = new PauseMenu();
 		private var score:FlxText = new FlxText(10, 10, 120, "Score: ");
@@ -28,6 +29,7 @@ package
 		// do once when come into game
 		public override function create():void
 		{
+			FlxG.paused = false;
 			// preset fonts
 			score.setFormat("MANGA", 16, 0xfffffff);
 			lives.setFormat("MANGA", 16, 0xfffffff);
@@ -83,6 +85,7 @@ package
 			lives.scrollFactor.x = 0;
 			lives.scrollFactor.y = 0;
 			add(lives);
+			add(tut);
 		} // create close bracket
 		
 		public function timerCounter(s:FlxTimer):void 
