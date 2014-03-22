@@ -10,7 +10,7 @@ package GameObjects
 	 */
 	public class Aeroplane extends FlxSprite 
 	{
-		private var moveSpeed:int = 600;
+		private var moveSpeed:int = 400;
 		private var jumpSpeed:int = 800;
 		private var jumpingSeconds:int = 3;
 		private var gravity:int = 4000;

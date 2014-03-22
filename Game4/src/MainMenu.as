@@ -14,10 +14,10 @@ package
 		// do once when come into game
 		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.mainMenuBG);
 		private var howToPlay:FlxSprite = new FlxSprite(0, 0, Assets.splashHowToPlay);
-		private var areYouSure:FlxSprite = new FlxSprite(300, 300, Assets.areYouSure);
-		private var areYouSureYes:FlxSprite = new FlxSprite(350, 330, Assets.areYouSureYes);
-		private var areYouSureNo:FlxSprite = new FlxSprite(250, 330, Assets.areYouSureNo);
-		private var areYouSureArrow:FlxSprite = new FlxSprite(0, 0, Assets.areYouSureArrow);
+		private var areYouSure:FlxSprite = new FlxSprite(0, 0, Assets.areYouSure);
+		private var areYouSureYes:FlxSprite = new FlxSprite(350+60, 330-28, Assets.areYouSureYes);
+		private var areYouSureNo:FlxSprite = new FlxSprite(250- 12, 330-28, Assets.areYouSureNo);
+		private var areYouSureArrow:FlxSprite = new FlxSprite(0, 0, Assets.keyImage);
 		private var arrowPos:Boolean = false;
 		public override function create():void
 		{
@@ -36,8 +36,8 @@ package
 			}
 			
 			add(areYouSure);
-			add(areYouSureYes);
-			add(areYouSureNo);
+			//add(areYouSureYes);
+			//add(areYouSureNo);
 			add(areYouSureArrow);
 			
 			areYouSure.visible = false;
@@ -67,16 +67,16 @@ package
 			
 			if (areYouSure.visible)
 			{
-				if (FlxG.keys.justReleased("LEFT"))
-				{
-					arrowPos = false;
-				}
-				if (FlxG.keys.justReleased("RIGHT"))
+				if (FlxG.keys.justReleased("LEFT") || FlxG.keys.justReleased("A"))
 				{
 					arrowPos = true;
 				}
+				if (FlxG.keys.justReleased("RIGHT") || FlxG.keys.justReleased("D"))
+				{
+					arrowPos = false;
+				}
 				
-				if (arrowPos)
+				if (!arrowPos)
 				{
 					areYouSureArrow.x = areYouSureYes.x - 10;
 					areYouSureArrow.y = areYouSureYes.y;

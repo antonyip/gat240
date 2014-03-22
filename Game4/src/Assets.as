@@ -104,7 +104,10 @@ package
 		[Embed(source = "../art/NewArt/HelpPage.png")]
 		public static var splashHowToPlay:Class;
 		
-		[Embed(source="../art/Anton's Awesome Art/AreYouSure.png")]
+		[Embed(source = "../art/NewArt/GamePausedBG.png")]
+		public static var splashPauseBG:Class;
+		
+		[Embed(source="../art/NewArt/AreYouSure.png")]
 		public static var areYouSure:Class;
 		
 		[Embed(source="../art/Anton's Awesome Art/AreYouSureYes.png")]
@@ -127,6 +130,9 @@ package
 		
 		[Embed(source="../art/Manga.ttf", fontFamily="MANGA", embedAsCFF="false")]
 		public static var FontManga:String;
+		
+		[Embed(source="../art/NewArt/InGame_Tutorial.png")]
+		public static var tutorial:Class;
 		
 		public function Assets() 
 		{

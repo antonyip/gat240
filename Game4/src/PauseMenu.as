@@ -8,7 +8,7 @@ package
 	 */
 	public class PauseMenu extends FlxGroup 
 	{
-		private var title:FlxSprite = new FlxSprite(0, 0, Assets.splashLogoScreen);
+		private var title:FlxSprite = new FlxSprite(0, 0, Assets.splashPauseBG);
 		private var arrow:FlxSprite = new FlxSprite(200, 100, Assets.keyImage);
 		private var resumeGame:FlxSprite = new FlxSprite(300, 100, Assets.resumeGameImage);
 		private var quitGame:FlxSprite = new FlxSprite(300, 200, Assets.quitGameImage);
@@ -41,12 +41,12 @@ package
 			super.update();
 			if (FlxG.paused)
 			{
-				if (FlxG.keys.justReleased("UP"))
+				if (FlxG.keys.justReleased("UP") || FlxG.keys.justReleased("W"))
 				{
 					if (buttonCase > 0)
 						buttonCase--;
 				}
-				if (FlxG.keys.justReleased("DOWN"))
+				if (FlxG.keys.justReleased("DOWN") || FlxG.keys.justReleased("S"))
 				{
 					if (buttonCase < maxCase-1)
 						buttonCase++;
