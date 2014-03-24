@@ -15,10 +15,16 @@ package
 		private var bg:FlxSprite = new FlxSprite(0, 0, Assets.mainMenuBG);
 		private var howToPlay:FlxSprite = new FlxSprite(0, 0, Assets.splashHowToPlay);
 		private var areYouSure:FlxSprite = new FlxSprite(0, 0, Assets.areYouSure);
+		
 		private var areYouSureYes:FlxSprite = new FlxSprite(350+60, 330-28, Assets.areYouSureYes);
 		private var areYouSureNo:FlxSprite = new FlxSprite(250- 12, 330-28, Assets.areYouSureNo);
 		private var areYouSureArrow:FlxSprite = new FlxSprite(0, 0, Assets.keyImage);
 		private var arrowPos:Boolean = false;
+		
+		// highscore stuffs
+		private var highscoreVisible:Boolean = false;
+		private var highscoreGroup:HighscoreStuffs = new HighscoreStuffs();
+		
 		public override function create():void
 		{
 			add(bg);
@@ -45,12 +51,20 @@ package
 			areYouSureNo.visible = false;
 			areYouSureArrow.visible = false;
 			
+			
 			FlxG.flash();
 		}
 		public override function update():void
 		{
 			if (FlxG.keys.justReleased("ESCAPE"))
 			{
+				if (highscoreVisible)
+				{
+					highscoreVisible = false;
+					turnOffHighscore();
+					return;
+				}
+				
 				if (!howToPlay.visible)
 				{
 					areYouSure.visible 		= !areYouSure.visible;	
@@ -59,7 +73,7 @@ package
 					areYouSureArrow.visible = !areYouSureArrow.visible;
 					arrowPos = false;
 				}
-				else
+				else if (howToPlay.visible)
 				{
 					howToPlay.visible ? howToPlay.visible = false : howToPlay.visible = true;
 				}
@@ -114,11 +128,36 @@ package
 			{
 				howToPlay.visible ? howToPlay.visible = false : howToPlay.visible = true;
 			}
+			
+			if (FlxG.keys.justReleased("G"))
+			{
+				highscoreVisible ? highscoreVisible = false : highscoreVisible = true;
+				if (highscoreVisible)
+				{
+					//FlxG.fade(0xffffffff,1,turnOnHighscore,true);
+					turnOnHighscore();
+				}
+				else
+				{
+					//FlxG.fade(0xffffffff, 1, turnOffHighscore, true);
+					turnOffHighscore();
+				}
+			}
 		}
 		
 		public function startGameFn():void 
 		{
 			FlxG.switchState(new GameLevel);
+		}
+		
+		private function turnOnHighscore():void
+		{
+			add(highscoreGroup);
+		}
+		
+		private function turnOffHighscore():void
+		{
+			remove(highscoreGroup);
 		}
 	}
 

@@ -18,7 +18,10 @@ package
 		
 		override public function update():void 
 		{
-			
+			if (FlxG.keys.justReleased("ESCAPE"))
+			{
+				FlxG.switchState(new MainMenu);
+			}
 		}
 		
 		public function switchSprite():void

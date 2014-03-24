@@ -241,7 +241,7 @@ package
 			var cp:CheckPoint = obj2 as CheckPoint;
 			if (cp.myType == "exit") 
 			{
-				Globals.currentScore = scoreTimer.loopsLeft/1000 as Number;
+				Globals.currentScore = scoreTimer.loopsLeft
 				FlxG.switchState(new GameWin);
 			}
 			else if (cp.myType == "health")

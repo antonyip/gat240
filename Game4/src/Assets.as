@@ -95,14 +95,17 @@ package
 		[Embed(source="../art/Anton's Awesome Art/engine screen.jpg")]
 		public static var splashEngineScreen:Class;
 		
-		[Embed(source = "../art/Anton's Awesome Art/logo.jpg")]
+		[Embed(source="../art/NewArt/Team_Pic.png")]
 		public static var splashLogoScreen:Class;
 		
-		[Embed(source = "../art/Anton's Awesome Art/engine screen.jpg")]
+		[Embed(source="../art/NewArt/Credits_Screen.png")]
 		public static var splashCreditsScreen:Class;
 		
 		[Embed(source = "../art/NewArt/HelpPage.png")]
 		public static var splashHowToPlay:Class;
+		
+		[Embed(source="../art/NewArt/HighScorePage.png")]
+		public static var splashHighscore:Class;
 		
 		[Embed(source = "../art/NewArt/GamePausedBG.png")]
 		public static var splashPauseBG:Class;

@@ -21,7 +21,7 @@ package
 		public static var enemyManager:EnemyManager;
 		public static var checkPointManager:CheckPointManager;
 		public static var jumpwallManager:JumpableWallManager;
-		public static var currentScore:Number;
+		public static var currentScore:int;
 		public static var iShouldUnpause:Boolean = false;
 		public static var saver:FlxSave;
 		public static var highscoreTable:Array;
@@ -57,7 +57,35 @@ package
 			if (saver.data.highscoreTable == null)
 			{
 				highscoreTable = new Array();
+				var highscoreObject:HighscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "Tom"
+				highscoreObject.score = 60000;
+				highscoreTable.push(highscoreObject);
 				
+				highscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "Dick"
+				highscoreObject.score = 50000;
+				highscoreTable.push(highscoreObject);
+				
+				highscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "Hairy"
+				highscoreObject.score = 40000;
+				highscoreTable.push(highscoreObject);
+				
+				highscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "James"
+				highscoreObject.score = 30000;
+				highscoreTable.push(highscoreObject);
+				
+				highscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "John"
+				highscoreObject.score = 20000;
+				highscoreTable.push(highscoreObject);
+				
+				highscoreObject = new HighscoreObject("a",1);
+				highscoreObject.name = "Peter"
+				highscoreObject.score = 10000;
+				highscoreTable.push(highscoreObject);				
 			}
 			else
 			{
