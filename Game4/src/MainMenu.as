@@ -153,6 +153,7 @@ package
 		private function turnOnHighscore():void
 		{
 			add(highscoreGroup);
+			highscoreGroup.update();
 		}
 		
 		private function turnOffHighscore():void

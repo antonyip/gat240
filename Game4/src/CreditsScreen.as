@@ -12,8 +12,10 @@ package
 		
 		override public function create():void
 		{
+			super.create();
 			add(creditsSprite);
 			creditsSprite.velocity.y = -100;
+			FlxG.flash(0xffffffff,1);
 		}
 		
 		override public function update():void 

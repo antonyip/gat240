@@ -13,14 +13,20 @@ package
 		public override function create():void
 		{
 			add(bg);
+			FlxG.flash(0xffffffff,1);
 		}
 		
 		public override function update():void
 		{
 			if (FlxG.keys.justPressed("SPACE"))
 			{
-				FlxG.switchState(new CreditsScreen);
+				FlxG.fade(0xffffffff, 1, goToCredits);
 			}
+		}
+		
+		public function goToCredits():void
+		{
+			FlxG.switchState(new CreditsScreen);
 		}
 		
 	}

@@ -13,19 +13,28 @@ package
 		
 		public override function create():void
 		{
+			super.create();
 			add(bg);
+			trace(Globals.highscoreTable.length);
 			Globals.highscoreTable.push(new HighscoreObject("anton", Globals.currentScore));
-			Globals.highscoreTable.sortOn("score", Array.DESCENDING);
+			trace(Globals.highscoreTable.length);
+			Globals.highscoreTable.sortOn("score", Array.DESCENDING|Array.NUMERIC);
 			Globals.saver.data.highscoreTable = Globals.highscoreTable;
 			Globals.saver.flush();
+			FlxG.flash(0xffffffff,1);
 		}
 		
 		public override function update():void
 		{
 			if (FlxG.keys.justPressed("SPACE"))
 			{
-				FlxG.switchState(new CreditsScreen);
+				FlxG.fade(0xffffffff, 1, goToCredits);
 			}
+		}
+		
+		public function goToCredits():void
+		{
+			FlxG.switchState(new CreditsScreen);
 		}
 		
 	}

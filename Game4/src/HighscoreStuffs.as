@@ -39,6 +39,7 @@ package
 		override public function update():void
 		{
 			super.update();
+			
 			var s0:String = Globals.highscoreTable[0].score;
 			var s1:String = Globals.highscoreTable[1].score;
 			var s2:String = Globals.highscoreTable[2].score;
