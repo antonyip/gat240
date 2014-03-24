@@ -220,7 +220,7 @@ package
 			--player.livesLeft;
 			player.allowControl = true;
 			if (player.livesLeft < 0)
-				FlxG.switchState(new GameOver);
+				FlxG.fade(0xffffffff, 1, goToLose);
 			else
 			{
 				player.x = Globals.checkPointManager.saveSpotX;
@@ -241,8 +241,8 @@ package
 			var cp:CheckPoint = obj2 as CheckPoint;
 			if (cp.myType == "exit") 
 			{
-				Globals.currentScore = scoreTimer.loopsLeft
-				FlxG.switchState(new GameWin);
+				Globals.currentScore = scoreTimer.loopsLeft;
+				FlxG.fade(0xffffffff, 1, goToWin);
 			}
 			else if (cp.myType == "health")
 			{
@@ -392,6 +392,16 @@ package
 					}
 				}
 			}
+		}
+				
+		public static function goToWin():void
+		{
+			FlxG.switchState(new GameWin);
+		}
+		
+		public static function goToLose():void
+		{
+			FlxG.switchState(new GameOver);
 		}
 	}
 

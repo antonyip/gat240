@@ -9,6 +9,7 @@ package
 	import GameObjects.*;
 	import org.flixel.FlxG;
 	import org.flixel.FlxSave;
+	import org.flixel.FlxState;
 	import org.flixel.FlxU;
 	import org.flixel.FlxCamera;
 	import flash.display.StageDisplayState;
@@ -25,6 +26,7 @@ package
 		public static var iShouldUnpause:Boolean = false;
 		public static var saver:FlxSave;
 		public static var highscoreTable:Array;
+		public static var goState:Class;
 		
 		public function Globals() 
 		{
@@ -91,7 +93,7 @@ package
 			{
 				highscoreTable = saver.data.highscoreTable;
 			}
-			highscoreTable.sortOn("score", Array.DESCENDING);
+			highscoreTable.sortOn("score", Array.DESCENDING|Array.NUMERIC);
 			saver.data.highscoreTable = highscoreTable;
 			saver.flush();
 			
@@ -115,6 +117,5 @@ package
 			
 			return false;			
 		}
-		
 	}
 }
