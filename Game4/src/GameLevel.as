@@ -17,13 +17,14 @@ package
 	public class GameLevel extends FlxState 
 	{
 		// Sprites
-		private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
+		//private var livesLeftOnPlayer:FlxText = new FlxText(10, 10, 600, "Lives Left: ");
 		private var bg:FlxSprite = new FlxSprite(64, 64, Assets.GameLevelBG);
 		private var tut:FlxSprite = new FlxSprite(64, 64, Assets.tutorial);
+		private var stupidFuckingHeart:FlxSprite = new FlxSprite(97, -27, Assets.stupidFuckingHeart);
 		private var graphics:GraphicsManager = new GraphicsManager();
 		private var pauseMenu:PauseMenu = new PauseMenu();
 		private var score:FlxText = new FlxText(10, 10, 120, "Score: ");
-		private var lives:FlxText = new FlxText(160, 10, 120, "lives: ");
+		private var lives:FlxText = new FlxText(160, 20, 120, "lives: ");
 		private static var scoreTimer:FlxTimer = new FlxTimer();
 		
 		// do once when come into game
@@ -84,8 +85,14 @@ package
 			
 			lives.scrollFactor.x = 0;
 			lives.scrollFactor.y = 0;
+			stupidFuckingHeart.scrollFactor.x = 0;
+			stupidFuckingHeart.scrollFactor.y = 0;
+			add(stupidFuckingHeart);
 			add(lives);
 			add(tut);
+			
+
+			
 		} // create close bracket
 		
 		public function timerCounter(s:FlxTimer):void 
@@ -112,7 +119,7 @@ package
 			}
 			
 			score.text = "Score: " + scoreTimer.loopsLeft;
-			lives.text = "Lives: " + Globals.playerCharacter.livesLeft;
+			lives.text = Globals.playerCharacter.livesLeft.toString();
 			if (FlxG.paused)
 			{
 				pauseMenu.update();

@@ -9,12 +9,12 @@ package
 	public class HighscoreStuffs extends FlxGroup 
 	{
 		private var highscoreSplash:FlxSprite = new FlxSprite(0, 0, Assets.splashHighscore);
-		private var score0:FlxText = new FlxText(400, 200, 200, "6000", true);
-		private var score1:FlxText = new FlxText(400, 250+50, 200, "4000", true);
-		private var score2:FlxText = new FlxText(400, 300+50, 200, "5000", true);
-		private var score3:FlxText = new FlxText(400, 350+50, 200, "3000", true);
-		private var score4:FlxText = new FlxText(400, 400+50, 200, "2000", true);
-		private var score5:FlxText = new FlxText(400, 450+50, 200, "1000", true);
+		private var score0:FlxText = new FlxText(400-74, 200-18, 200, "6000", true);
+		private var score1:FlxText = new FlxText(400-42, 250+50-31, 200, "4000", true);
+		private var score2:FlxText = new FlxText(400-42, 300+50-22, 200, "5000", true);
+		private var score3:FlxText = new FlxText(400-43, 350+50-11, 200, "3000", true);
+		private var score4:FlxText = new FlxText(400-43, 400+50-3, 200, "2000", true);
+		private var score5:FlxText = new FlxText(400-46, 450+50+8, 200, "1000", true);
 		
 		public function HighscoreStuffs(MaxSize:uint=0) 
 		{
