@@ -137,6 +137,9 @@ package
 		[Embed(source="../art/NewArt/InGame_Tutorial.png")]
 		public static var tutorial:Class;
 		
+		[Embed(source="../art/NewArt/Health_UI.png")]
+		public static var stupidFuckingHeart:Class;
+		
 		public function Assets() 
 		{
 			
