@@ -9,9 +9,9 @@ package
 	public class PauseMenu extends FlxGroup 
 	{
 		private var title:FlxSprite = new FlxSprite(0, 0, Assets.splashPauseBG);
-		private var arrow:FlxSprite = new FlxSprite(200, 100, Assets.keyImage);
-		private var resumeGame:FlxSprite = new FlxSprite(300, 100, Assets.resumeGameImage);
-		private var quitGame:FlxSprite = new FlxSprite(300, 200, Assets.quitGameImage);
+		private var arrow:FlxSprite = new FlxSprite(200, 325, Assets.keyImage);
+		private var resumeGame:FlxSprite = new FlxSprite(79-40, 320, Assets.resumeGameImage);
+		private var quitGame:FlxSprite = new FlxSprite(545-40, 320, Assets.quitGameImage);
 		private var buttonCase:int = 0;
 		private static var maxCase:int = 2; // counts from 0
 		public function PauseMenu(MaxSize:uint=0) 
@@ -25,11 +25,11 @@ package
 			
 			resumeGame.scrollFactor.x = 0;
 			resumeGame.scrollFactor.y = 0;
-			add(resumeGame);
+			//add(resumeGame);
 			
 			quitGame.scrollFactor.x = 0;
 			quitGame.scrollFactor.y = 0;
-			add(quitGame);
+			//add(quitGame);
 			
 			arrow.scrollFactor.x = 0;
 			arrow.scrollFactor.y = 0;
@@ -41,25 +41,25 @@ package
 			super.update();
 			if (FlxG.paused)
 			{
-				if (FlxG.keys.justReleased("UP") || FlxG.keys.justReleased("W"))
+				if (FlxG.keys.justReleased("RIGHT") || FlxG.keys.justReleased("D"))
 				{
 					if (buttonCase > 0)
 						buttonCase--;
 				}
-				if (FlxG.keys.justReleased("DOWN") || FlxG.keys.justReleased("S"))
+				if (FlxG.keys.justReleased("LEFT") || FlxG.keys.justReleased("A"))
 				{
 					if (buttonCase < maxCase-1)
 						buttonCase++;
 				}
-				arrow.y = 100 + buttonCase * 100;
+				buttonCase ? arrow.x = resumeGame.x : arrow.x = quitGame.x;
 				if (FlxG.keys.justReleased("SPACE") || FlxG.keys.justReleased("ENTER") )
 				{
 					switch (buttonCase) 
 					{
-						case 0:
+						case 1:
 							Globals.iShouldUnpause = true;
 						break;
-						case 1:
+						case 0:
 							FlxG.switchState(new MainMenu);
 						break;						
 						default:
